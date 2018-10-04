@@ -8,7 +8,7 @@ class C_operator extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('M_operator');
-		$this->load->library('upload');
+		$this->load->library(array('upload','image_lib'));
     }
 
     public function getdata(){
@@ -36,16 +36,28 @@ class C_operator extends CI_Controller {
         $this->load->view('v_operator_tambah');
         $this->load->view('footer');
     }
+
+    public function compressmedia($path){
+        $config['image_library'] = 'gd2';
+        $config['source_image'] = $path;
+    
+        $config['create_thumb'] = TRUE;
+        $config['maintain_ratio'] = TRUE;
+        $config['width']         = 75;
+        $config['height']       = 50;
+        $this->load->library('image_lib', $config);
+        $this->image_lib->resize();
+    }
     public function add(){
         $nama = $this->input->post('nama');
         $biografi = $this->input->post('biografi');
         $contact = $this->socialencode();
-        $logo = $this->input->post('filefoto');
+        $pic = $this->upload_image();
         $data_operator = array(
             'nama_operator'=>$nama,
             'biografi'=>$biografi,
             'contact'=>$contact,
-            'logo'=>'782fd906409eecd11d5cc626c73a06fd.png');
+            'id_media'=>$pic[0]);
         $this->upload_image();
         $this->M_operator->insert('operator',$data_operator);
         redirect('C_operator/');
@@ -90,6 +102,9 @@ class C_operator extends CI_Controller {
 	    $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
         
         $this->upload->initialize($config);
+        // var_dump($_FILES);
+        $imglocation = $config['upload_path'].$_FILES['filefoto']['name'];
+        $this->compressmedia($imglocation);
 	    if(!empty($_FILES['filefoto']['name']))
 	    {
 	        if ($this->upload->do_upload('filefoto'))
@@ -107,7 +122,8 @@ class C_operator extends CI_Controller {
 	                 
 	        }else{
 				// echo "<script>alert('Fail, select your picture first')</script>";
-		}
+        }
+        return $title;
 				
 	}
 
