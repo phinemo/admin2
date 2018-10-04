@@ -21,3 +21,4 @@ dont forget to export db. (located in root directory) and change config (BASE_UR
     <td>C_product</td>
     <td>M_product</td>
 </tr>
+</table>
