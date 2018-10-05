@@ -47,6 +47,12 @@
 <script src="<?php echo base_url('admintemplate/dist/js/demo.js')?>"></script>
 <script src="<?php echo base_url('admintemplate/dropify/dropify.min.js')?>"></script>
 <script src="<?php echo base_url('admintemplate/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')?>"></script>
+<script src="<?php echo base_url('admintemplate/fileinput/js/plugins/sortable.js')?>" type="text/javascript"></script>
+<script src="<?php echo base_url('admintemplate/fileinput/js/fileinput.js')?>" type="text/javascript"></script>
+<!-- <script src="../js/locales/fr.js" type="text/javascript"></script> -->
+<!-- <script src="../js/locales/es.js" type="text/javascript"></script> -->
+<script src="<?php echo base_url('admintemplate/fileinput/themes/explorer-fa/theme.js')?>" type="text/javascript"></script>
+<script src="<?php echo base_url('admintemplate/fileinput/themes/fa/theme.js')?>" type="text/javascript"></script>
 <script>
   $(function () {
     // Replace the <textarea id="editor1"> with a CKEditor
@@ -55,6 +61,18 @@
     //bootstrap WYSIHTML5 - text editor
     $('.textarea').wysihtml5()
   })
+  $("#kv-explorer").fileinput({
+            'theme': 'explorer-fa',
+            'uploadUrl': '#',
+            overwriteInitial: false,
+            initialPreviewAsData: true,
+            initialPreview: [
+                "<?php echo base_url('upload/images/avatar.png')?>",
+            ],
+            initialPreviewConfig: [
+                {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+            ]
+        });
 </script>
 <!-- Chart Script -->
 

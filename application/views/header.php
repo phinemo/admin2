@@ -26,6 +26,10 @@
        folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="<?php echo base_url('admintemplate/dist/css/skins/_all-skins.min.css')?>">
 	<link rel="stylesheet" href="<?php echo base_url('admintemplate/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')?>">
+	<link href="<?php echo base_url('admintemplate/fileinput/css/fileinput.css')?>" media="all" rel="stylesheet" type="text/css"/>
+    <link href="<?php echo base_url('admintemplate/fileinput/themes/explorer-fa/theme.css')?>" media="all" rel="stylesheet" type="text/css"/>
+	
+
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

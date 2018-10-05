@@ -69,13 +69,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<!-- form start -->
 						<div class="box-body">
 							<h4>Upload your image</h4>
-							<form class="form-horizontal" method="post">
-								<!-- <div class="form-group">
+							<!-- <div class="form-group">
 								<input type="text" name="judul" class="form-control" placeholder="Judul">
 							</div> -->
-								<div class="form-group">
-									<input type="file" name="filefoto" class="dropify" data-height="300">
+							<div class="form-group">
+								<div class="file-loading">
+									<input id="kv-explorer" type="file" multiple>
 								</div>
+								<br>
+								<!-- <div class="file-loading">
+									<input id="file-0a" class="file" type="file" multiple data-min-file-count="9">
+								</div>
+								<br> -->
+
+							</div>
+							<!-- <div class="form-group">
+									<input type="file" name="filefoto" class="dropify" data-height="300">
+								</div> -->
 
 						</div>
 						<!-- /.box -->

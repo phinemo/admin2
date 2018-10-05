@@ -43,19 +43,15 @@ class C_operator extends CI_Controller {
         $biografi = $this->input->post('biografi');
         $contact = $this->socialencode();
         $logo = $this->input->post('logo');
-    
         $data = array(
-            
             'nama_operator' => $nama,
             'biografi' => $biografi,
             'contact' => $contact,
             'logo' => $logo
         );
-    
         $where = array(
             'id_operator' => $id
         );
-    
         $this->M_operator->update('operator',$data,$where);
         redirect('C_operator/index');
     }
@@ -107,11 +103,6 @@ class C_operator extends CI_Controller {
         $this->upload->initialize($config);
         // var_dump($_FILES);
         $imglocation = $config['upload_path'].$_FILES['filefoto']['name'];
-        // compressed media
-        
-        // $this->compressmedia(base_url('/upload/images/user.jpg'));
-
-        // end compress
 	    if(!empty($_FILES['filefoto']['name']))
 	    {
 	        if ($this->upload->do_upload('filefoto'))
