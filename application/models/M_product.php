@@ -31,7 +31,18 @@ class M_product extends CI_Model {
         $this->db->where($where);
         $this->db->delete($table);
     }
-
+    // ===========MEDIA QUERY=============
+    //uploade foto
+    public function upload_media($title,$picture,$resized){
+        $now = date("Y-m-d H:i:s");
+		$result = $this->db->query("INSERT INTO media(file_name,uploaded_on,gambar,resized) VALUES ('$title','$now','$picture','$resized')");
+        return $result;
+        
+    }
+    public function fetch_media($where){
+        $this->db->select('id_media');
+        return $this->db->get_where('media',$where);
+    }
 }
 
 /* End of file product.php */

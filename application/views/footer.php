@@ -61,16 +61,18 @@
     //bootstrap WYSIHTML5 - text editor
     $('.textarea').wysihtml5()
   })
-  $("#kv-explorer").fileinput({
+  $("#filefoto").fileinput({
             'theme': 'explorer-fa',
-            'uploadUrl': '<?php echo base_url()."upload/images/"?>',
+            'uploadUrl': null,
+            data:'filefoto',
             overwriteInitial: false,
             initialPreviewAsData: true,
             initialPreview: [
-                "<?php echo base_url('upload/images/avatar.png')?>",
+                
             ],
             initialPreviewConfig: [
-                {caption: "nature-1.jpg", size: 329892, width: "120px", url: "{$url}", key: 1},
+                
+
             ]
         });
 </script>

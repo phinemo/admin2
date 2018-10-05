@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div> -->
 							<div class="form-group">
 								<div class="file-loading">
-									<input id="kv-explorer" type="file" multiple>
+									<input id="filefoto" name="filefoto[]" type="file" multiple>
 								</div>
 								<br>
 								<!-- <div class="file-loading">
