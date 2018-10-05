@@ -30,9 +30,9 @@ class M_operator extends CI_Model {
     }
     // ===========MEDIA QUERY=============
     //uploade foto
-    public function upload_media($title,$picture){
+    public function upload_media($title,$picture,$resized){
         $now = date("Y-m-d H:i:s");
-		$result = $this->db->query("INSERT INTO media(file_name,uploaded_on,gambar) VALUES ('$title','$now','$picture')");
+		$result = $this->db->query("INSERT INTO media(file_name,uploaded_on,gambar,resized) VALUES ('$title','$now','$picture','$resized')");
         return $result;
         
     }
