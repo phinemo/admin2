@@ -63,7 +63,7 @@
   })
   $("#kv-explorer").fileinput({
             'theme': 'explorer-fa',
-            'uploadUrl': '#',
+            'uploadUrl': '<?php echo base_url()."upload/images/"?>',
             overwriteInitial: false,
             initialPreviewAsData: true,
             initialPreview: [
