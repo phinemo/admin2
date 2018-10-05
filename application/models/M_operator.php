@@ -36,8 +36,9 @@ class M_operator extends CI_Model {
         return $result;
         
     }
-    public function fetch_media(){
-        return $this->db->get('media');
+    public function fetch_media($where){
+        $this->db->select('id_media');
+        return $this->db->get_where('media',$where);
     }
 }
 
