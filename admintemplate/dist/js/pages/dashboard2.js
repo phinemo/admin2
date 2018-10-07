@@ -20,7 +20,7 @@ $(function () {
     labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
     datasets: [
       {
-        label               : 'Electronics',
+        label               : 'Impression',
         fillColor           : 'rgb(210, 214, 222)',
         strokeColor         : 'rgb(210, 214, 222)',
         pointColor          : 'rgb(210, 214, 222)',
@@ -30,15 +30,35 @@ $(function () {
         data                : [65, 59, 80, 81, 56, 55, 40]
       },
       {
-        label               : 'Digital Goods',
-        fillColor           : 'rgba(60,141,188,0.9)',
-        strokeColor         : 'rgba(60,141,188,0.8)',
+        label               : 'Call',
+        fillColor           : 'rgb(210, 214, 222)',
+        strokeColor         : 'rgb(210, 214, 222)',
+        pointColor          : 'rgb(210, 214, 222)',
+        pointStrokeColor    : '#c1c7d1',
+        pointHighlightFill  : '#fff',
+        pointHighlightStroke: 'rgb(220,220,220)',
+        data                : [20, 22, 32, 12, 56, 55, 40]
+      },
+      {
+        label               : 'Message',
+        fillColor           : 'rgba(20,131,188,0.9)',
+        strokeColor         : 'rgba(60,121,188,0.8)',
         pointColor          : '#3b8bba',
         pointStrokeColor    : 'rgba(60,141,188,1)',
         pointHighlightFill  : '#fff',
         pointHighlightStroke: 'rgba(60,141,188,1)',
         data                : [28, 48, 40, 19, 86, 27, 90]
-      }
+      },
+      {
+        label               : 'Website',
+        fillColor           : 'rgb(110, 214, 222)',
+        strokeColor         : 'rgb(210, 214, 222)',
+        pointColor          : 'rgb(210, 214, 222)',
+        pointStrokeColor    : '#c1c7d1',
+        pointHighlightFill  : '#fff',
+        pointHighlightStroke: 'rgb(220,220,220)',
+        data                : [11, 23, 54, 22, 90, 29, 20]
+      },
     ]
   };
 
@@ -70,9 +90,9 @@ $(function () {
     // Boolean - Whether to show a stroke for datasets
     datasetStroke           : true,
     // Number - Pixel width of dataset stroke
-    datasetStrokeWidth      : 2,
+    datasetStrokeWidth      : 4,
     // Boolean - Whether to fill the dataset with a color
-    datasetFill             : true,
+    datasetFill             : false,
     // String - A legend template
     legendTemplate          : '<ul class=\'<%=name.toLowerCase()%>-legend\'><% for (var i=0; i<datasets.length; i++){%><li><span style=\'background-color:<%=datasets[i].lineColor%>\'></span><%=datasets[i].label%></li><%}%></ul>',
     // Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container

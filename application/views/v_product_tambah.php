@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="row">
 				<div class="col-md-6">
 					<!-- general form elements -->
-					<div class="box box-primary">
+					<div class="box box-danger">
 						<div class="box-header with-border">
 							<h3 class="box-title">Product Data</h3>
 						</div>
@@ -45,8 +45,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<!-- /.input group -->
 							</div>
 							<div class="form-group">
+								<div class="row">
+									<div class="col-xs-6">
+										<label for="exampleInputEmail1">Kota</label>
+										<input type="text" class="form-control" name="kota" id="kota" placeholder="Pilih kota">
+									</div>
+									<div class="col-xs-6">
+										<label>Minimal</label>
+										<select class="form-control select2" style="width: 100%;" id="jenis" name="jenis">
+										</select>
+									</div>
+								</div>
+
+							</div>
+							<div class="form-group">
 								<label for="exampleInputEmail1">Jumlah Anggota</label>
-								<input type="text" class="form-control" name="jml_anggota" id="namaProduct" placeholder="Enter your name">
+								<input type="number" class="form-control" name="jml_anggota" id="namaProduct" placeholder="Masukkan angka">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Harga</label>
@@ -99,9 +113,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="col-md-12 col-xs-12 col-lg-12">
 					<div class="box">
 						<div class="box-header">
-							<h3 class="box-title">Biografi
-								<small>Simple and fast</small>
+							<h3 class="box-title">Detail Produk
 							</h3>
+							<br>
+							<div class="form-group">
+								<label for="exampleInputEmail1"><small>Deskripsi Singkat</small></label>
+								<textarea name="descsingkat" id="summernote"></textarea>
+							</div>
 							<!-- tools box -->
 							<!-- /. tools -->
 						</div>
@@ -109,6 +127,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body pad">
 							<textarea name="deskripsi" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
 						</div>
+
 					</div>
 				</div>
 			</div>

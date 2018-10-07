@@ -31,6 +31,17 @@ class M_product extends CI_Model {
         $this->db->where($where);
         $this->db->delete($table);
     }
+    //autocomplete
+    public function search_city($key){
+        $this->db->like('nama_kota', $key, 'both');
+        $this->db->order_by('nama_kota', 'asc');
+        $this->db->limit(10);
+        return $this->db->get('kota')->result();
+    }
+    public function search_jenis(){
+        $this->db->order_by('jenis_tour', 'asc');
+        return $this->db->get('jenis')->result();
+    }
     // ===========MEDIA QUERY=============
     //uploade foto
     public function upload_media($title,$picture,$resized){

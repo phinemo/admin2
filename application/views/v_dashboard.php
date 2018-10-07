@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- /.box-header -->
 					<div class="box-body">
 						<div class="row">
-							<div class="col-md-8">
+							<div class="col-md-12">
 								<p class="text-center">
 									<strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
 								</p>

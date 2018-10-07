@@ -26,7 +26,7 @@ class C_product extends CI_Controller {
     public function add(){
         $nama = $this->input->post('nama');
         $range = $this->input->post('range');
-        $pic = $this->upload_image();
+        $id_media = $this->upload_image();
         $jml_anggota = $this->input->post('jml_anggota');
         $harga = $this->input->post('harga');
         $deskripsi = $this->input->post('deskripsi');
@@ -41,7 +41,8 @@ class C_product extends CI_Controller {
 			'jml_anggota'=>$jml_anggota,
 			'harga'=>$harga,
 			'deskripsi' =>$deskripsi,
-			'foto'=>$pic);
+            'id_media'=>$id_media);
+        // var_dump($_POST);
         $this->M_product->insert('produk',$data_product);
         redirect('C_product/');
     }
@@ -69,7 +70,7 @@ class C_product extends CI_Controller {
 			'jml_anggota'=>$jml_anggota,
 			'harga'=>$harga,
 			'deskripsi' =>$deskripsi,
-			'foto'=>$pic);
+			'id_media'=>$pic);
     
         $where = array(
             'id_produk' => $id
@@ -82,6 +83,31 @@ class C_product extends CI_Controller {
         $where = array('id_produk'=> $id);
         $this->M_product->delete('produk',$where);
         redirect('C_product/index');
+    }
+    public function autokota(){
+        
+        if (isset($_GET['nama_kota'])){
+            $result = $this->M_product->search_city($_GET['nama_kota']);
+            // var_dump($result);
+            if (count($result) > 0){
+                foreach ($result as $row){
+                    // var_dump($row);
+                    $arr_result[] = $row->nama_kota;
+                }
+                echo json_encode($arr_result);
+            }
+        }
+    }
+    public function autojenis(){
+            $result = $this->M_product->search_jenis();
+            // var_dump($result);
+            if (count($result) > 0){
+                foreach ($result as $row){
+                    // var_dump($row);
+                    $arr_result[] = $row->jenis_tour;
+                }
+                echo json_encode($arr_result);
+            }
     }
     //View
     public function index()
@@ -137,7 +163,7 @@ class C_product extends CI_Controller {
 	                {
 	                $pic = $this->upload->data();
                     //Compress Image
-                    var_dump($pic);
+                    // var_dump($pic);
                     // $this->compressmedia($pic);
                     // End compress image
                     // var_dump($pic);
@@ -162,17 +188,19 @@ class C_product extends CI_Controller {
                     // Retrive id_media from media
                     $getid = array('file_name'=>$pic_name);//ambigues, when pic. names are same.
                     $id = $this->M_product->fetch_media($getid)->result();
-                    $id_media = (int)$id[0]->id_media;
+                    // $id_media = array('id_media'=>$id);
+                    $id_media[] = (int)$id[0]->id_media;
+                    // var_dump();
                     }
                 else{
-                    
+
                     }
 	                 
 	        }else{
                     }
         }
         
-        return $id_media; //return to caller
+        return json_encode($id_media); //return to caller
 				
 	}
 

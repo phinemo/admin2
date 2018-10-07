@@ -54,14 +54,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					  <td>".$data->nama_operator."</td>
 					  <td>".$data->biografi."</td>
 					  <td>
-					  <div class='col-xs-3 col-md-3'><a href='https://twitter.com/".$medsos->twitter."' class='btn btn-primary'><i class='fa fa-twitter' aria-hidden='true'></i></a></div>
-					  <div class='col-xs-3 col-md-3'><a href='https://web.facebook.com/".$medsos->facebook."' class='btn btn-primary'><i class='fa fa-facebook' aria-hidden='true'></i></a></div>
-					  <div class='col-xs-3 col-md-3'><a href='https://wa.me/".$medsos->number."' class='btn btn-primary'><i class='fa fa-phone' aria-hidden='true'></i></a></div>
-					  <div class='col-xs-3 col-md-3'><a href='https://www.instagram.com/".$medsos->instagram."' class='btn btn-primary'><i class='fa fa-instagram' aria-hidden='true'></i></a></div>
+					  <div class='col-xs-3 col-md-3'><a href='https://twitter.com/".$medsos->twitter."' class='btn btn-xs btn-primary'><i class='fa fa-twitter' aria-hidden='true'></i></a></div>
+					  <div class='col-xs-3 col-md-3'><a href='https://web.facebook.com/".$medsos->facebook."' class='btn btn-xs btn-primary'><i class='fa fa-facebook' aria-hidden='true'></i></a></div>
+					  <div class='col-xs-3 col-md-3'><a href='https://wa.me/".$medsos->number."' class='btn btn-xs btn-primary'><i class='fa fa-phone' aria-hidden='true'></i></a></div>
+					  <div class='col-xs-3 col-md-3'><a href='https://www.instagram.com/".$medsos->instagram."' class='btn btn-xs btn-primary'><i class='fa fa-instagram' aria-hidden='true'></i></a></div>
 					  </td>
 					  <td>";
-					   echo anchor("C_operator/getdatawhere/".$data->id_operator,"<div class='col-xs-6 col-md-6'><button class='btn btn-primary'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></button></div>");
-					   echo anchor('C_operator/delete/'.$data->id_operator,'<div class="col-xs-6 col-md-6"><button class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
+					   echo anchor("C_operator/getdatawhere/".$data->id_operator,"<div class='col-xs-6 col-md-6'><button class='btn btn-xs btn-primary'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></button></div>");
+					   echo anchor('C_operator/delete/'.$data->id_operator,'<div class="col-xs-6 col-md-6"><button class="btn btn-xs btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
 						</td>
 							</tr>');}
 ?>
