@@ -75,7 +75,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<input type="text" name="judul" class="form-control" placeholder="Judul">
 							</div> -->
 								<div class="form-group">
-									<input type="file" name="filefoto" class="dropify" data-height="300">
+								<div class="file-loading">
+									<input id="filefoto" name="filefoto[]" type="file" multiple>
+								</div>
 								</div>
 
 						</div>
@@ -89,16 +91,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="col-md-12 col-xs-12 col-lg-12">
 					<div class="box">
 						<div class="box-header">
-							<h3 class="box-title">Biografi
-								<small>Simple and fast</small>
+							<h3 class="box-title">Detail Produk
 							</h3>
+							<br>
+							<div class="form-group">
+								<label for="exampleInputEmail1"><small>Deskripsi Singkat</small></label><br><small><i> *block to styling</i></small>
+								<div class="panel panel-default" style="padding:5px">
+									<div name="descsingkat" class="noteair"><?php echo $data->deskripsi ?></div>
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1"><small>Highlight</small></label><br><small><i> *block to styling</i></small>
+								<div class="panel panel-default" style="padding:5px">
+									<div name="highlight" class="noteair"></div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1"><small>Fasilitas</small></label>
+								<div class="panel panel-default" style="padding:5px">
+									<div name="fasilitas" class="noteair"></div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1"><small>Kebijakan</small></label>
+								<div class="panel panel-default" style="padding:5px">
+									<div name="kebijakan" class="noteair"></div>
+								</div>
+							</div>
 							<!-- tools box -->
 							<!-- /. tools -->
 						</div>
 						<!-- /.box-header -->
-						<div class="box-body pad">
-							<textarea name="deskripsi" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $data->deskripsi ?></textarea>
-						</div>
+						<!-- <div class="box-body pad">
+							<textarea name="deskripsi" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+						</div> -->
+
 					</div>
 				</div>
 			</div>

@@ -49,9 +49,14 @@ class C_product extends CI_Controller {
     public function getdatawhere($id){
         $where = array('id_produk' => $id);
         $data['product'] = $this->M_product->getwhere('produk',$where)->result();
+        $data['media'] = $this->M_product->getid_media($where)->result();
         $this->load->view('header');
         $this->load->view('v_product_edit',$data);
+        // var_dump($data);
         $this->load->view('footer',$data);
+    }
+    public function getMedia($key){
+        
     }
    public function update(){
 	   	$id = $this->input->post('id_produk');

@@ -18,6 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</section>
 	<section class="content">
 		<?php foreach ($operator as $data){
+			// var_dump($operator);
 		$medsos = json_decode($data->contact);?>
 		<form role="form" class="form-validate" method="post" action="<?php echo base_url('index.php/C_operator/update'); ?>      "
 		 enctype="multipart/form-data">
@@ -94,7 +95,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<input type="text" name="judul" class="form-control" placeholder="Judul">
 							</div> -->
 								<div class="form-group">
-									<input type="file" name="filefoto" class="dropify" data-height="300">
+									<?php foreach ($gambar as $pic){
+										// var_dump($pic); 	
+									 ?>
+									<input type="file" name="filefoto" class="dropify" data-height="300" data-default-file="<?php echo base_url().'upload/images/'.$pic->gambar; }?>">
 								</div>
 
 						</div>

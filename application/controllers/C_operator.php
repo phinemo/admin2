@@ -33,6 +33,12 @@ class C_operator extends CI_Controller {
     public function getdatawhere($id){
         $where = array('id_operator' => $id);
         $data['operator'] = $this->M_operator->getwhere('operator',$where)->result();
+        foreach ($data['operator'] as $row){
+            $where_media = array('id_media'=>$row->id_media);
+            $data['gambar'] = $this->M_operator->getwhere('media',$where_media)->result();
+            // $data['gambar'] = $this->M_operator->getwehere('media',$where)->result();
+        }
+        // var_dump($data['gambar']);
         $this->load->view('header');
         $this->load->view('v_operator_edit',$data);
         $this->load->view('footer',$data);

@@ -54,6 +54,10 @@ class M_product extends CI_Model {
         $this->db->select('id_media');
         return $this->db->get_where('media',$where);
     }
+    public function getid_media($where){
+        $this->db->select('id_media');
+        return $this->db->get_where('produk',$where);
+    }
 }
 
 /* End of file product.php */

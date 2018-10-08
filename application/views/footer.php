@@ -79,9 +79,17 @@
 	});
 	// Run summer note
 	$(document).ready(function () {
-		$('#summernote').summernote({
-			// airMode:true
-		});
+		$('.summernote').summernote({
+      // disableResizeEditor: true
+      // airMode:true
+      height:"300px",
+    });
+    // $('.note-statusbar').hide(); 
+    $('.noteair').summernote({
+      airMode:true,
+      placeholder:'write your description here',
+      height:"300px",
+    });
 		$('#kota').autocomplete({
 			source: function (req, res) {
 				$.getJSON("<?php echo site_url('C_product/autokota/')?>", {

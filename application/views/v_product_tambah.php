@@ -64,7 +64,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Harga</label>
-								<input type="text" class="form-control" name="harga" id="namaProduct" placeholder="Enter your name">
+								<div class="input-group">
+									<span class="input-group-addon">IDR</span>
+									<input type="number" class="form-control" name="harga" id="namaProduct" placeholder="Masukkan harga">
+								</div>
 							</div>
 						</div>
 						<!-- /.box-body -->
@@ -117,16 +120,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</h3>
 							<br>
 							<div class="form-group">
-								<label for="exampleInputEmail1"><small>Deskripsi Singkat</small></label>
-								<textarea name="descsingkat" id="summernote"></textarea>
+								<label for="exampleInputEmail1"><small>Deskripsi Singkat</small></label><br><small><i> *block to styling</i></small>
+								<div class="panel panel-default" style="padding:5px">
+									<div name="descsingkat" class="noteair"></div>
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1"><small>Highlight</small></label><br><small><i> *block to styling</i></small>
+								<div class="panel panel-default" style="padding:5px">
+									<div name="highlight" class="noteair"></div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1"><small>Fasilitas</small></label>
+								<div class="panel panel-default" style="padding:5px">
+									<div name="fasilitas" class="noteair"></div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="exampleInputEmail1"><small>Kebijakan</small></label>
+								<div class="panel panel-default" style="padding:5px">
+									<div name="kebijakan" class="noteair"></div>
+								</div>
 							</div>
 							<!-- tools box -->
 							<!-- /. tools -->
 						</div>
 						<!-- /.box-header -->
-						<div class="box-body pad">
+						<!-- <div class="box-body pad">
 							<textarea name="deskripsi" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-						</div>
+						</div> -->
 
 					</div>
 				</div>

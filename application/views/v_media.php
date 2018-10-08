@@ -47,26 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<img src="https://larrytooley.github.io/bootstrap-photo-grid/img/coffee-small.jpg">
 				</div>
 			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="thumbnail">
-					<img src="https://larrytooley.github.io/bootstrap-photo-grid/img/bike-small.jpg">
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="thumbnail">
-					<img src="https://larrytooley.github.io/bootstrap-photo-grid/img/hug-small.jpg">
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="thumbnail">
-					<img src="https://larrytooley.github.io/bootstrap-photo-grid/img/skate-small.jpg">
-				</div>
-			</div>
-			<div class="col-lg-4 col-sm-6">
-				<div class="thumbnail">
-					<img src="https://larrytooley.github.io/bootstrap-photo-grid/img/dirt-bike-small.jpg">
-				</div>
-			</div>
 		</div>
 	</section>
 </div>

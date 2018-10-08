@@ -24,6 +24,7 @@
 	<!-- Theme style -->
 	<link rel="stylesheet" href="<?php echo base_url('admintemplate/dist/css/AdminLTE.min.css')?>">
 	<link rel="stylesheet" href="<?php echo base_url('admintemplate/dist/css/custom.css')?>">
+	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="<?php echo base_url('admintemplate/dist/css/skins/_all-skins.min.css')?>">
@@ -31,7 +32,7 @@
 	<link href="<?php echo base_url('admintemplate/fileinput/css/fileinput.css')?>" media="all" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('admintemplate/fileinput/themes/explorer-fa/theme.css')?>" media="all" rel="stylesheet"
 	 type="text/css" />
-	<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+	
 
 
 
@@ -59,7 +60,7 @@
 			</a>
 
 			<!-- Header Navbar: style can be found in header.less -->
-			<nav class="navbar navbar-static-top">
+			<nav class="navbar navbar-static-top ">
 				<!-- Sidebar toggle button-->
 				<a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
 					<span class="sr-only">Toggle navigation</span>
