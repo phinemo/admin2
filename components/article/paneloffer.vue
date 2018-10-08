@@ -27,25 +27,25 @@
                         <!-- Card Offer -->
                         <!-- <div class="uk-panel uk-panel-box"> -->
                         <!-- Make zero margin, sticky between "offer", there's no space -->
-                        <div class="offer" v-for="(card,index) in cards" :key="index" >
+                        <div class="offer" v-for="(offer,index) in offers" :key="index" >
                             <div class="uk-card uk-border-rounded uk-box-shadow-material-small uk-padding-remove">
                                 <div class="uk-card-header uk-padding-remove-right uk-padding-remove-left uk-margin-small-left">
                                     <div class="uk-grid-small uk-flex-middle uk-width-1-1" uk-grid>
                                         <div class="uk-width-1-3">
-                                            <img class="" :src="card.imgurl" :style="thumbnail">
+                                            <!-- <img class="" :src="card.imgurl" :style="thumbnail"> -->
                                         </div>
                                         <div class="uk-width-expand">
                                             <!-- Title -->
                                             <a href="showoffer.html">
-                                                <h6 class=" uk-margin-remove-bottom uk-text-small uk-text-bold">{{card.title}}</h6>
+                                                <h6 class=" uk-margin-remove-bottom uk-text-small uk-text-bold">{{offer.nama_produk}}</h6>
                                             </a>
                                             <!-- Highlight -->
                                             <div class="uk-grid-small uk-flex-middle" uk-grid>
                                                 <div class="uk-width-auto">
                                                     <a href="showoffer.html" class="uk-text-meta uk-text-small" :style="c_price"> From
-                                                        {{card.price}}K IDR</a><br>
-                                                    <i v-for="rating in card.rating" :key="rating" class="uk-text-center uk-margin-remove fa fa-star"
-                                                        ></i>
+                                                        {{offer.harga}}K IDR</a><br>
+                                                    <!-- <i v-for="rating in card.rating" :key="rating" class="uk-text-center uk-margin-remove fa fa-star" -->
+                                                        <!-- ></i> -->
                                                 </div>
                                                 <!-- <div class="uk-width-expand">
                                                     <ul class="uk-list uk-list-striped">
@@ -77,169 +77,18 @@
                         title: 'Ayung River Rafting Adventure',
                         price: '500',
                         imgurl: 'img/batur.jpg',
-                        rating: 5,
-                        highlights: [{
-                                subtitle: 'Free pickup'
-                            },
-                            {
-                                subtitle: 'Free Wi-Fi'
-                            },
-                            {
-                                subtitle: 'Include Meals'
-                            }
-                        ]
-                    },
-                    {
-                        title: 'Ubud Rice Terraces, Temples, & Volcano',
-                        price: '700',
-                        imgurl: 'img/ubud_sepeda.jpg',
-                        rating: 3,
-                        highlights: [{
-                                subtitle: 'Free Pickup'
-                            },
-                            {
-                                subtitle: 'Free Wi-Fi'
-                            },
-                            {
-                                subtitle: 'Include Meals'
-                            }
-                        ]
-                    },
-                    {
-                        title: 'Snorkeling Day Trip to Nusa Lembongan',
-                        price: '1000',
-                        imgurl: 'img/gili_meno.jpg',
-                        rating: 4,
-                        highlights: [{
-                                subtitle: 'Free Pickup'
-                            },
-                            {
-                                subtitle: 'Free Wi-Fi'
-                            },
-                            {
-                                subtitle: 'Include Meals'
-                            }
-                        ]
-                    },
-                    {
-                        title: 'Ubud Waterfalls Tour',
-                        price: '700',
-                        imgurl: 'img/dieng.jpg',
-                        rating: 2,
-                        highlights: [{
-                                subtitle: 'Free Pickup'
-                            },
-                            {
-                                subtitle: 'Free Wi-Fi'
-                            },
-                            {
-                                subtitle: 'Include Meals'
-                            }
-                        ]
-                    },
-                    {
-                        title: 'North Bali Sunrise Tour',
-                        price: '800',
-                        imgurl: 'img/lava_tour.jpg',
-                        rating: 1,
-                        highlights: [{
-                                subtitle: 'Free Pickup'
-                            },
-                            {
-                                subtitle: 'Free Wi-Fi'
-                            },
-                            {
-                                subtitle: 'Include Meals'
-                            }
-                        ]
-                    },
-                    {
-                        title: 'Ayung River Rafting Adventure',
-                        price: '500',
-                        imgurl: 'img/batur.jpg',
-                        rating: 5,
-                        highlights: [{
-                                subtitle: 'Free pickup'
-                            },
-                            {
-                                subtitle: 'Free Wi-Fi'
-                            },
-                            {
-                                subtitle: 'Include Meals'
-                            }
-                        ]
-                    },
-                    {
-                        title: 'Ubud Rice Terraces, Temples, & Volcano',
-                        price: '700',
-                        imgurl: 'img/ubud_sepeda.jpg',
-                        rating: 3,
-                        highlights: [{
-                                subtitle: 'Free Pickup'
-                            },
-                            {
-                                subtitle: 'Free Wi-Fi'
-                            },
-                            {
-                                subtitle: 'Include Meals'
-                            }
-                        ]
-                    },
-                    {
-                        title: 'Snorkeling Day Trip to Nusa Lembongan',
-                        price: '1000',
-                        imgurl: 'img/gili_meno.jpg',
-                        rating: 4,
-                        highlights: [{
-                                subtitle: 'Free Pickup'
-                            },
-                            {
-                                subtitle: 'Free Wi-Fi'
-                            },
-                            {
-                                subtitle: 'Include Meals'
-                            }
-                        ]
-                    },
-                    {
-                        title: 'Ubud Waterfalls Tour',
-                        price: '700',
-                        imgurl: 'img/dieng.jpg',
-                        rating: 2,
-                        highlights: [{
-                                subtitle: 'Free Pickup'
-                            },
-                            {
-                                subtitle: 'Free Wi-Fi'
-                            },
-                            {
-                                subtitle: 'Include Meals'
-                            }
-                        ]
-                    },
-                    {
-                        title: 'North Bali Sunrise Tour',
-                        price: '800',
-                        imgurl: 'img/lava_tour.jpg',
-                        rating: 1,
-                        highlights: [{
-                                subtitle: 'Free Pickup'
-                            },
-                            {
-                                subtitle: 'Free Wi-Fi'
-                            },
-                            {
-                                subtitle: 'Include Meals'
-                            }
-                        ]
-                    },
-                ],
+                        rating: 5
+                        },
+                        
+                    ],
+                    offers:String,
                 c_offer :{background:'#fff'},
                 c_price :{color:"black"},
                 thumbnail: {width:'100%',height:'100px'},
-                nopaddinghr:{'padding-left':'0px','padding-right':'0px'}
+                nopaddinghr:{'padding-left':'0px','padding-right':'0px'},
 
             }
-        }
+        },
+        
     }
 </script>

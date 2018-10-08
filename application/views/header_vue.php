@@ -17,6 +17,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.16/js/uikit-icons.min.js"></script>
     <!-- CDN JS 'Vue' -->
     <script src="https://unpkg.com/vue"></script>
+    <!-- CDN JS 'Vue Extension Axios' -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <!-- CDN JS 'Vue Extension Loader' -->
     <script src="https://unpkg.com/http-vue-loader"></script>
     <!-- Local JS 'Vui Kit' -->

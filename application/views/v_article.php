@@ -26,7 +26,7 @@
     
     
     <script type="text/javascript">
-        new Vue({
+        var v = new Vue({
             el: '#article',
             data: {
                 navitems: [{
@@ -58,14 +58,34 @@
                         name: 'About Phinemo Merchant',
                         ref: '#'
                     }
-                ]
+                ],
+                mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/C_article/',
+                offers:[],
             },
+            // props:['offers'],
             components: {
                 'navbar': httpVueLoader('<?php echo base_url("components/global/navbar.vue") ?>'),
                 'fillarticle': httpVueLoader('<?php echo base_url("components/article/fillarticle.vue") ?>'),
                 'paneloffer': httpVueLoader('<?php echo base_url("components/article/paneloffer.vue") ?>'),
                 'recommended':httpVueLoader('<?php echo base_url("components/article/recommended.vue") ?>'),
                 'popular':httpVueLoader('<?php echo base_url("components/article/popular.vue") ?>')
+            }
+            ,
+            created(){
+                this.tampil();
+            },
+            methods:{
+                tampil(){
+                    axios
+                        .get(this.mainUrl+'tampil')
+                        .then(function(response){
+                            if(response.data.oper == null){
+                         v.noResult()
+                    }else{
+                            v.getData(response.data.oper);
+                    }
+            })
+                }
             }
         })
     </script>
