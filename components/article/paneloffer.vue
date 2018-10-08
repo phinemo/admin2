@@ -73,7 +73,7 @@
     module.exports = {
         props:{
             offers:{
-                type:String,
+                type:Array,
                 require:true
             }
         },
