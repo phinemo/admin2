@@ -60,7 +60,7 @@
                         ref: '#'
                     }
                 ],
-                mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/C_article/',
+                mainUrl:'http://localhost/proto/prototype/admin2/index.php/C_article/',
                 offs:[],
             },
             // props:['offers'],
