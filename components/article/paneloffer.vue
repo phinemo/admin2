@@ -71,6 +71,12 @@
 </template>
 <script>
     module.exports = {
+        props:{
+            offers:{
+                type:String,
+                require:true
+            }
+        },
         data: function () {
             return {
                 cards: [{
@@ -81,7 +87,6 @@
                         },
                         
                     ],
-                    offers:String,
                 c_offer :{background:'#fff'},
                 c_price :{color:"black"},
                 thumbnail: {width:'100%',height:'100px'},

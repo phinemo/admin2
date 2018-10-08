@@ -5,11 +5,11 @@
         <!-- Navbar End -->
         <div class="uk-container uk-margin-auto-vertical">
         <fillarticle></fillarticle>
-        <paneloffer></paneloffer>
-            <div class="uk-padding-large uk-padding-remove-bottom" >
-            <recommended></recommended>
-            <popular></popular>
-            </div>
+        <paneloffer :offers="offs"></paneloffer>
+        <div class="uk-padding-large uk-padding-remove-bottom" >
+        <recommended></recommended>
+        <popular></popular>
+        </div>
         
         </div>
         
@@ -26,6 +26,7 @@
     
     
     <script type="text/javascript">
+    
         var v = new Vue({
             el: '#article',
             data: {
@@ -60,7 +61,7 @@
                     }
                 ],
                 mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/C_article/',
-                offers:[],
+                offs:[],
             },
             // props:['offers'],
             components: {
@@ -78,13 +79,7 @@
                 tampil(){
                     axios
                         .get(this.mainUrl+'tampil')
-                        .then(function(response){
-                            if(response.data.oper == null){
-                         v.noResult()
-                    }else{
-                            v.getData(response.data.oper);
-                    }
-            })
+                        .then(response => (this.offs = response.data.oper))
                 }
             }
         })
