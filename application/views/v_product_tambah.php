@@ -122,26 +122,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="form-group">
 								<label for="exampleInputEmail1"><small>Deskripsi Singkat</small></label><br><small><i> *block to styling</i></small>
 								<div class="panel panel-default" style="padding:5px">
-									<div name="descsingkat" class="noteair"></div>
+									<textarea name="descsingkat" id="descsingkat"></textarea>
 								</div>
 
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1"><small>Highlight</small></label><br><small><i> *block to styling</i></small>
 								<div class="panel panel-default" style="padding:5px">
-									<div name="highlight" class="noteair"></div>
+									<textarea name="highlight" id="highlight"></textarea>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1"><small>Fasilitas</small></label>
 								<div class="panel panel-default" style="padding:5px">
-									<div name="fasilitas" class="noteair"></div>
+									<textarea name="fasilitas" id="fasilitas"></textarea>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1"><small>Kebijakan</small></label>
 								<div class="panel panel-default" style="padding:5px">
-									<div name="kebijakan" class="noteair"></div>
+									<textarea name="kebijakan" id="kebijakan"></textarea>
 								</div>
 							</div>
 							<!-- tools box -->

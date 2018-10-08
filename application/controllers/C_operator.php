@@ -33,6 +33,7 @@ class C_operator extends CI_Controller {
     public function getdatawhere($id){
         $where = array('id_operator' => $id);
         $data['operator'] = $this->M_operator->getwhere('operator',$where)->result();
+        // var_dump($data['operator']);
         foreach ($data['operator'] as $row){
             $where_media = array('id_media'=>$row->id_media);
             $data['gambar'] = $this->M_operator->getwhere('media',$where_media)->result();
@@ -48,12 +49,12 @@ class C_operator extends CI_Controller {
         $nama = $this->input->post('nama');
         $biografi = $this->input->post('biografi');
         $contact = $this->socialencode();
-        $logo = $this->input->post('logo');
+        $id_media = $this->upload_image();
         $data = array(
             'nama_operator' => $nama,
             'biografi' => $biografi,
             'contact' => $contact,
-            'logo' => $logo
+            'id_media' => $id_media
         );
         $where = array(
             'id_operator' => $id
@@ -70,9 +71,10 @@ class C_operator extends CI_Controller {
     // View
     public function toadd()
     {
+        $data['gambar'] = [];
         $this->load->view('header');
         $this->load->view('v_operator_tambah');
-        $this->load->view('footer');
+        $this->load->view('footer',$data);
     }
     public function index()
     {

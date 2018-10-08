@@ -18,6 +18,7 @@ class C_product extends CI_Controller {
     }
     public function toadd()
     {
+        $data['gambar'] = array();
         $this->load->view('header');
         $this->load->view('v_product_tambah');
         $this->load->view('footer');
@@ -29,7 +30,7 @@ class C_product extends CI_Controller {
         $id_media = $this->upload_image();
         $jml_anggota = $this->input->post('jml_anggota');
         $harga = $this->input->post('harga');
-        $deskripsi = $this->input->post('deskripsi');
+        $deskripsi = $this->desc_encode();
         // $logo = $this->input->post('logo');
         // $splitString = explode('-', $range);
         $start = date("Y/m/d",strtotime($this->splitDate(0)));
@@ -45,11 +46,38 @@ class C_product extends CI_Controller {
         // var_dump($_POST);
         $this->M_product->insert('produk',$data_product);
         redirect('C_product/');
-    }
+        }
     public function getdatawhere($id){
         $where = array('id_produk' => $id);
         $data['product'] = $this->M_product->getwhere('produk',$where)->result();
         $data['media'] = $this->M_product->getid_media($where)->result();
+        // $explode = ltrim($data['media'],'[');
+        // $explode = explode(',',$data['media']);
+        // var_dump(json_encode($data['media']));
+        // $getid = json_decode($data['media']);
+        var_dump($data['media']);
+
+        foreach ($data['media'] as $row){
+            // var_dump($data['media']);
+            $getid = json_decode($row->id_media);
+            // var_dump($getid);
+        }
+        foreach ($getid as $list){
+            // var_dump($list);
+            $where_media = array('id_media'=>$list);
+            $data['gambar'][] = $this->M_product->getwhere('media',$where_media)->result();
+
+            // $data['gambar'] = $this->M_product->getwehere('media',$where)->result();
+        }
+        // var_dump($data['gambar']);
+        for($i = 0; $i < count($getid); $i++){
+            // var_dump($getid[$i]);
+            $where_media = array('id_media'=>$getid);
+            // $data['gambar'] = $this->M_product->getwhere('media',$where_media)->result();
+            // var_dump($data);
+            // $data['gambar'] = $this->M_operator->getwehere('media',$where)->result();
+        }
+        // var_dump($data);
         $this->load->view('header');
         $this->load->view('v_product_edit',$data);
         // var_dump($data);
@@ -63,10 +91,10 @@ class C_product extends CI_Controller {
 		$nama = $this->input->post('nama');
 		$start = date("Y/m/d",strtotime($this->splitDate(0)));
         $end = date("Y/m/d",strtotime($this->splitDate(1)));
-		$pic = $this->input->post('pic'); 
+		$id_media = $this->upload_image();
 		$jml_anggota = $this->input->post('jml_anggota');
 		$harga = $this->input->post('harga');
-		$deskripsi = $this->input->post('deskripsi');
+		$deskripsi = $this->desc_encode();
     
         $data = array(
             'nama_produk'=>$nama,
@@ -75,7 +103,7 @@ class C_product extends CI_Controller {
 			'jml_anggota'=>$jml_anggota,
 			'harga'=>$harga,
 			'deskripsi' =>$deskripsi,
-			'id_media'=>$pic);
+			'id_media'=>$id_media);
     
         $where = array(
             'id_produk' => $id
@@ -131,6 +159,14 @@ class C_product extends CI_Controller {
         $encoded = json_encode($data);
         return $encoded;
     }
+    public function desc_encode(){
+        $data['deskripsi'] = $this->input->post('descsingkat');
+        $data['highlight'] = $this->input->post('highlight');
+        $data['fasilitas'] = $this->input->post('fasilitas');
+        $data['kebijakan'] = $this->input->post('kebijakan');
+        $encoded = json_encode($data);
+        return $encoded;
+    }
     public function compressmedia($pic){
         $conf['image_library']='gd2';
         $conf['source_image']='upload/images/'.$pic['file_name'];
@@ -150,7 +186,8 @@ class C_product extends CI_Controller {
     }
     public function upload_image(){
 		$config['upload_path'] = 'upload/images/'; 
-	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
+        $id_media = array();
 	    // $config['encrypt_name'] = TRUE; //if want to encrypt picture name
         $this->upload->initialize($config);
         // var_dump($_FILES);
@@ -193,9 +230,7 @@ class C_product extends CI_Controller {
                     // Retrive id_media from media
                     $getid = array('file_name'=>$pic_name);//ambigues, when pic. names are same.
                     $id = $this->M_product->fetch_media($getid)->result();
-                    // $id_media = array('id_media'=>$id);
-                    $id_media[] = (int)$id[0]->id_media;
-                    // var_dump();
+                    $id_media [] = (int)$id[0]->id_media;
                     }
                 else{
 
@@ -204,7 +239,11 @@ class C_product extends CI_Controller {
 	        }else{
                     }
         }
-        
+        // $med = json_encode($id_media);
+        // var_dump(json_encode($med));       
+        // var_dump(json_decode($med));       
+        // var_dump($id_media);
+        // var_dump(json_decode($id_media,true));
         return json_encode($id_media); //return to caller
 				
 	}

@@ -17,7 +17,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ol>
 	</section>
 	<section class="content">
-		<?php foreach ($product as $data){?>
+		<?php foreach ($product as $data){
+			$deskripsi = json_decode($data->deskripsi)?>
 		<form role="form" class="form-validate" method="post" action="<?php echo base_url('index.php/C_product/update'); ?>      "
 		 enctype="multipart/form-data">
 			<div class="row">
@@ -97,26 +98,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="form-group">
 								<label for="exampleInputEmail1"><small>Deskripsi Singkat</small></label><br><small><i> *block to styling</i></small>
 								<div class="panel panel-default" style="padding:5px">
-									<div name="descsingkat" class="noteair"><?php echo $data->deskripsi ?></div>
+									<textarea name="descsingkat" id="descsingkat"><?php echo $deskripsi->deskripsi ?></textarea>
 								</div>
 
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1"><small>Highlight</small></label><br><small><i> *block to styling</i></small>
 								<div class="panel panel-default" style="padding:5px">
-									<div name="highlight" class="noteair"></div>
+									<textarea name="highlight" id="highlight"><?php echo $deskripsi->highlight ?></textarea>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1"><small>Fasilitas</small></label>
 								<div class="panel panel-default" style="padding:5px">
-									<div name="fasilitas" class="noteair"></div>
+									<textarea name="fasilitas" id="fasilitas"><?php echo $deskripsi->fasilitas ?></textarea>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1"><small>Kebijakan</small></label>
 								<div class="panel panel-default" style="padding:5px">
-									<div name="kebijakan" class="noteair"></div>
+									<textarea name="kebijakan" id="kebijakan"><?php echo $deskripsi->kebijakan ?></textarea>
 								</div>
 							</div>
 							<!-- tools box -->

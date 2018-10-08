@@ -1,7 +1,7 @@
 <footer class="main-footer">
 	<div class="pull-right hidden-xs">
 		<b>Version</b> 2.4.0
-	</div>
+  </div>
 	<strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
 	reserved.
 </footer>
@@ -69,20 +69,45 @@
 		data: 'filefoto',
 		overwriteInitial: false,
 		initialPreviewAsData: true,
-		initialPreview: [
-
-		],
-		initialPreviewConfig: [
-
-
-		]
+    initialPreview: [
+      <?php 
+      // var_dump($gambar);
+        if (isset($gambar)){
+        for ($i = 0; $i < count($gambar); $i++){
+          foreach ($gambar[$i] as $row){
+          // var_dump($row->gambar);
+            echo "'".base_url()."upload/images/".$row->gambar."',";
+          }
+        }
+      } ?>],
+		initialPreviewConfig: []
 	});
 	// Run summer note
 	$(document).ready(function () {
-		$('.summernote').summernote({
+		$('#descsingkat').summernote({
       // disableResizeEditor: true
-      // airMode:true
+      airMode:true,
+      height:"100px",
+      placeholder:'quick description'
+    });
+    $('#highlight').summernote({
+      // disableResizeEditor: true
+      airMode:true,
       height:"300px",
+      placeholder:'Main features of your product'
+    });
+    $('#fasilitas').summernote({
+      // disableResizeEditor: true
+      airMode:true,
+      height:"300px",
+      placeholder:'Your facilites you provide'
+    });
+    $('#kebijakan').summernote({
+      // disableResizeEditor: true
+      airMode:true,
+      height:"300px",
+      placeholder:'Term and condition'
+
     });
     // $('.note-statusbar').hide(); 
     $('.noteair').summernote({
