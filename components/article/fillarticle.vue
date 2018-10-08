@@ -2,7 +2,7 @@
     <div class="">
         <div class="uk-grid ">
             <div class="uk-width-1-1 uk-padding-remove-left">
-                <article class="uk-article uk-padding-large uk-box-shadow-material-small" style="margin-left:30px;">
+                <article class="uk-article uk-padding-large uk-padding-remove-bottom" style="margin-left:30px;">
                     <h1 class="uk-article-header">Tak
                         Perlu Khawatir Bila Ternyata Pilot Tidur selama Penerbangan</h1>
                     <p class="uk-article-meta"><i>Agustus lalu, penumpang United Airlines menangkap foto pilot

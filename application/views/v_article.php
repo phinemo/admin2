@@ -6,8 +6,11 @@
         <div class="uk-container uk-margin-auto-vertical">
         <fillarticle></fillarticle>
         <paneloffer></paneloffer>
-        <recommended></recommended>
-        <popular></popular>
+            <div class="uk-padding-large uk-padding-remove-bottom" >
+            <recommended></recommended>
+            <popular></popular>
+            </div>
+        
         </div>
         
     </div>
