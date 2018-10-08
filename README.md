@@ -11,7 +11,7 @@ dont forget to export db. (located in root directory) and change config (BASE_UR
 </tr>
 <tr>
     <td>C_dashboard</td>
-    <td> - </td>
+    <td>M_Dashboards </td>
 </tr>
 <tr>
     <td>C_operator</td>
