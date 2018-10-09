@@ -36,7 +36,7 @@
                                         </div>
                                         <div class="uk-width-expand">
                                             <!-- Title -->
-                                            <a :href="url">
+                                            <a :href="url+'C_showoffer/index/'+offer.id_produk">
                                                 <h6 class=" uk-margin-remove-bottom uk-text-small uk-text-bold">{{offer.nama_produk}}</h6>
                                             </a>
                                             <!-- Highlight -->

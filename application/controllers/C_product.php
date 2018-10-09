@@ -74,7 +74,7 @@ class C_product extends CI_Controller {
             // $data['gambar'] = $this->M_product->getwehere('media',$where)->result();
             
         }
-        var_dump($data['gambar']);
+        // var_dump($data['gambar']);
         // for($i = 0; $i < count($getid); $i++){
         //     // var_dump($getid[$i]);
         //     $where_media = array('id_media'=>$getid);

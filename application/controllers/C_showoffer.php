@@ -28,10 +28,10 @@ class C_showoffer extends CI_Controller {
         }
         
     }
-    public function index()
+    public function index($key)
     {
         $this->load->view('header_vue');
-        $this->load->view('v_showoffer');
+        $this->load->view('v_showoffer',$key);
         $this->load->view('footer_vue'); 
     }
 

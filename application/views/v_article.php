@@ -5,7 +5,7 @@
         <!-- Navbar End -->
         <div class="uk-container uk-margin-auto-vertical">
                 <fillarticle></fillarticle>
-                <paneloffer :offers="offs" :base="baseUrl" :url="linkUrl"></paneloffer>
+                <paneloffer :offers="offs" :base="baseUrl" :url="mainUrl"></paneloffer>
                 <div class="uk-padding-large uk-padding-remove-bottom" >
                 <recommended></recommended>
                 <popular></popular>
@@ -58,16 +58,8 @@
                         ref: '#'
                     }
                 ],
-<<<<<<< HEAD
                 mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
                 baseUrl:'http://random.host:8888/magang/codeigniter/admin2/',
-=======
-                //mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/C_article/',
-                mainUrl:'http://localhost/proto/prototype/admin2/index.php/C_article/',
-               // baseUrl:'http://random.host:8888/magang/codeigniter/admin2/',
-                baseUrl:'http://localhost/proto/prototype/admin2/',
-                linkUrl:'http://localhost/proto/prototype/admin2/index.php/C_showoffer/',
->>>>>>> 
                 offs:[],
             },
             // props:['offers'],
