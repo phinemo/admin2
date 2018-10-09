@@ -58,7 +58,7 @@
                         ref: '#'
                     }
                 ],
-                mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/C_article/',
+                mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
                 baseUrl:'http://random.host:8888/magang/codeigniter/admin2/',
                 offs:[],
             },
@@ -77,7 +77,7 @@
             methods:{
                 tampil(){
                     axios
-                        .get(this.mainUrl+'showoffers')
+                        .get(this.mainUrl+'C_article/showoffers')
                         .then(response => (this.offs = response.data.offers))
                 }
             }

@@ -1,13 +1,13 @@
 <body>
     <div id="app" class="uk-container-expand uk-width-1-1@m">
         <navbar></navbar>
-        <bannershowoffer></bannershowoffer>
+        <bannershowoffer :sub_titles="main_titles" :sub_base_url="base_url"></bannershowoffer>
         
         <div class="uk-width-1-1@s uk-width-1-1@m " >
         
             <div class="uk-container uk-margin-small-top uk-width-1-2@m">
                     <labelshowoffer></labelshowoffer>
-                    <judulshowoffer :headings="dets"></judulshowoffer>
+                    <judulshowoffer :sub_titles="main_titles" :sub_base_url="base_url"></judulshowoffer>
             </div>
         
             <div class="uk-container uk-margin-small-top uk-width-1-2@m">
@@ -16,8 +16,8 @@
                     <h6 class="uk-text-bold uk-text uk-margin-remove-bottom">DESKRIPSI SINGKAT</h6>
                 </div>
                 <hr class="uk-margin-small-top uk-margin-small-bottom">
-                <isiinformasi></isiinformasi>
-                <accordionshowoffer></accordionshowoffer>
+                <isiinformasi :sub_descs="main_descs" :deskripsi="main_descs.deskripsi"></isiinformasi>
+                <accordionshowoffer :fasilitas="main_descs.fasilitas" :highlight="main_descs.highlight" :kebijakan="main_descs.kebijakan"></accordionshowoffer>
                 <div id="end" class="uk-margin-large-top"></div>
 
             </div>
@@ -33,11 +33,10 @@
             el: '#app',
             data: {
                 show: false,
-                headings: [{
-                    id: 1,
-                }],
-                mainUrl:'http://localhost/proto/prototype/admin2/index.php/C_showoffer/',
-                dets:[],
+                main_titles:[],
+                main_url:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
+                base_url:'http://random.host:8888/magang/codeigniter/admin2/',
+                main_descs:[]            
             },
             components: {
                 'navbar': httpVueLoader('<?php echo base_url("components/global/navbar.vue") ?>'),
@@ -47,16 +46,21 @@
                 'isiinformasi': httpVueLoader('<?php echo base_url("components/showoffer/isiinformasi.vue") ?>'),
                 'accordionshowoffer': httpVueLoader('<?php echo base_url("components/showoffer/accordionshowoffer.vue") ?>'),
                 'stickyshowoffer': httpVueLoader('<?php echo base_url("components/showoffer/stickyshowoffer.vue") ?>'),
-            }
-            ,
+            },
             created(){
                 this.tampil();
+                this.detail();
             },
             methods:{
                 tampil(){
                     axios
-                        .get(this.mainUrl+'tampil')
-                        .then(response => (this.dets = response.data.detail))
+                        .get(this.main_url+'C_showoffer/showDetail')
+                        .then(response => (this.main_titles = response.data.title))
+                },
+                detail(){
+                    axios
+                        .get(this.main_url+'C_showoffer/showDetailProduct')
+                        .then(response => (this.main_descs = response.data))
                 }
             }
         });
