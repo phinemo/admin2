@@ -36,13 +36,13 @@
                                         </div>
                                         <div class="uk-width-expand">
                                             <!-- Title -->
-                                            <a href="showoffer.html">
+                                            <a :href="url">
                                                 <h6 class=" uk-margin-remove-bottom uk-text-small uk-text-bold">{{offer.nama_produk}}</h6>
                                             </a>
                                             <!-- Highlight -->
                                             <div class="uk-grid-small uk-flex-middle" uk-grid>
                                                 <div class="uk-width-auto">
-                                                    <a href="showoffer.html" class="uk-text-meta uk-text-small" :style="c_price"> From
+                                                    <a :href="url+offer.id_produk" class="uk-text-meta uk-text-small" :style="c_price"> From
                                                         {{offer.harga}}K IDR</a><br>
                                                     <!-- <i v-for="rating in card.rating" :key="rating" class="uk-text-center uk-margin-remove fa fa-star" -->
                                                         <!-- ></i> -->
@@ -77,6 +77,10 @@
                 require:true
             },
             base:{
+                type:String,
+                require:true
+            },
+            url:{
                 type:String,
                 require:true
             }
