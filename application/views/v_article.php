@@ -4,15 +4,13 @@
         <navbar></navbar>
         <!-- Navbar End -->
         <div class="uk-container uk-margin-auto-vertical">
-        <fillarticle></fillarticle>
-        <paneloffer :offers="offs"></paneloffer>
-        <div class="uk-padding-large uk-padding-remove-bottom" >
-        <recommended></recommended>
-        <popular></popular>
+                <fillarticle></fillarticle>
+                <paneloffer :offers="offs"></paneloffer>
+                <div class="uk-padding-large uk-padding-remove-bottom" >
+                <recommended></recommended>
+                <popular></popular>
+                </div>
         </div>
-        
-        </div>
-        
     </div>
     <!-- Content Fill -->
 
