@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/admin2';
+// $config['base_url'] = 'http://localhost/proto/prototype/admin2/';
 
 /*
 |--------------------------------------------------------------------------

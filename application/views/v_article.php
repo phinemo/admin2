@@ -60,7 +60,7 @@
                         ref: '#'
                     }
                 ],
-                mainUrl:'http://localhost/admin2/index.php/C_article/',
+                // mainUrl:'http://localhost/proto/prototype/admin2/index.php/C_article/',
                 offs:[],
                 id_media:[],
             },
