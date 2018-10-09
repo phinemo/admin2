@@ -6,17 +6,19 @@
             <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top; bottom: #bottom">
                 <nav class="uk-navbar-container uk-box-shadow-material-small" uk-navbar style="position: relative; z-index: 980;">
                     <div class="uk-navbar-left">
+                        <div class="uk-visible@m uk-margin-medium-left">
+                            <img src="https://www.phinemo.com/wp-content/themes/projectav2/images/114x30xlogo-phinemo.png.pagespeed.ic.qkIeB28U-q.webp"
+                                alt="Logo Phinemo" height="" width="">
+                        </div>
                         <ul class="uk-navbar-nav">
                             <li class="uk-active  uk-hidden@m"><a href="" uk-toggle="target: #offcanvas-menu"><span uk-icon="menu"></span></a></li>
-                                    <li class="uk-active uk-text-bold uk-visible@m"><a href="about/">ABOUT US</a></li>
-                                    <li class="uk-active uk-text-bold uk-visible@m"><a href="careers/">WORK FOR US</a></li>
-                                    <li class="uk-active uk-text-bold uk-visible@m"><a href="advertise/">ADVERTISE</a></li>
-                                    <li class="uk-active uk-text-bold uk-visible@m"><a href="contact/">CONTACT US</a></li>
-                                    <li class="uk-active uk-text-bold uk-visible@m"><a href="#">HELP</a></li>
+                                <li v-for="(navitem,index) in navitems" :key="index" class="uk-active uk-text-bold uk-visible@m">
+                                    <a :href="navitem.ref">{{navitem.name}}</a></li>
+
                         </ul>
                     </div>
                     <a class="uk-navbar-center" href="index.html">
-                        <div v-bind:class="{ 'uk-hidden': hidden}">
+                        <div class="uk-hidden@m">
                             <img src="https://www.phinemo.com/wp-content/themes/projectav2/images/114x30xlogo-phinemo.png.pagespeed.ic.qkIeB28U-q.webp"
                                 alt="Logo Phinemo" height="" width="">
                         </div>
