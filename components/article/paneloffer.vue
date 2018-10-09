@@ -79,19 +79,10 @@
         },
         data: function () {
             return {
-                cards: [{
-                        title: 'Ayung River Rafting Adventure',
-                        price: '500',
-                        imgurl: 'img/batur.jpg',
-                        rating: 5
-                        },
-                        
-                    ],
                 c_offer :{background:'#fff'},
                 c_price :{color:"black"},
                 thumbnail: {width:'100%',height:'100px'},
                 nopaddinghr:{'padding-left':'0px','padding-right':'0px'},
-
             }
         },
         

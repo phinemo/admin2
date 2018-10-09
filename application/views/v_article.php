@@ -58,8 +58,9 @@
                         ref: '#'
                     }
                 ],
-                mainUrl:'http://localhost/proto/prototype/admin2/index.php/C_article/',
+                // mainUrl:'http://localhost/proto/prototype/admin2/index.php/C_article/',
                 offs:[],
+                id_media:[],
             },
             // props:['offers'],
             components: {
@@ -68,17 +69,22 @@
                 'paneloffer': httpVueLoader('<?php echo base_url("components/article/paneloffer.vue") ?>'),
                 'recommended':httpVueLoader('<?php echo base_url("components/article/recommended.vue") ?>'),
                 'popular':httpVueLoader('<?php echo base_url("components/article/popular.vue") ?>')
-            }
-            ,
+            },
             created(){
                 this.tampil();
+            },
+            mounted(){
+                
             },
             methods:{
                 tampil(){
                     axios
-                        .get(this.mainUrl+'tampil')
-                        .then(response => (this.offs = response.data.oper))
-                }
+                        .get(this.mainUrl+'showoffers')
+                        .then(response => (
+                            this.offs = response.data.offers,
+                            this.id_media = response.data.media,
+                            console.log(this.offs[indexOfItem].id_media)))            
+                },          
             }
         })
     </script>
