@@ -16,14 +16,15 @@ class C_article extends CI_Controller {
         if($query){
                    $result['offers']  = $this->M_article->getProduct()->result();
                 }
-        for ($i = 0; $i < count($result['offers']);$i++){
-            $getid = $result['offers'][$i]->id_media;
-            // $converted = json_decode[$getid];
-        $converted = json_decode($getid);
+        // for ($i = 0; $i < count($result['offers']);$i++){
+            // $getid = $result['offers'][$i]->id_media;
+            // $getid = $result['offers'][$i]->id_thumb;
+        // $converted = json_decode[$getid];
+        // $converted = json_decode($getid);
         // var_dump($converted);
         //choose first array
-        $where = array('id_media'=> $converted[0]);
-        $result['media'] = $this->M_article->getThumbnail($where)->result();
+        // $where = array('id_media'=> $getid);
+        // $result['media'] = $this->M_article->getThumbnail($where)->result();
         // for ($j =0; $j < count($converted); $j++){
         //     // echo $converted[$j];
         //     $rest = $result['offers'];
@@ -36,7 +37,7 @@ class C_article extends CI_Controller {
         // }
         // var_dump($media[$i]);
         echo json_encode($result);
-    }
+    // }
         // var_dump($slice);
         // var_dump($result['offers']);
         

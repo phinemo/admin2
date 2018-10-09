@@ -31,6 +31,7 @@ class C_product extends CI_Controller {
         $jml_anggota = $this->input->post('jml_anggota');
         $harga = $this->input->post('harga');
         $deskripsi = $this->desc_encode();
+        $id_thumb = $this->id_thumb;
         // $logo = $this->input->post('logo');
         // $splitString = explode('-', $range);
         $start = date("Y/m/d",strtotime($this->splitDate(0)));
@@ -42,10 +43,14 @@ class C_product extends CI_Controller {
 			'jml_anggota'=>$jml_anggota,
 			'harga'=>$harga,
 			'deskripsi' =>$deskripsi,
-            'id_media'=>$id_media);
+            'id_media'=>$id_media,
+            'id_thumb'=>$id_thumb);
         // var_dump($_POST);
         $this->M_product->insert('produk',$data_product);
         redirect('C_product/');
+        }
+    public function getdataThumb($id){
+        $where = array('thumb');    
         }
     public function getdatawhere($id){
         $where = array('id_produk' => $id);
@@ -55,28 +60,28 @@ class C_product extends CI_Controller {
         // $explode = explode(',',$data['media']);
         // var_dump(json_encode($data['media']));
         // $getid = json_decode($data['media']);
-        var_dump($data['media']);
-
-        foreach ($data['media'] as $row){
+        // var_dump($data['media']);
+        
+        foreach ($data['media'] as $row){//get json data and decode data to array (id_media)
             // var_dump($data['media']);
             $getid = json_decode($row->id_media);
             // var_dump($getid);
         }
-        foreach ($getid as $list){
+        foreach ($getid as $list){//each id_media initialize by list variable
             // var_dump($list);
-            $where_media = array('id_media'=>$list);
-            $data['gambar'][] = $this->M_product->getwhere('media',$where_media)->result();
-
+            $where_media = array('id_media'=>$list);//define where
+            $data['gambar'][] = $this->M_product->getwhere('media',$where_media)->result(); //get media data from DB and saved to array
             // $data['gambar'] = $this->M_product->getwehere('media',$where)->result();
+            
         }
-        // var_dump($data['gambar']);
-        for($i = 0; $i < count($getid); $i++){
-            // var_dump($getid[$i]);
-            $where_media = array('id_media'=>$getid);
-            // $data['gambar'] = $this->M_product->getwhere('media',$where_media)->result();
-            // var_dump($data);
-            // $data['gambar'] = $this->M_operator->getwehere('media',$where)->result();
-        }
+        var_dump($data['gambar']);
+        // for($i = 0; $i < count($getid); $i++){
+        //     // var_dump($getid[$i]);
+        //     $where_media = array('id_media'=>$getid);
+        //     // $data['gambar'] = $this->M_product->getwhere('media',$where_media)->result();
+        //     // var_dump($data);
+        //     // $data['gambar'] = $this->M_operator->getwehere('media',$where)->result();
+        // }
         // var_dump($data);
         $this->load->view('header');
         $this->load->view('v_product_edit',$data);
@@ -94,7 +99,8 @@ class C_product extends CI_Controller {
 		$id_media = $this->upload_image();
 		$jml_anggota = $this->input->post('jml_anggota');
 		$harga = $this->input->post('harga');
-		$deskripsi = $this->desc_encode();
+        $deskripsi = $this->desc_encode();
+        $id_thumb = $this->id_thumb;
     
         $data = array(
             'nama_produk'=>$nama,
@@ -215,9 +221,9 @@ class C_product extends CI_Controller {
                     $conf['source_image']='upload/images/'.$pic['file_name'];
                     $conf['create_thumb']= TRUE;
                     $conf['maintain_ratio']= TRUE;
-                    $conf['quality']= '60%';
-                    $conf['width']= 80;
-                    $conf['height']= 80;
+                    $conf['quality']= '80%';
+                    $conf['width']= 150;
+                    $conf['height']= 150;
                     $conf['new_image']= 'upload/images/'.$pic['file_name'];
                     $this->load->library('image_lib', $conf);
                     $this->image_lib->initialize($conf);
@@ -230,7 +236,8 @@ class C_product extends CI_Controller {
                     // Retrive id_media from media
                     $getid = array('file_name'=>$pic_name);//ambigues, when pic. names are same.
                     $id = $this->M_product->fetch_media($getid)->result();
-                    $id_media [] = (int)$id[0]->id_media;
+                    // var_dump($id);
+                    $id_media[] = (int)$id[0]->id_media;
                     }
                 else{
 
@@ -241,13 +248,15 @@ class C_product extends CI_Controller {
         }
         // $med = json_encode($id_media);
         // var_dump(json_encode($med));       
-        // var_dump(json_decode($med));       
+        // var_dump(json_decode($med));    
+        $this->id_thumb = $id_media[0];
+        // var_dump($this->id_thumb);
+        // var_dump($id_media);
         // var_dump($id_media);
         // var_dump(json_decode($id_media,true));
         return json_encode($id_media); //return to caller
 				
-	}
-
+    }
 }
 
 /* End of file product.php */

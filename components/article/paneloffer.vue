@@ -32,7 +32,7 @@
                                 <div class="uk-card-header uk-padding-remove-right uk-padding-remove-left uk-margin-small-left">
                                     <div class="uk-grid-small uk-flex-middle uk-width-1-1" uk-grid>
                                         <div class="uk-width-1-3">
-                                            <!-- <img class="" :src="card.imgurl" :style="thumbnail"> -->
+                                            <img class="" :src="baseUrl+offer.resized" :style="thumbnail">
                                         </div>
                                         <div class="uk-width-expand">
                                             <!-- Title -->
@@ -75,7 +75,7 @@
             offers:{
                 type:Array,
                 require:true
-            }
+            },
         },
         data: function () {
             return {
@@ -83,6 +83,7 @@
                 c_price :{color:"black"},
                 thumbnail: {width:'100%',height:'100px'},
                 nopaddinghr:{'padding-left':'0px','padding-right':'0px'},
+                baseUrl:'http://random.host:8888/magang/codeigniter/admin2/upload/images/'
             }
         },
         
