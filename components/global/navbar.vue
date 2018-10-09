@@ -2,11 +2,17 @@
     <!-- Navbar Start -->
     <div uk-grid>
         <div class="uk-width-1-1">
+
             <div uk-sticky="show-on-up: true; animation: uk-animation-slide-top; bottom: #bottom">
                 <nav class="uk-navbar-container uk-box-shadow-material-small" uk-navbar style="position: relative; z-index: 980;">
                     <div class="uk-navbar-left">
                         <ul class="uk-navbar-nav">
-                            <li class="uk-active"><a href="" uk-toggle="target: #offcanvas-menu"><span uk-icon="menu"></span></a></li>
+                            <li class="uk-active  uk-hidden@m"><a href="" uk-toggle="target: #offcanvas-menu"><span uk-icon="menu"></span></a></li>
+                                    <li class="uk-active uk-text-bold uk-visible@m"><a href="about/">ABOUT US</a></li>
+                                    <li class="uk-active uk-text-bold uk-visible@m"><a href="careers/">WORK FOR US</a></li>
+                                    <li class="uk-active uk-text-bold uk-visible@m"><a href="advertise/">ADVERTISE</a></li>
+                                    <li class="uk-active uk-text-bold uk-visible@m"><a href="contact/">CONTACT US</a></li>
+                                    <li class="uk-active uk-text-bold uk-visible@m"><a href="#">HELP</a></li>
                         </ul>
                     </div>
                     <a class="uk-navbar-center" href="index.html">
