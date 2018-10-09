@@ -9,22 +9,29 @@ class C_showoffer extends CI_Controller {
         parent::__construct();
         $this->load->model('M_showoffer');
     }
-    public function tampil()
+    public function showDetail()
     {
-           $query =  $this->M_showoffer->getProduct()->result();
+        $query =  $this->M_showoffer->getProduct();
         if($query){
-                   $result['detail']  = $this->M_showoffer-->getProduct()->result();
-                }
+            $result['title']  = $this->M_showoffer->getProduct()->result();
+        }
         echo json_encode($result);
+    }
+    public function showDetailProduct()
+    {
+        $query =  $this->M_showoffer->getProductDetail();
+        if($query){
+            $result['detail']  = $this->M_showoffer->getProductDetail()->result();
+        }
+        foreach ($result['detail'] as $row){
+            echo $row->deskripsi;
+        }
         
     }
     public function index()
     {
-        $data['showoffer'] = $this->M_showoffer->getProduct()->result();
-        $dat['json'] = json_encode($data['showoffer']);
-        var_dump($dat);
         $this->load->view('header_vue');
-        $this->load->view('v_showoffer',$dat);
+        $this->load->view('v_showoffer');
         $this->load->view('footer_vue'); 
     }
 

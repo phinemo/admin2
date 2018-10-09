@@ -58,11 +58,16 @@
                         ref: '#'
                     }
                 ],
+<<<<<<< HEAD
+                mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
+                baseUrl:'http://random.host:8888/magang/codeigniter/admin2/',
+=======
                 //mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/C_article/',
                 mainUrl:'http://localhost/proto/prototype/admin2/index.php/C_article/',
                // baseUrl:'http://random.host:8888/magang/codeigniter/admin2/',
                 baseUrl:'http://localhost/proto/prototype/admin2/',
                 linkUrl:'http://localhost/proto/prototype/admin2/index.php/C_showoffer/',
+>>>>>>> 
                 offs:[],
             },
             // props:['offers'],
@@ -80,7 +85,7 @@
             methods:{
                 tampil(){
                     axios
-                        .get(this.mainUrl+'showoffers')
+                        .get(this.mainUrl+'C_article/showoffers')
                         .then(response => (this.offs = response.data.offers))
                 }
             }
