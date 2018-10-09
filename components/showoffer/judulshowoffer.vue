@@ -12,6 +12,12 @@
 
 <script>
 module.exports = {
+    props:{
+            headings:{
+                type:Array,
+                require:true
+            }
+        },
     data:function(){
         return{
             juduls: [{
