@@ -32,7 +32,7 @@
 	<link href="<?php echo base_url('admintemplate/fileinput/css/fileinput.css')?>" media="all" rel="stylesheet" type="text/css" />
 	<link href="<?php echo base_url('admintemplate/fileinput/themes/explorer-fa/theme.css')?>" media="all" rel="stylesheet"
 	 type="text/css" />
-	
+
 
 
 
@@ -56,7 +56,8 @@
 				<!-- mini logo for sidebar mini 50x50 pixels -->
 				<span class="logo-mini"><b>P</b>M</span>
 				<!-- logo for regular state and mobile devices -->
-				<span class="logo-lg"><img height="30px" src="https://phinemo.com/s/images/xphinemo-logo-red.png.pagespeed.ic.-7PjMG-qEd.webp" alt="Phinemo Logo"></span>
+				<span class="logo-lg"><img height="30px" src="https://phinemo.com/s/images/xphinemo-logo-red.png.pagespeed.ic.-7PjMG-qEd.webp"
+					 alt="Phinemo Logo"></span>
 			</a>
 
 			<!-- Header Navbar: style can be found in header.less -->
@@ -163,20 +164,31 @@
 						</ul>
 					</li>
 					<!-- Chart data mahasiswa -->
-					<li class="treeview">
-						<a href="#">
-							<i class="fa fa-files-o"></i>
-							<span>Menu</span>
+					
+					<li>
+						<a href="<?php echo site_url('C_operator/index') ?>">
+							<i class="fa fa-th"></i> <span>Tour Operator</span>
 							<span class="pull-right-container">
-								<i class="fa fa-angle-left pull-right"></i>
+								<!-- <small class="label pull-right bg-green">new</small> -->
 							</span>
 						</a>
-						<ul class="treeview-menu">
-							<li><a href="<?php echo site_url('C_operator/index') ?>"><i class="fa fa-circle-o text-aqua"></i>Tour Operator</a></li>
-							<li><a href="<?php echo site_url('C_product/index') ?>"><i class="fa fa-circle-o text-aqua"></i>Produk</a></li>	
-							<li><a href="<?php echo site_url('C_media/index') ?>"><i class="fa fa-circle-o text-aqua"></i>Media</a></li>
-						</ul>
 					</li>
+					<li>
+						<a href="<?php echo site_url('C_product/index') ?>">
+							<i class="fa fa-th"></i> <span>Produk</span>
+							<span class="pull-right-container">
+								<!-- <small class="label pull-right bg-green">new</small> -->
+							</span>
+						</a>
+					</li>
+					<!-- <li>
+						<a href="<?php //echo site_url('C_media/index') ?>">
+							<i class="fa fa-th"></i> <span>Widgets</span>
+							<span class="pull-right-container">
+								<small class="label pull-right bg-green">new</small>
+							</span>
+						</a>
+					</li> -->
 				</ul>
 			</section>
 			<!-- /.sidebar -->
