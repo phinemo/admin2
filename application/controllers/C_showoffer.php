@@ -9,20 +9,16 @@ class C_showoffer extends CI_Controller {
         parent::__construct();
         $this->load->model('M_showoffer');
     }
-    public function showDetail()
+    public function showDetail($key)
     {
-        $query =  $this->M_showoffer->getProduct();
-        if($query){
-            $result['title']  = $this->M_showoffer->getProduct()->result();
-        }
+        $where = array('id_produk'=>$key);
+        $result['title']  = $this->M_showoffer->getProduct($where)->result();
         echo json_encode($result);
     }
-    public function showDetailProduct()
-    {
-        $query =  $this->M_showoffer->getProductDetail();
-        if($query){
-            $result['detail']  = $this->M_showoffer->getProductDetail()->result();
-        }
+    public function showDetailProduct($key)
+    {   
+        $where = array('id_produk'=>$key);
+        $result['detail']  = $this->M_showoffer->getProductDetail($where)->result();
         foreach ($result['detail'] as $row){
             echo $row->deskripsi;
         }
@@ -30,8 +26,9 @@ class C_showoffer extends CI_Controller {
     }
     public function index($key)
     {
+        $where = array('produk'=>$key);
         $this->load->view('header_vue');
-        $this->load->view('v_showoffer',$key);
+        $this->load->view('v_showoffer',$where);
         $this->load->view('footer_vue'); 
     }
 

@@ -38,25 +38,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th style="width:125px;">Nama</th>
-									<th style="width:50px;">Mulai</th>
-									<th style="width:50px;">Selesai</th>
-									<th style="width:25px;">Maks Anggota</th>
-									<th>Harga</th>
-									<th>Deskripsi</th>
-									<th style="width:125px;">Action</th>
+									<th style="width:5%;">ID</th>
+									<th style="width:40%;">Nama</th>
+									<th style="width:10%;">Mulai</th>
+									<th style="width:10%;">Selesai</th>
+									<th style="width:5%;">Maks Anggota</th>
+									<th stlye="width:20%">Harga</th>
+									<th style="width:20%;">Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php 
 					foreach ($product as $data){
 						echo "<tr>
+					  	<td>".$data->id_produk."</td>
 					  	<td>".$data->nama_produk."</td>
 					  	<td>".$data->tanggal_mulai."</td>
 					  	<td>".$data->tanggal_akhir."</td>
 					  	<td>".$data->jml_anggota."</td>
 						<td>".$data->harga."</td>
-						<td>".$data->deskripsi."</td>
 						<td>
 						<div class='row'>";
 							echo anchor("C_product/getdatawhere/".$data->id_produk,"<div class='col-xs-6 col-md-6'><button class='btn btn-primary glyphicon glyphicon-pencil'></button></div>");
@@ -68,13 +68,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</tbody>
 							<tfoot>
 								<tr>
-									<th>Nama</th>
-									<th>Mulai</th>
-									<th>Selesai</th>
-									<th style="width:25px;">Jumlah Anggota</th>
-									<th>Harga</th>
-									<th>Deskripsi</th>
-									<th style="width:125px;">Action</th>
+								<th style="width:5%;">ID</th>
+									<th style="width:40%;">Nama</th>
+									<th style="width:10%;">Mulai</th>
+									<th style="width:10%;">Selesai</th>
+									<th style="width:5%;">Maks Anggota</th>
+									<th stlye="width:20%">Harga</th>
+									<th style="width:20%;">Action</th>
 								</tr>
 							</tfoot>
 						</table>

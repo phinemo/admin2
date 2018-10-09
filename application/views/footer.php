@@ -86,32 +86,32 @@
 	$(document).ready(function () {
 		$('#descsingkat').summernote({
       // disableResizeEditor: true
-      airMode:true,
+    //   airMode:true,
       height:"100px",
       placeholder:'quick description'
     });
     $('#highlight').summernote({
       // disableResizeEditor: true
-      airMode:true,
+    //   airMode:true,
       height:"300px",
       placeholder:'Main features of your product'
     });
     $('#fasilitas').summernote({
       // disableResizeEditor: true
-      airMode:true,
+    //   airMode:true,
       height:"300px",
       placeholder:'Your facilites you provide'
     });
     $('#kebijakan').summernote({
       // disableResizeEditor: true
-      airMode:true,
+    //   airMode:true,
       height:"300px",
       placeholder:'Term and condition'
 
     });
     // $('.note-statusbar').hide(); 
     $('.noteair').summernote({
-      airMode:true,
+    //   airMode:true,
       placeholder:'write your description here',
       height:"300px",
     });
