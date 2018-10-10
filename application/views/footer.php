@@ -1,10 +1,4 @@
-<footer class="main-footer">
-	<div class="pull-right hidden-xs">
-		<b>Version</b> 2.4.0
-  </div>
-	<strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-	reserved.
-</footer>
+
 
 <!-- Control Sidebar -->
 </div>
@@ -16,6 +10,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo base_url('admintemplate/bower_components/bootstrap/dist/js/bootstrap.min.js')?>"></script>
+<!-- iCheck -->
+<script src="<?php echo base_url('admintemplate/plugins/iCheck/icheck.min.js')?>"></script>
+<script>
+  $(function () {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' /* optional */
+    });
+  });
+</script>
 <!-- DataTables -->
 <script src="<?php echo base_url('admintemplate/bower_components/datatables.net/js/jquery.dataTables.min.js')?>"></script>
 <script src="<?php echo base_url('admintemplate/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')?>"></script>
@@ -61,8 +66,8 @@
 		// instance, using default configuration.
 		// CKEDITOR.replace('editor1')
 		//bootstrap WYSIHTML5 - text editor
-		$('.textarea').wysihtml5()
-	})
+		$('textarea.textarea').wysihtml5()
+	});
 	$("#filefoto").fileinput({
 		'theme': 'explorer-fa',
 		'uploadUrl': null,

@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-// $config['base_url'] = 'http://phinemoo.com/admin2';
+// $config['base_url'] = 'http://localhost/admin2';
 //  $config['base_url'] = 'http://localhost/proto/prototype/admin2/';
 $config['base_url'] = 'http://random.host:8888/magang/codeigniter/admin2/';
 

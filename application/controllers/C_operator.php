@@ -41,7 +41,9 @@ class C_operator extends CI_Controller {
         }
         // var_dump($data['gambar']);
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('v_operator_edit',$data);
+        $this->load->view('bottombar');
         $this->load->view('footer',$data);
     }
    public function update(){
@@ -73,14 +75,18 @@ class C_operator extends CI_Controller {
     {
         $data['gambar'] = [];
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('v_operator_tambah');
+        $this->load->view('bottombar');
         $this->load->view('footer',$data);
     }
     public function index()
     {
         $data = $this->getdata();
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('v_operator',$data);
+        $this->load->view('bottombar');
         $this->load->view('footer',$data);
     }
     // another Function

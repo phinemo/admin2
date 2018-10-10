@@ -20,7 +20,9 @@ class C_product extends CI_Controller {
     {
         $data['gambar'] = array();
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('v_product_tambah');
+        $this->load->view('bottombar');
         $this->load->view('footer');
     }
     
@@ -84,7 +86,9 @@ class C_product extends CI_Controller {
         // }
         // var_dump($data);
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('v_product_edit',$data);
+        $this->load->view('bottombar');
         // var_dump($data);
         $this->load->view('footer',$data);
     }
@@ -153,7 +157,9 @@ class C_product extends CI_Controller {
     {
         $data = $this->getdata();
         $this->load->view('header');
+        $this->load->view('navbar');
         $this->load->view('v_product',$data);
+        $this->load->view('bottombar');
         $this->load->view('footer',$data);
     }
     //another function

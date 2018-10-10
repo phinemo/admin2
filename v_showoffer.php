@@ -36,8 +36,6 @@
                 main_titles:[],
                 main_url:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
                 base_url:'http://random.host:8888/magang/codeigniter/admin2/',
-                // main_url:'http://phinemoo.com/admin2/index.php/',
-                // base_url:'http://phinemoo.com/admin2/',
                 main_descs:[]            
             },
             components: {
@@ -56,12 +54,12 @@
             methods:{
                 tampil(){
                     axios
-                        .get(this.main_url+'C_showoffer/showDetail/<?php echo $produk ?>')
+                        .get(this.main_url+'C_showoffer/showDetail')
                         .then(response => (this.main_titles = response.data.title))
                 },
                 detail(){
                     axios
-                        .get(this.main_url+'C_showoffer/showDetailProduct/<?php echo $produk ?>')
+                        .get(this.main_url+'C_showoffer/showDetailProduct')
                         .then(response => (this.main_descs = response.data))
                 }
             }
