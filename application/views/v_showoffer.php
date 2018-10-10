@@ -21,11 +21,17 @@
                 <div id="end" class="uk-margin-large-top"></div>
 
             </div>
+            
+            <div id="end" class="uk-margin-large-top"></div>
+            <!-- <div id="end" class="uk-margin-large-top"></div> -->
+                <div class="uk-container uk-margin-small-top uk-width-3-5@m">
+                    <stickyshowoffer></stickyshowoffer>
+                </div>
 
         </div>
+        <!-- <div id="end" class="uk-margin-large-top"></div>
         <div id="end" class="uk-margin-large-top"></div>
-        <div id="end" class="uk-margin-large-top"></div>
-        <stickyshowoffer></stickyshowoffer>
+        <stickyshowoffer></stickyshowoffer> -->
     </div>
 
     <script type="text/javascript">
@@ -34,10 +40,10 @@
             data: {
                 show: false,
                 main_titles:[],
-                main_url:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
-                base_url:'http://random.host:8888/magang/codeigniter/admin2/',
-                // main_url:'http://phinemoo.com/admin2/index.php/',
-                // base_url:'http://phinemoo.com/admin2/',
+                //main_url:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
+                //base_url:'http://random.host:8888/magang/codeigniter/admin2/',
+                 main_url:'http://phinemoo.com/admin2/index.php/',
+                 base_url:'http://phinemoo.com/admin2/',
                 main_descs:[]            
             },
             components: {
