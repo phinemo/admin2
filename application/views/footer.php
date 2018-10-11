@@ -61,32 +61,14 @@
 <script src="<?php echo base_url('admintemplate/fileinput/themes/fa/theme.js')?>" type="text/javascript"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 <script>
-	$(function () {
-		// Replace the <textarea id="editor1"> with a CKEditor
-		// instance, using default configuration.
-		// CKEDITOR.replace('editor1')
-		//bootstrap WYSIHTML5 - text editor
-		$('textarea.textarea').wysihtml5()
-	});
-	$("#filefoto").fileinput({
-		'theme': 'explorer-fa',
-		'uploadUrl': null,
-		data: 'filefoto',
-		overwriteInitial: false,
-		initialPreviewAsData: true,
-    initialPreview: [
-      <?php 
-      // var_dump($gambar);
-        if (isset($gambar)){
-        for ($i = 0; $i < count($gambar); $i++){
-          foreach ($gambar[$i] as $row){
-          // var_dump($row->gambar);
-            echo "'".base_url()."upload/images/".$row->gambar."',";
-          }
-        }
-      } ?>],
-		initialPreviewConfig: []
-	});
+	// $(function () {
+	// 	// Replace the <textarea id="editor1"> with a CKEditor
+	// 	// instance, using default configuration.
+	// 	// CKEDITOR.replace('editor1')
+	// 	//bootstrap WYSIHTML5 - text editor
+	// 	$('textarea.textarea').wysihtml5()
+	// });
+	
 	// Run summer note
 	$(document).ready(function () {
 		$('#descsingkat').summernote({
@@ -94,6 +76,12 @@
     //   airMode:true,
       height:"100px",
       placeholder:'quick description'
+		});
+		$('#biografi').summernote({
+      // disableResizeEditor: true
+    //   airMode:true,
+      height:"400px",
+      // placeholder:'quick description'
     });
     $('#highlight').summernote({
       // disableResizeEditor: true
@@ -127,6 +115,13 @@
 				}, res);
 			}
 		});
+		$('#touroperator').autocomplete({
+			source: function (req, res) {
+				$.getJSON("<?php echo site_url('C_product/autooperator/')?>", {
+					nama_operator: req.term
+				}, res);
+			}
+		});
 		// $('#jenis').autocomplete({
 		// 	source: function (req, res) {
 		// 		$.getJSON("<?php echo site_url('C_product/autojenis/')?>", {
@@ -143,7 +138,32 @@
 				}
 				$('select#jenis').append(html);
 			});
-	})
+			$("#filefoto").fileinput({
+				'theme': 'explorer-fa',
+				'uploadUrl': null,
+				data: 'filefoto',
+				showUpload:false,
+				overwriteInitial: false,
+				initialPreviewAsData: true,
+    		initialPreview: [
+      		<?php 
+      	// var_dump(gettype($gambar));
+        	if (isset($gambar) && count($gambar) != 0 && gettype($gambar) == 'array'){
+        		for ($i = 0; $i < count($gambar); $i++){
+          		foreach ($gambar[$i] as $row){
+          		// var_dump($row->gambar);
+            		echo "'".base_url()."upload/images/".$row->gambar."',";
+					}
+					}
+						}
+						else
+				{
+					echo "";
+				}
+				?>],
+					initialPreviewConfig: []
+				});
+				})
 
 </script>
 <!-- Chart Script -->

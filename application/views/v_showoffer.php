@@ -40,10 +40,10 @@
             data: {
                 show: false,
                 main_titles:[],
-                //main_url:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
-                //base_url:'http://random.host:8888/magang/codeigniter/admin2/',
-                 main_url:'http://phinemoo.com/admin2/index.php/',
-                 base_url:'http://phinemoo.com/admin2/',
+                main_url:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
+                base_url:'http://random.host:8888/magang/codeigniter/admin2/',
+                //  main_url:'http://phinemoo.com/admin2/index.php/',
+                //  base_url:'http://phinemoo.com/admin2/',
                 main_descs:[]            
             },
             components: {

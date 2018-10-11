@@ -42,6 +42,12 @@ class M_product extends CI_Model {
         $this->db->order_by('jenis_tour', 'asc');
         return $this->db->get('jenis')->result();
     }
+    public function search_operator($key){
+        $this->db->like('nama_operator', $key, 'both');
+        $this->db->order_by('nama_operator', 'asc');
+        $this->db->limit(10);
+        return $this->db->get('operator')->result();
+    }
     // ===========MEDIA QUERY=============
     //uploade foto
     public function upload_media($title,$picture,$resized){

@@ -18,7 +18,7 @@ class C_operator extends CI_Controller {
     }
 
     public function add(){
-        $nama = $this->input->post('nama');
+        $nama = $this->input->post('namaoperator');
         $biografi = $this->input->post('biografi');
         $contact = $this->socialencode();
         $pic = $this->upload_image();
@@ -37,18 +37,19 @@ class C_operator extends CI_Controller {
         foreach ($data['operator'] as $row){
             $where_media = array('id_media'=>$row->id_media);
             $data['gambar'] = $this->M_operator->getwhere('media',$where_media)->result();
-            // $data['gambar'] = $this->M_operator->getwehere('media',$where)->result();
+            // $data['default'] = null;
         }
         // var_dump($data['gambar']);
         $this->load->view('header');
         $this->load->view('navbar');
         $this->load->view('v_operator_edit',$data);
+        $data['gambar'] = null;
         $this->load->view('bottombar');
         $this->load->view('footer',$data);
     }
    public function update(){
         $id = $this->input->post('id');
-        $nama = $this->input->post('nama');
+        $nama = $this->input->post('namaoperator');
         $biografi = $this->input->post('biografi');
         $contact = $this->socialencode();
         $id_media = $this->upload_image();
@@ -141,10 +142,10 @@ class C_operator extends CI_Controller {
                 }
 	                 
 	        }else{
-                $getid = array('file_name'=>'user');//ambigues, when pic. names are same.
+                $getid = array('file_name'=>'default_profile');//ambigues, when pic. names are same.
                 $id = $this->M_operator->fetch_media($getid)->result();
                     // var_dump($id);
-                $id_media = (int)$id[0]->id_media;
+                $id_media = null;
         }
         return $id_media; //return to caller
 				

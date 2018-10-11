@@ -27,7 +27,9 @@ class C_product extends CI_Controller {
     }
     
     public function add(){
-        $nama = $this->input->post('nama');
+        $namaproduct = $this->input->post('namaproduct');
+        $kotaproduct = $this->input->post('kotaproduct'); //not yet
+        $jenisproduct = $this->input->post('jenisproduct');//not yet
         $range = $this->input->post('range');
         $id_media = $this->upload_image();
         $jml_anggota = $this->input->post('jml_anggota');
@@ -40,7 +42,7 @@ class C_product extends CI_Controller {
         $start = date("Y/m/d",strtotime($this->splitDate(0)));
         $end = date("Y/m/d",strtotime($this->splitDate(1)));
         $data_product = array(
-            'nama_produk'=>$nama,
+            'nama_produk'=>$namaproduct,
             'tanggal_mulai'=>$start,
 			'tanggal_akhir'=>$end,
 			'jml_anggota'=>$jml_anggota,
@@ -92,14 +94,16 @@ class C_product extends CI_Controller {
         $this->load->view('v_product_edit',$data);
         $this->load->view('bottombar');
         // var_dump($data);
-        $this->load->view('footer',$data);
+        $this->load->view('footer');
     }
     public function getMedia($key){
         
     }
    public function update(){
 	   	$id = $this->input->post('id_produk');
-		$nama = $this->input->post('nama');
+        $nama = $this->input->post('namaproduct');
+        $kotaproduct = $this->input->post('kotaproduct'); //not yet
+        $jenisproduct = $this->input->post('jenisproduct');//not yet
 		$start = date("Y/m/d",strtotime($this->splitDate(0)));
         $end = date("Y/m/d",strtotime($this->splitDate(1)));
 		$id_media = $this->upload_image();
@@ -140,6 +144,20 @@ class C_product extends CI_Controller {
                 foreach ($result as $row){
                     // var_dump($row);
                     $arr_result[] = $row->nama_kota;
+                }
+                echo json_encode($arr_result);
+            }
+        }
+    }
+    public function autooperator(){
+        
+        if (isset($_GET['nama_operator'])){
+            $result = $this->M_product->search_operator($_GET['nama_operator']);
+            // var_dump($result);
+            if (count($result) > 0){
+                foreach ($result as $row){
+                    // var_dump($row);
+                    $arr_result[] = $row->nama_operator;
                 }
                 echo json_encode($arr_result);
             }
@@ -251,14 +269,18 @@ class C_product extends CI_Controller {
                     $id_media[] = (int)$id[0]->id_media;
                     }
                 else{
-
+                        echo "<script>alert('failed to upload photo')</script>";
                     }
 	                 
 	        }else{
-                    $getid = array('file_name'=>'user.jpg');//ambigues, when pic. names are same.
+                    $getid = array('file_name'=>'default_picture');//ambigues, when pic. names are same.
                     $id = $this->M_product->fetch_media($getid)->result();
                     // var_dump($id);
-                    $id_media[] = (int)$id[0]->id_media;
+                    for ($i =0; $i<3;$i++){
+                        $id_media[] = (int)$id[0]->id_media;
+                    }
+                    // var_dump($id_media);
+                    
                 }
         }
         // $med = json_encode($id_media);
