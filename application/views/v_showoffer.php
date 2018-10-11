@@ -42,8 +42,8 @@
                 main_titles:[],
                 //main_url:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
                 //base_url:'http://random.host:8888/magang/codeigniter/admin2/',
-                main_url:'http://localhost/proto/prototype/admin2/index.php/',
-                base_url:'http://localhost/proto/prototype/admin2/',
+                main_url:'http://localhost/admin2/index.php/',
+                base_url:'http://localhost/admin2/',
                 //main_url:'http://phinemo.com/admin2/index.php/',
                 //base_url:'http://phinemo.com/admin2/',
                 main_descs:[]            

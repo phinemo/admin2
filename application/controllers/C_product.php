@@ -104,12 +104,6 @@ class C_product extends CI_Controller {
 		$start = date("Y/m/d",strtotime($this->splitDate(0)));
         $end = date("Y/m/d",strtotime($this->splitDate(1)));
         $id_med = $this->upload_image();
-        if($id_med != NULL){
-            $id_media = $this->input->post('id_foto_old');
-        }
-        else{
-            $id_media = $id_med;
-        }
 		$jml_anggota = $this->input->post('jml_anggota');
 		$harga = $this->input->post('harga');
         $deskripsi = $this->desc_encode();
@@ -123,8 +117,16 @@ class C_product extends CI_Controller {
 			'harga'=>$harga,
             'deskripsi' =>$deskripsi,
             'id_thumb'=>$id_thumb,
-            'id_media'=>$id_media,
             'id_operator'=>$id_operator);
+
+        if ($id_med[0] != NULL) {
+            $where = array('id_produk' => $id);
+            $get['product'] = $this->M_product->getwhere('produk',$where)->result();
+            $result = json_decode($get['product'][0]->id_media);
+            $id_media_new = array_merge($result,$id_med); 
+            $id_media = json_encode($id_media_new);
+            $data['id_media'] = $id_media;
+        } 
         // var_dump($data);
             
         $where = array(

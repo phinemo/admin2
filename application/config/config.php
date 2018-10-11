@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 // $config['base_url'] = 'http://phinemoo.com/admin2';
 //   $config['base_url'] = 'http://localhost/proto/prototype/admin2/';
-$config['base_url'] = 'http://random.host:8888/magang/codeigniter/admin2/';
+$config['base_url'] = 'http://localhost/admin2/';
 
 /*
 |--------------------------------------------------------------------------
@@ -382,7 +382,7 @@ $config['encryption_key'] = 'phinemomerchant';
 $config['sess_driver'] = 'files';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = sys_get_temp_dir();
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
