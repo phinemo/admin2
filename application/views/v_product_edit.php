@@ -33,7 +33,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
-								<input type="hidden" class="form-control" name="id_produk" value="<?php echo $data->id_produk ?> ">
+								<input type="hidden" class="form-control" name="id_produk" value="<?php echo $data->id_produk?>">
+								<input type="hidden" class="form-control" name="id_produk" value="<?php echo $this->session->userdata('id_operator')?>">
 								<input type="text" class="form-control" name="nama" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->nama_produk ?> ">
 							</div>
 							<div class="form-group">
@@ -71,10 +72,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<!-- form start -->
 						<div class="box-body">
 							<h4>Upload your image</h4>
-							<form class="form-horizontal" method="post">
+							<!-- <form class="form-horizontal" method="post"> -->
 								<!-- <div class="form-group">
 								<input type="text" name="judul" class="form-control" placeholder="Judul">
 							</div> -->
+							
 								<div class="form-group">
 								<div class="file-loading">
 									<input id="filefoto" name="filefoto[]" type="file" multiple>

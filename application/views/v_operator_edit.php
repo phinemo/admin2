@@ -95,10 +95,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<input type="text" name="judul" class="form-control" placeholder="Judul">
 							</div> -->
 								<div class="form-group">
-									<?php foreach ($gambar as $pic){
-										// var_dump($pic); 	
-									 ?>
-									<input type="file" name="filefoto" class="dropify" data-height="300" data-default-file="<?php echo base_url().'upload/images/'.$pic->gambar; }?>">
+									<?php 
+									if ($gambar != null){
+										foreach ($gambar as $pic){
+											echo '<input type="file" name="filefoto" class="dropify" data-height="300" data-default-file="'.base_url().'upload/images/'.$pic->gambar.'">';
+										}
+									}
+									else{
+										echo '<input type="file" name="filefoto" class="dropify" data-height="300" data-default-file="'.base_url().'upload/images/default.png">';	
+									}
+								?>
 								</div>
 
 						</div>

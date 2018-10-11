@@ -14,6 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<i class="fa fa-dashboard"></i> Home</a>
 			</li>
 			<li class="active">Dashboard</li>
+			
 		</ol>
 	</section>
 	<section class="content">
@@ -31,8 +32,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
-								<input type="text" class="form-control" name="nama" id="namaProduct" placeholder="Enter your name"
-								 ">
+								<input type="hidden" name="operator" value="<?php echo $this->session->userdata('id_operator')?>">
+								<input type="text" class="form-control" name="nama" id="namaProduct" placeholder="Enter your name">
 						</div>
 						<div class=" form-group">
 								<label>Range trip period</label>

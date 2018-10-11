@@ -27,16 +27,16 @@
 				<!-- User Account: style can be found in dropdown.less -->
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="<?php echo base_url().'upload/images/user.jpg'?>" class="user-image" alt="User Image">
-						<span class="hidden-xs">Alexander Pierce</span>
+						<img src="<?php echo base_url().'upload/images/'.$this->session->userdata('thumb');?>" class="user-image" alt="User Image">
+						<span class="hidden-xs"><?php echo $this->session->userdata('nama');?></span>
 					</a>
 					<ul class="dropdown-menu">
 						<!-- User image -->
 						<li class="user-header">
-							<img src="<?php echo base_url().'upload/images/user.jpg'?>" class="img-circle" alt="User Image">
+							<img src="<?php echo base_url().'upload/images/'.$this->session->userdata('image');?>" class="img-circle" alt="User Image">
 
 							<p>
-								Alexander Pierce - Web Developer
+								<?php echo $this->session->userdata('nama');?>
 								<small>Member since Nov. 2012</small>
 							</p>
 						</li>
@@ -61,7 +61,7 @@
 								<a href="#" class="btn btn-default btn-flat">Profile</a>
 							</div>
 							<div class="pull-right">
-								<a href="<?php echo site_url('C_login/') ?>" class="btn btn-default btn-flat">Sign out</a>
+								<a href="<?php echo site_url('C_login/logout'); ?>" class="btn btn-default btn-flat">Sign out</a>
 							</div>
 						</li>
 					</ul>
@@ -81,10 +81,10 @@
 		<!-- Sidebar user panel -->
 		<div class="user-panel">
 			<div class="pull-left image">
-				<img src="<?php echo base_url().'upload/images/user.jpg'?>" class="img-circle" alt="User Image">
+				<img src="<?php echo base_url().'upload/images/'.$this->session->userdata('thumb');?>" class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-				<p>Alexander Pierce</p>
+				<p><?php echo $this->session->userdata('nama');?></p>
 				<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 			</div>
 		</div>
