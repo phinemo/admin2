@@ -1,5 +1,3 @@
-
-
 <!-- Control Sidebar -->
 </div>
 <!-- ./wrapper -->
@@ -13,13 +11,14 @@
 <!-- iCheck -->
 <script src="<?php echo base_url('admintemplate/plugins/iCheck/icheck.min.js')?>"></script>
 <script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' /* optional */
-    });
-  });
+	$(function () {
+		$('input').iCheck({
+			checkboxClass: 'icheckbox_square-blue',
+			radioClass: 'iradio_square-blue',
+			increaseArea: '20%' /* optional */
+		});
+	});
+
 </script>
 <!-- DataTables -->
 <script src="<?php echo base_url('admintemplate/bower_components/datatables.net/js/jquery.dataTables.min.js')?>"></script>
@@ -68,46 +67,46 @@
 	// 	//bootstrap WYSIHTML5 - text editor
 	// 	$('textarea.textarea').wysihtml5()
 	// });
-	
+
 	// Run summer note
 	$(document).ready(function () {
 		$('#descsingkat').summernote({
-      // disableResizeEditor: true
-    //   airMode:true,
-      height:"100px",
-      placeholder:'quick description'
+			// disableResizeEditor: true
+			//   airMode:true,
+			height: "100px",
+			placeholder: 'quick description'
 		});
 		$('#biografi').summernote({
-      // disableResizeEditor: true
-    //   airMode:true,
-      height:"400px",
-      // placeholder:'quick description'
-    });
-    $('#highlight').summernote({
-      // disableResizeEditor: true
-    //   airMode:true,
-      height:"300px",
-      placeholder:'Main features of your product'
-    });
-    $('#fasilitas').summernote({
-      // disableResizeEditor: true
-    //   airMode:true,
-      height:"300px",
-      placeholder:'Your facilites you provide'
-    });
-    $('#kebijakan').summernote({
-      // disableResizeEditor: true
-    //   airMode:true,
-      height:"300px",
-      placeholder:'Term and condition'
+			// disableResizeEditor: true
+			//   airMode:true,
+			height: "400px",
+			// placeholder:'quick description'
+		});
+		$('#highlight').summernote({
+			// disableResizeEditor: true
+			//   airMode:true,
+			height: "300px",
+			placeholder: 'Main features of your product'
+		});
+		$('#fasilitas').summernote({
+			// disableResizeEditor: true
+			//   airMode:true,
+			height: "300px",
+			placeholder: 'Your facilites you provide'
+		});
+		$('#kebijakan').summernote({
+			// disableResizeEditor: true
+			//   airMode:true,
+			height: "300px",
+			placeholder: 'Term and condition'
 
-    });
-    // $('.note-statusbar').hide(); 
-    $('.noteair').summernote({
-    //   airMode:true,
-      placeholder:'write your description here',
-      height:"300px",
-    });
+		});
+		// $('.note-statusbar').hide(); 
+		$('.noteair').summernote({
+			//   airMode:true,
+			placeholder: 'write your description here',
+			height: "300px",
+		});
 		$('#kota').autocomplete({
 			source: function (req, res) {
 				$.getJSON("<?php echo site_url('C_product/autokota/')?>", {
@@ -131,15 +130,15 @@
 				}
 				$('select#jenis').append(html);
 			});
-			$("#filefoto").fileinput({
-				'theme': 'explorer-fa',
-				'uploadUrl': null,
-				data: 'filefoto',
-				showUpload:false,
-				overwriteInitial: false,
-				initialPreviewAsData: true,
-    		initialPreview: [
-      		<?php 
+		$("#filefoto").fileinput({
+			'theme': 'explorer-fa',
+			'uploadUrl': null,
+			data: 'filefoto',
+			showUpload: false,
+			overwriteInitial: false,
+			initialPreviewAsData: true,
+			initialPreview: [
+				<?php 
       			// var_dump($gambar);
         	if (isset($gambar[0]) && count($gambar[0]) != 0){
           		foreach ($gambar as $row){
@@ -147,10 +146,11 @@
             		echo "'".base_url()."upload/images/".$row[0]->resized."',";
 						}
 					}
-				?>],
-					initialPreviewConfig: []
-				});
-				})
+				?>
+			],
+			initialPreviewConfig: []
+		});
+	})
 
 </script>
 <!-- Chart Script -->
@@ -208,6 +208,31 @@
 		$('#reservation').daterangepicker({}, function (start, end, label) {
 			console.log(start.format('YYYY/MM/DD'));
 			console.log(end.format('YYYY/MM/DD'))
+		});
+		$(function () {
+
+			var start = moment().subtract(29, 'days');
+			var end = moment();
+
+			function cb(start, end) {
+				$('#statistic span').html(start.format('D/MM/YYYY') + ' - ' + end.format('D/MM/YYYY'));
+			}
+
+			$('#statistic').daterangepicker({
+				startDate: start,
+				endDate: end,
+				ranges: {
+					'Today': [moment(), moment()],
+					'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+					'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+					'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+					'This Month': [moment().startOf('month'), moment().endOf('month')],
+					'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+				}
+			}, cb);
+
+			cb(start, end);
+
 		});
 		//Date range picker with time picker
 		$('#reservationtime').daterangepicker({

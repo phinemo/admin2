@@ -1,11 +1,19 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 class C_dashboard extends CI_Controller {
+    
+    public function __construct()
+    {
+        parent::__construct();
+        //Do your magic here
+        $this->load->model('M_dashboard');
+    }
+    
 
     public function index()
     {
+        $this->M_dashboard->getProduct();
         $this->load->view('header');
         $this->load->view('navbar');
         $this->load->view('v_dashboard');
