@@ -47,7 +47,7 @@
             <div class="uk-modal-dialog uk-position-bottom" style="height:auto;" >
                 <button class="uk-modal-close-outside uk-padding-small" type="button" uk-close></button>
                 <div class="uk-modal-footer uk-text-center uk-width-1-1">
-                    <a class="uk-margin-small-right" href="intent://send/+6282335478000#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"><img src="img/wa.svg" width="48" height="48" alt=""></a>
+                    <a class="uk-margin-small-right" href="https://wa.me/+6282335478000"><img src="img/wa.svg" width="48" height="48" alt=""></a>
                     <a href="tel:+6282335478000"><img src="img/phone.svg" width="48" height="48" alt=""></a>
                 </div>
             </div>
@@ -57,7 +57,7 @@
             <div class="uk-modal-dialog uk-position-bottom" style="height:auto;" >
                 <button class="uk-modal-close-outside uk-padding-small" type="button" uk-close></button>
                 <div class="uk-modal-footer uk-text-center uk-width-1-1">
-                    <a class="uk-margin-small-right" href="intent://send/+6282335478000#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"><img src="img/wa.svg" width="48" height="48" alt=""></a>
+                    <a class="uk-margin-small-right" href="https://wa.me/+6282335478000"><img src="img/wa.svg" width="48" height="48" alt=""></a>
                     <a class="uk-margin-small-right" href="sms:+6282335478000?body= Welcome Phinemo Merchant"><img src="img/mail.svg" width="48" height="48" alt=""></a>
                     <a href="sms:+6282335478000&body= Welcome Phinemo Merchant"><img src="img/ios.svg" width="48" height="48" alt=""></a>
                 </div>
