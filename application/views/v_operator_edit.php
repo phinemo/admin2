@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Operator</label>
 								<input type="hidden" class="form-controll" name="id" id="idOperator" value="<?php echo $data->id_operator ?>">
-								<input type="text" class="form-control rounded" name="nama" id="namaOperator" placeholder="Enter your name"
+								<input type="text" class="form-control rounded" name="namaoperator" id="namaOperator" placeholder="Enter your name"
 								 value="<?php echo $data->nama_operator ?>">
 							</div>
 							<div class="form-group">
@@ -96,13 +96,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div> -->
 								<div class="form-group">
 									<?php 
-									if ($gambar != null){
+									if ($gambar != null){ //tambahkan $_FILES untuk pengecualian
 										foreach ($gambar as $pic){
 											echo '<input type="file" name="filefoto" class="dropify" data-height="300" data-default-file="'.base_url().'upload/images/'.$pic->gambar.'">';
 										}
 									}
 									else{
-										echo '<input type="file" name="filefoto" class="dropify" data-height="300" data-default-file="'.base_url().'upload/images/default.png">';	
+										echo '<input type="file" name="filefoto" class="dropify" data-height="300">';	
 									}
 								?>
 								</div>
@@ -126,7 +126,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<!-- /.box-header -->
 						<div class="box-body pad">
-							<textarea class="textarea" name="biografi" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"><?php echo $data->biografi ?></textarea>
+						<!-- <textarea name="biografi" id="biografi" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea> -->
+							<textarea id="biografi" name="biografi" placeholder="Place some text here" ><?php echo $data->biografi ?></textarea>
 						</div>
 					</div>
 				</div>

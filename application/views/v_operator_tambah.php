@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Operator</label>
-								<input type="text" class="form-control rounded" name="nama" id="namaOperator" placeholder="Enter your name">
+								<input type="text" class="form-control rounded" name="namaoperator" id="namaOperator" placeholder="Enter your name">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">Phone</label>
@@ -112,7 +112,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<!-- /.box-header -->
 						<div class="box-body pad">
-							<textarea name="biografi" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+							<textarea name="biografi" id="biografi" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
 						</div>
 					</div>
 				</div>

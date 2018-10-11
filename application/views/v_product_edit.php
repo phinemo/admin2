@@ -32,10 +32,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<!-- form start -->
 						<div class="box-body">
 							<div class="form-group">
+								<label for="exampleInputEmail1">Operator</label>
+								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name" >
+							</div>
+							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
 								<input type="hidden" class="form-control" name="id_produk" value="<?php echo $data->id_produk?>">
 								<input type="hidden" class="form-control" name="id_produk" value="<?php echo $this->session->userdata('id_operator')?>">
-								<input type="text" class="form-control" name="nama" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->nama_produk ?> ">
+								<input type="text" class="form-control" name="namaproduct" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->nama_produk ?> ">
 							</div>
 							<div class="form-group">
 								<label>Range trip period</label>
@@ -46,6 +50,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<input type="text" name="range" class="form-control pull-right" id="reservation">
 								</div>
 								<!-- /.input group -->
+							</div>
+							<div class="form-group">
+								<div class="row">
+									<div class="col-xs-6">
+										<label for="exampleInputEmail1">Kota</label>
+										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Pilih kota">
+									</div>
+									<div class="col-xs-6">
+										<label>Jenis Tour</label>
+										<select class="form-control select2" style="width: 100%;" id="jenis" name="jenisproduct">
+										</select>
+									</div>
+								</div>
+
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Jumlah Anggota</label>
