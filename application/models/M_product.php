@@ -8,7 +8,10 @@ class M_product extends CI_Model {
         
     }
     //get where value
-    public function getwhere($table,$where){
+    public function getwhere($table,$where,$select = NULL){
+        if ($select != NULL){
+            $this->db->select($select);
+        }
         return $this->db->get_where($table,$where);
     }
     //============CRUD===========

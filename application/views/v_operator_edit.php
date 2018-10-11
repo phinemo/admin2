@@ -96,8 +96,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div> -->
 								<div class="form-group">
 									<?php 
-									if ($gambar != null){ //tambahkan $_FILES untuk pengecualian
+									if ($gambar != null){
+										// var_dump($gambar); //tambahkan $_FILES untuk pengecualian
 										foreach ($gambar as $pic){
+											echo '<input type="hidden" name="id_foto_old" value="'.$pic->id_media.'">';
+											echo '<input type="hidden" name="id_foto" value="'.$pic->id_media.'">';
 											echo '<input type="file" name="filefoto" class="dropify" data-height="300" data-default-file="'.base_url().'upload/images/'.$pic->gambar.'">';
 										}
 									}
