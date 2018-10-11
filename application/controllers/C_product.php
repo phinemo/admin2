@@ -66,7 +66,7 @@ class C_product extends CI_Controller {
         // $explode = explode(',',$data['media']);
         // var_dump(json_encode($data['media']));
         // $getid = json_decode($data['media']);
-        // var_dump($data['media']);
+        // var_dump($data['media']); 
         
         foreach ($data['media'] as $row){//get json data and decode data to array (id_media)
             // var_dump($data['media']);
