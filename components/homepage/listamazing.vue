@@ -5,7 +5,7 @@
                 <div class=" uk-card uk-card-default uk-box-shadow-material-small uk-border-rounded">
                     <div class="uk-card-media-top">
                         <a :href="offer.url"><img class="uk-border-rounded uk-height-small uk-width-1-1" 
-                        :data-src="offer.image" :alt="offer.title" uk-img></a>
+                        :data-src="sub_base_url+'admintemplate/dist_view/img/'+offer.image" :alt="offer.title" uk-img></a>
                         <span class="uk-flex uk-position-bottom-right uk-label uk-margin-right" 
                         :style="s_label">{{offer.label}} </span>
                     </div>
@@ -24,11 +24,17 @@
 
 <script>
     module.exports = {
+        props: {
+			sub_base_url: {
+				type: String,
+				require: true
+			},
+        },
         data: function () {
             return {
                 offers: [{
                         title: 'Mt. Batur Sunrise Hike ',
-                        image: 'img/batur.jpg',
+                        image: 'batur.jpg',
                         price: '600',
                         ratings: 3,
                         label: 'Top Rated',
@@ -36,7 +42,7 @@
                     },
                     {
                         title: 'Ubud Cycling Tour',
-                        image: 'img/ubud_sepeda.jpg',
+                        image: 'ubud_sepeda.jpg',
                         price: '700',
                         ratings: 1,
                         label: 'Best Seller',
@@ -44,7 +50,7 @@
                     },
                     {
                         title: 'Gili Meno Fun Dive Trip',
-                        image: 'img/gili_meno.jpg',
+                        image: 'gili_meno.jpg',
                         price: '800',
                         ratings: 5,
                         label: 'Spesial Offer',
@@ -52,7 +58,7 @@
                     },
                     {
                         title: 'Dieng Plateau Golden Sunrise',
-                        image: 'img/dieng.jpg',
+                        image: 'dieng.jpg',
                         price: '350',
                         ratings: 1,
                         label: 'Popular',
@@ -60,7 +66,7 @@
                     },
                     {
                         title: 'Lava Tour Yogyakarta',
-                        image: 'img/lava_tour.jpg',
+                        image: 'lava_tour.jpg',
                         price: '1000',
                         ratings: 4,
                         label: 'Popular',
@@ -68,7 +74,7 @@
                     },
                     {
                         title: 'Ubud Cycling Tour',
-                        image: 'img/ubud_sepeda.jpg',
+                        image: 'ubud_sepeda.jpg',
                         price: '700',
                         ratings: 1,
                         label: 'Best Seller',
