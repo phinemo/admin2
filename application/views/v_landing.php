@@ -33,7 +33,7 @@
       	<img src="<?php echo base_url('admintemplate/dist_view/img/phinemo.png')?>" width="200" height="35" class="img-fluid nav-logo-desktop" alt="Company Logo">
         <ul class="navbar-nav ml-auto nav-right" data-easing="easeInOutExpo" data-speed="1250" data-offset="65">
           <li class="nav-item nav-custom-link btn btn-demo-small ">
-            <a class="nav-link" href="<?php echo base_url('index.php/c_landing')?>">Home <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
+            <a class="nav-link" href="<?php echo base_url()?>">Home <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
           </li>
           <li class="nav-item nav-custom-link">
             <a class="nav-link" href="#marketing">About <i class="icon ion-ios-arrow-forward icon-mobile"></i></a>
