@@ -95,23 +95,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<!-- <div class="form-group">
 								<input type="text" name="judul" class="form-control" placeholder="Judul">
 							</div> -->
-									<?php 
-									if(isset($gambar)){
-										var_dump($gambar);
-										foreach ($gambar as $id){
-											echo '<input name="id_foto[]" type="hidden" value="'.$id->id_media.'">';
-											echo '<input name="id_foto_old[]" type="hidden" value="'.$id->id_media.'">';
-										};	
-									}
-									else{
-										echo "";
-									}
-										
-									?>
 								<div class="form-group">
 								<div class="file-loading">
 									
-									<input id="filefoto" name="filefoto[]" type="file" multiple>
+									<input id="editfoto" name="filefoto[]" type="file" multiple>
 								</div>
 								</div>
 

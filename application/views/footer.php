@@ -131,7 +131,7 @@
 				}
 				$('select#jenis').append(html);
 			});
-			$("#filefoto").fileinput({
+			$("#filefoto").fileinput({ 
 				'theme': 'explorer-fa',
 				'uploadUrl': null,
 				data: 'filefoto',
@@ -150,7 +150,28 @@
 				?>],
 					initialPreviewConfig: []
 				});
-				})
+			
+			$("#editfoto").fileinput({ 
+				'theme': 'explorer-fa',
+				'uploadUrl': null,
+				data: 'filefoto',
+				showUpload:false,
+				overwriteInitial: false,
+				deleteUrl: '<?php echo base_url()."upload/images/file-delete"; ?>',
+				initialPreviewAsData: true,
+    			initialPreview: [
+							<?php 
+								// var_dump($gambar);
+							if (isset($gambar[0]) && count($gambar[0]) != 0){
+								foreach ($gambar as $row){
+								// var_dump($row->gambar);
+									echo "'".base_url()."upload/images/".$row[0]->resized."',";
+										}
+									}
+								?>],
+				initialPreviewConfig: []
+				});
+			})
 
 </script>
 <!-- Chart Script -->
