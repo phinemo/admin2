@@ -34,6 +34,7 @@ class C_product extends CI_Controller {
         $harga = $this->input->post('harga');
         $deskripsi = $this->desc_encode();
         $id_thumb = $this->id_thumb;
+        $id_operator = $this->input->post('operator');
         // $logo = $this->input->post('logo');
         // $splitString = explode('-', $range);
         $start = date("Y/m/d",strtotime($this->splitDate(0)));
@@ -46,7 +47,8 @@ class C_product extends CI_Controller {
 			'harga'=>$harga,
 			'deskripsi' =>$deskripsi,
             'id_media'=>$id_media,
-            'id_thumb'=>$id_thumb);
+            'id_thumb'=>$id_thumb,
+            'id_operator'=>$id_operator);
         // var_dump($_POST);
         $this->M_product->insert('produk',$data_product);
         redirect('C_product/');
@@ -105,6 +107,7 @@ class C_product extends CI_Controller {
 		$harga = $this->input->post('harga');
         $deskripsi = $this->desc_encode();
         $id_thumb = $this->id_thumb;
+        $id_operator = $this->input->post('operator');
     
         $data = array(
             'nama_produk'=>$nama,
@@ -113,7 +116,8 @@ class C_product extends CI_Controller {
 			'jml_anggota'=>$jml_anggota,
 			'harga'=>$harga,
 			'deskripsi' =>$deskripsi,
-			'id_media'=>$id_media);
+            'id_media'=>$id_media,
+            'id_operator'=>$id_operator);
     
         $where = array(
             'id_produk' => $id
@@ -239,6 +243,7 @@ class C_product extends CI_Controller {
                     $resized = $pic['raw_name'].'_thumb'.$pic['file_ext'];
                     // upload to database
                     $this->M_product->upload_media($pic_name,$picture,$resized);
+                    
                     // Retrive id_media from media
                     $getid = array('file_name'=>$pic_name);//ambigues, when pic. names are same.
                     $id = $this->M_product->fetch_media($getid)->result();
@@ -250,7 +255,11 @@ class C_product extends CI_Controller {
                     }
 	                 
 	        }else{
-                    }
+                    $getid = array('file_name'=>'user.jpg');//ambigues, when pic. names are same.
+                    $id = $this->M_product->fetch_media($getid)->result();
+                    // var_dump($id);
+                    $id_media[] = (int)$id[0]->id_media;
+                }
         }
         // $med = json_encode($id_media);
         // var_dump(json_encode($med));       

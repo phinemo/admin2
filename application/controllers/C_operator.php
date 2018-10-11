@@ -141,6 +141,10 @@ class C_operator extends CI_Controller {
                 }
 	                 
 	        }else{
+                $getid = array('file_name'=>'user');//ambigues, when pic. names are same.
+                $id = $this->M_operator->fetch_media($getid)->result();
+                    // var_dump($id);
+                $id_media = (int)$id[0]->id_media;
         }
         return $id_media; //return to caller
 				
