@@ -24,6 +24,7 @@ class C_showoffer extends CI_Controller {
         }
         
     }
+    
     public function index($key)
     {
         $where = array('produk'=>$key);

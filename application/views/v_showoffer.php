@@ -25,7 +25,7 @@
             <div id="end" class="uk-margin-large-top"></div>
             <!-- <div id="end" class="uk-margin-large-top"></div> -->
                 <div class="uk-container uk-margin-small-top uk-width-3-5@m">
-                    <stickyshowoffer></stickyshowoffer>
+                    <stickyshowoffer :numbers="main_titles" :sub_base_url="base_url"></stickyshowoffer>
                 </div>
 
         </div>
