@@ -18,7 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</section>
 	<section class="content">
 		<?php foreach ($product as $data){
-			$deskripsi = json_decode($data->deskripsi)?>
+			// var_dump($gambar);
+			$deskripsi = json_decode($data->deskripsi);?>
 		<form role="form" class="form-validate" method="post" action="<?php echo base_url('index.php/C_product/update'); ?>      "
 		 enctype="multipart/form-data">
 			<div class="row">
@@ -38,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
 								<input type="hidden" class="form-control" name="id_produk" value="<?php echo $data->id_produk?>">
-								<input type="hidden" class="form-control" name="id_produk" value="<?php echo $this->session->userdata('id_operator')?>">
+								<input type="hidden" class="form-control" name="id_operator" value="<?php echo $this->session->userdata('id_operator')?>">
 								<input type="text" class="form-control" name="namaproduct" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->nama_produk ?> ">
 							</div>
 							<div class="form-group">
@@ -94,10 +95,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<!-- <div class="form-group">
 								<input type="text" name="judul" class="form-control" placeholder="Judul">
 							</div> -->
-							
 								<div class="form-group">
 								<div class="file-loading">
-									<input id="filefoto" name="filefoto[]" type="file" multiple>
+									
+									<input id="editfoto" name="filefoto[]" type="file" multiple>
 								</div>
 								</div>
 

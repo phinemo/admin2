@@ -52,7 +52,15 @@ class C_operator extends CI_Controller {
         $nama = $this->input->post('namaoperator');
         $biografi = $this->input->post('biografi');
         $contact = $this->socialencode();
-        $id_media = $this->upload_image();
+        $upload = $this->upload_image();
+        if ($upload == NULL){
+            $id_media = $this->input->post('id_foto_old');
+        }
+        else{
+            $id_media = $upload;
+        }
+
+        // varfdsakfd;ladfkl_dump($id_media);
         $data = array(
             'nama_operator' => $nama,
             'biografi' => $biografi,

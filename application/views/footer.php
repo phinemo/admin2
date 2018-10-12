@@ -59,7 +59,7 @@
 <!-- <script src="../js/locales/es.js" type="text/javascript"></script> -->
 <script src="<?php echo base_url('admintemplate/fileinput/themes/explorer-fa/theme.js')?>" type="text/javascript"></script>
 <script src="<?php echo base_url('admintemplate/fileinput/themes/fa/theme.js')?>" type="text/javascript"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 <script>
 	// $(function () {
 	// 	// Replace the <textarea id="editor1"> with a CKEditor
@@ -122,13 +122,6 @@
 				}, res);
 			}
 		});
-		// $('#jenis').autocomplete({
-		// 	source: function (req, res) {
-		// 		$.getJSON("<?php echo site_url('C_product/autojenis/')?>", {
-		// 			jenis_tour: req.term
-		// 		}, res);
-		// 	}
-		// });
 		$.getJSON('<?php echo site_url("C_product/autojenis/")?>',
 			function (data) {
 				var html = '';
@@ -138,7 +131,7 @@
 				}
 				$('select#jenis').append(html);
 			});
-			$("#filefoto").fileinput({
+			$("#filefoto").fileinput({ 
 				'theme': 'explorer-fa',
 				'uploadUrl': null,
 				data: 'filefoto',
@@ -147,23 +140,38 @@
 				initialPreviewAsData: true,
     		initialPreview: [
       		<?php 
-      	// var_dump(gettype($gambar));
-        	if (isset($gambar) && count($gambar) != 0 && gettype($gambar) == 'array'){
-        		for ($i = 0; $i < count($gambar); $i++){
-          		foreach ($gambar[$i] as $row){
+      			// var_dump($gambar);
+        	if (isset($gambar[0]) && count($gambar[0]) != 0){
+          		foreach ($gambar as $row){
           		// var_dump($row->gambar);
-            		echo "'".base_url()."upload/images/".$row->gambar."',";
-					}
-					}
+            		echo "'".base_url()."upload/images/".$row[0]->resized."',";
 						}
-						else
-				{
-					echo "";
-				}
+					}
 				?>],
 					initialPreviewConfig: []
 				});
-				})
+			
+			$("#editfoto").fileinput({ 
+				'theme': 'explorer-fa',
+				'uploadUrl': null,
+				data: 'filefoto',
+				showUpload:false,
+				overwriteInitial: false,
+				deleteUrl: '<?php echo base_url()."upload/images/file-delete"; ?>',
+				initialPreviewAsData: true,
+    			initialPreview: [
+							<?php 
+								// var_dump($gambar);
+							if (isset($gambar[0]) && count($gambar[0]) != 0){
+								foreach ($gambar as $row){
+								// var_dump($row->gambar);
+									echo "'".base_url()."upload/images/".$row[0]->resized."',";
+										}
+									}
+								?>],
+				initialPreviewConfig: []
+				});
+			})
 
 </script>
 <!-- Chart Script -->
@@ -200,7 +208,7 @@
 			$(this).val('');
 		})
 		$('dropify').change(function (e) {
-			console.log(e);
+			// console.log(e);
 		})
 	});
 
