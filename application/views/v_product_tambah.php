@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="exampleInputEmail1">Harga</label>
 								<div class="input-group">
 									<span class="input-group-addon">IDR</span>
-									<input type="number" class="form-control" name="harga" id="namaProduct" placeholder="Masukkan harga">
+									<input type="text" class="form-control harga" name="harga" id="namaProduct" placeholder="Masukkan harga" onkeyup="splitInDots(this)">
 								</div>
 							</div>
 						</div>

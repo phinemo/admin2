@@ -34,7 +34,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Operator</label>
-								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name" value="<?php echo $operator[0]->nama_operator ?>">
+								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name" value="<?php 
+								 if (!empty($operator)) echo $operator[0]->nama_operator; else echo "";
+								 ?>">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
@@ -56,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="row">
 									<div class="col-xs-6">
 										<label for="exampleInputEmail1">Kota</label>
-										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Pilih kota" value="<?php echo $kota[0]->nama_kota?>">
+										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Pilih kota" value="<?php if(!empty($kota))echo $kota[0]->nama_kota;else echo "";?>">
 									</div>
 									<div class="col-xs-6">
 										<label>Jenis Tour</label>
@@ -68,11 +70,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Jumlah Anggota</label>
-								<input type="text" class="form-control" name="jml_anggota" id="namaProduct" placeholder="Enter your name" value=" <?php echo $data->jml_anggota?>">
+								<input type="number" class="form-control" name="jml_anggota" id="namaProduct" placeholder="Enter your name" value=" <?php echo $data->jml_anggota?>">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Harga</label>
-								<input type="text" class="form-control" name="harga" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->harga ?> ">
+								<input type="text" class="form-control harga" name="harga" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->harga ?>" onkeyup="splitInDots(this)">
 							</div>
 						</div>
 						<!-- /.box-body -->

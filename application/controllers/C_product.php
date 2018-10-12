@@ -42,8 +42,8 @@ class C_product extends CI_Controller {
         // var_dump($id_kota);
         $id_product = $this->input->post('touroperator');
         $namaproduct = $this->input->post('namaproduct');
-        $kotaproduct = $this->input->post('kotaproduct'); //not yet
-        $jenisproduct = $this->input->post('jenisproduct');//not yet
+        // $kotaproduct = $this->input->post('kotaproduct'); //not yet
+        // $jenisproduct = $this->input->post('jenisproduct');//not yet
         $range = $this->input->post('range');
         $id_media = $this->upload_image();
         $jml_anggota = $this->input->post('jml_anggota');
@@ -81,7 +81,6 @@ class C_product extends CI_Controller {
         $data['kota'] = $this->M_product->getwhere('kota',array('id_kota'=>$data['product'][0]->id_kota))->result();
         $data['jenis'] = $this->M_product->getwhere('jenis',array('id_jenis'=>$data['product'][0]->id_jenis))->result();
         $data['operator'] = $this->M_product->getwhere('operator',array('id_operator'=>$data['product'][0]->id_operator))->result();
-
         // $explode = ltrim($data['media'],'[');
         // $explode = explode(',',$data['media']);
         // var_dump(json_encode($data['media']));
@@ -154,9 +153,11 @@ class C_product extends CI_Controller {
             $where = array('id_produk' => $id);
             $get['product'] = $this->M_product->getwhere('produk',$where)->result();
             $result = json_decode($get['product'][0]->id_media);
-            $id_media_new = array_merge($result,$id_med); 
-            $id_media = json_encode($id_media_new);
-            $data['id_media'] = $id_media;
+            if($result[0] !=NULL){
+                $id_med = array_merge($result,$id_med); 
+            }
+            $id_media_encode = json_encode($id_med);
+            $data['id_media'] = $id_media_encode;
         } 
         // var_dump($data);
             

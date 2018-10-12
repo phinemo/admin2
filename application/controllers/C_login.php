@@ -18,10 +18,12 @@ class C_login extends CI_Controller{
 	function getauth(){
 		$email = $this->input->post('email');
 		$password = $this->input->post('pass');
+		// var_dump(array($email,$password));
 		$where = array(
-			'email' => $email,
-            'pass' => $password);
-        $auth = $this->M_login->auth_email($where);
+			'user.email' => $email,
+            'user.pass' => $password);
+		$auth = $this->M_login->auth_email($where);
+		// var_dump($auth);
         $cek = $auth->num_rows();
         $data = $auth->result();
         // var_dump($data);

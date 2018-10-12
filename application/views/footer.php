@@ -4,6 +4,7 @@
 </div>
 <!-- jQuery 3 -->
 <script src="<?php echo base_url('admintemplate/bower_components/jquery/dist/jquery.min.js')?>"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
@@ -70,6 +71,7 @@
 
 	// Run summer note
 	$(document).ready(function () {
+		$('.harga').mask("#.##0.00", {reverse: true});
 		$('#descsingkat').summernote({
 			// disableResizeEditor: true
 			//   airMode:true,
@@ -130,15 +132,15 @@
 				}
 				$('select#jenis').append(html);
 			});
-			$("#filefoto").fileinput({ 
-				'theme': 'explorer-fa',
-				'uploadUrl': null,
-				data: 'filefoto',
-				showUpload:false,
-				overwriteInitial: false,
-				initialPreviewAsData: true,
-    		initialPreview: [
-      		<?php 
+		$("#filefoto").fileinput({
+			'theme': 'explorer-fa',
+			'uploadUrl': null,
+			data: 'filefoto',
+			showUpload: false,
+			overwriteInitial: false,
+			initialPreviewAsData: true,
+			initialPreview: [
+				<?php 
       			// var_dump($gambar);
         	if (isset($gambar[0]) && count($gambar[0]) != 0){
           		foreach ($gambar as $row){
@@ -146,20 +148,21 @@
             		echo "'".base_url()."upload/images/".$row[0]->resized."',";
 						}
 					}
-				?>],
-					initialPreviewConfig: []
-				});
-			
-			$("#editfoto").fileinput({ 
-				'theme': 'explorer-fa',
-				'uploadUrl': null,
-				data: 'filefoto',
-				showUpload:false,
-				overwriteInitial: false,
-				deleteUrl: '<?php echo base_url()."upload/images/file-delete"; ?>',
-				initialPreviewAsData: true,
-    			initialPreview: [
-							<?php 
+				?>
+			],
+			initialPreviewConfig: []
+		});
+
+		$("#editfoto").fileinput({
+			'theme': 'explorer-fa',
+			'uploadUrl': null,
+			data: 'filefoto',
+			showUpload: false,
+			overwriteInitial: false,
+			deleteUrl: '<?php echo base_url()."upload/images/file-delete"; ?>',
+			initialPreviewAsData: true,
+			initialPreview: [
+				<?php 
 								// var_dump($gambar);
 							if (isset($gambar[0]) && count($gambar[0]) != 0){
 								foreach ($gambar as $row){
@@ -167,10 +170,11 @@
 									echo "'".base_url()."upload/images/".$row[0]->resized."',";
 										}
 									}
-								?>],
-				initialPreviewConfig: []
-				});
-			})
+								?>
+			],
+			initialPreviewConfig: []
+		});
+	})
 
 </script>
 <!-- Chart Script -->
