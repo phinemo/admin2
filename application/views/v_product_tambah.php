@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
-								<input type="hidden" name="operator" value="<?php echo $this->session->userdata('id_operator')?>">
+								<!-- <input type="hidden" name="operator" value="<?php //echo $this->session->userdata('id_operator')?>"> -->
 								<input type="hidden" name="operator" value="<?php echo $this->session->userdata('id_operator')?>">
 								<input type="text" class="form-control" name="namaproduct" id="namaProduct" placeholder="Enter your name">
 						</div>

@@ -6,6 +6,7 @@ class C_dashboard extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        redirect(site_url("C_auth"));
         //Do your magic here
         $this->load->model('M_dashboard');
     }
@@ -13,7 +14,7 @@ class C_dashboard extends CI_Controller {
 
     public function index()
     {
-        $this->M_dashboard->getProduct();
+        // $this->M_dashboard->getProduct();
         $this->load->view('header');
         $this->load->view('navbar');
         $this->load->view('v_dashboard');

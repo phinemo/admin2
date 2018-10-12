@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Operator</label>
-								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name" >
+								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name" value="<?php echo $operator[0]->nama_operator ?>">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="row">
 									<div class="col-xs-6">
 										<label for="exampleInputEmail1">Kota</label>
-										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Pilih kota">
+										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Pilih kota" value="<?php echo $kota[0]->nama_kota?>">
 									</div>
 									<div class="col-xs-6">
 										<label>Jenis Tour</label>

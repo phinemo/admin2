@@ -6,6 +6,10 @@ class C_product extends CI_Controller {
 
     public function __construct(){
         parent::__construct();
+        if($this->session->userdata('status') != "login"){
+			redirect(site_url("C_login"));
+		}
+        // redirect(site_url("C_auth"));
         $this->load->helper('url');
         $this->load->model('M_product');
         $this->load->library('upload');
@@ -27,6 +31,16 @@ class C_product extends CI_Controller {
     }
     
     public function add(){
+        $namaoperator = $this->input->post('touroperator');
+        $jenisproduct = $this->input->post('jenisproduct');
+        $kotaproduct = $this->input->post('kotaproduct');
+        // var_dump($jenisproduct);
+        // var_dump($kotaproduct);
+        $id_operator = $this->M_product->getwhere('operator',array('nama_operator'=>$namaoperator),'id_operator')->result();
+        $id_kota = $this->M_product->getwhere('kota',array('nama_kota'=>$kotaproduct),'id_kota')->result();
+        $id_jenis = $this->M_product->getwhere('jenis',array('jenis_tour'=>$jenisproduct),'id_jenis')->result();
+        // var_dump($id_kota);
+        $id_product = $this->input->post('touroperator');
         $namaproduct = $this->input->post('namaproduct');
         $kotaproduct = $this->input->post('kotaproduct'); //not yet
         $jenisproduct = $this->input->post('jenisproduct');//not yet
@@ -36,7 +50,6 @@ class C_product extends CI_Controller {
         $harga = $this->input->post('harga');
         $deskripsi = $this->desc_encode();
         $id_thumb = $id_media[0];
-        $id_operator = $this->input->post('operator');
         // $logo = $this->input->post('logo');
         // $splitString = explode('-', $range);
         $start = date("Y/m/d",strtotime($this->splitDate(0)));
@@ -50,8 +63,11 @@ class C_product extends CI_Controller {
 			'deskripsi' =>$deskripsi,
             'id_media'=>json_encode($id_media),
             'id_thumb'=>$id_thumb,
-            'id_operator'=>$id_operator);
-        // var_dump($id_media);
+            'id_operator'=>$id_operator[0]->id_operator,
+            'id_kota' => $id_kota[0]->id_kota,
+            'id_jenis'=>$id_jenis[0]->id_jenis
+        );
+        // var_dump($data_product);
         // var_dump(json_encode($id_media));
 
         $this->M_product->insert('produk',$data_product);
@@ -62,11 +78,15 @@ class C_product extends CI_Controller {
         $where = array('id_produk' => $id);
         $data['product'] = $this->M_product->getwhere('produk',$where)->result();
         $data['media'] = $this->M_product->getid_media($where)->result();
+        $data['kota'] = $this->M_product->getwhere('kota',array('id_kota'=>$data['product'][0]->id_kota))->result();
+        $data['jenis'] = $this->M_product->getwhere('jenis',array('id_jenis'=>$data['product'][0]->id_jenis))->result();
+        $data['operator'] = $this->M_product->getwhere('operator',array('id_operator'=>$data['product'][0]->id_operator))->result();
+
         // $explode = ltrim($data['media'],'[');
         // $explode = explode(',',$data['media']);
         // var_dump(json_encode($data['media']));
         // $getid = json_decode($data['media']);
-        // var_dump($data['product'][0]->id_media);
+        // var_dump($data['kota']);
         $result = json_decode($data['product'][0]->id_media);
         // var_dump($result);
         foreach ($result as $row){//get json data and decode data to array (id_media)
@@ -97,6 +117,14 @@ class C_product extends CI_Controller {
         
     }
    public function update(){
+        $namaoperator = $this->input->post('touroperator');
+        $jenisproduct = $this->input->post('jenisproduct');
+        $kotaproduct = $this->input->post('kotaproduct');
+        // var_dump($jenisproduct);
+        // var_dump($kotaproduct);
+        $id_operator = $this->M_product->getwhere('operator',array('nama_operator'=>$namaoperator),'id_operator')->result();
+        $id_kota = $this->M_product->getwhere('kota',array('nama_kota'=>$kotaproduct),'id_kota')->result();
+        $id_jenis = $this->M_product->getwhere('jenis',array('jenis_tour'=>$jenisproduct),'id_jenis')->result();
 	   	$id = $this->input->post('id_produk');
         $nama = $this->input->post('namaproduct');
         $kotaproduct = $this->input->post('kotaproduct'); //not yet
@@ -108,7 +136,7 @@ class C_product extends CI_Controller {
 		$harga = $this->input->post('harga');
         $deskripsi = $this->desc_encode();
         $id_thumb = $this->input->post('id_foto[0]');
-        $id_operator = $this->input->post('operator');
+        // $id_operator = $this->input->post('operator');
         $data = array(
             'nama_produk'=>$nama,
             'tanggal_mulai'=>$start,
@@ -117,7 +145,10 @@ class C_product extends CI_Controller {
 			'harga'=>$harga,
             'deskripsi' =>$deskripsi,
             'id_thumb'=>$id_thumb,
-            'id_operator'=>$id_operator);
+            'id_operator'=>$id_operator[0]->id_operator,
+            'id_kota'=>$id_kota[0]->id_kota,
+            'id_jenis'=>$id_jenis[0]->id_jenis,
+        );
 
         if ($id_med[0] != NULL) {
             $where = array('id_produk' => $id);
