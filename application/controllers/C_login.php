@@ -5,14 +5,12 @@ class C_login extends CI_Controller{
 	function __construct(){
 		parent::__construct();		
 		$this->load->model('M_login');
-
 	}
 
 	function index(){
         $this->load->view('header');
         $this->load->view('v_login');
-        $this->load->view('footer');
-        
+        $this->load->view('footer');        
 	}
 
 	function getauth(){
@@ -27,16 +25,10 @@ class C_login extends CI_Controller{
         $cek = $auth->num_rows();
         $data = $auth->result();
         // var_dump($data);
-		if($cek > 0){
+		if($cek > 0 && $cek == 1){
 			$data_session = array(
-                'id_operator' => $data[0]->id_operator,
-                'nama' => $data[0]->nama_operator,
-                'email' => $email,
-                'status' => 'login',
-                'level' => $data[0]->level,
-                'thumb' => $data[0]->resized,
-                'image' => $data[0]->gambar,
-				);
+                'id_user' => $data[0]->id_user,
+                'status' => 'login');
             $this->session->set_userdata($data_session);
             // var_dump($this->session);
 			redirect(site_url("C_auth"));

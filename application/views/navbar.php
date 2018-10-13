@@ -25,18 +25,21 @@
 				<!-- Tasks: style can be found in dropdown.less -->
 
 				<!-- User Account: style can be found in dropdown.less -->
+				<?php
+				// var_dump($profil);
+				foreach ($profil as $data){?>
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						<img src="<?php echo base_url().'upload/images/'.$this->session->userdata('thumb');?>" class="user-image" alt="User Image">
-						<span class="hidden-xs"><?php echo $this->session->userdata('nama');?></span>
+						<img src="<?php echo base_url().'upload/images/'.$data->resized;?>" class="user-image" alt="User Image">
+						<span class="hidden-xs"><?php echo $data->nama_operator;?></span>
 					</a>
 					<ul class="dropdown-menu">
 						<!-- User image -->
 						<li class="user-header">
-							<img src="<?php echo base_url().'upload/images/'.$this->session->userdata('image');?>" class="img-circle" alt="User Image">
+							<img src="<?php echo base_url().'upload/images/'.$data->gambar;?>" class="img-circle" alt="User Image">
 
 							<p>
-								<?php echo $this->session->userdata('nama');?>
+								<?php echo $data->nama_operator;?>
 								<small>Member since Nov. 2012</small>
 							</p>
 						</li>
@@ -81,10 +84,10 @@
 		<!-- Sidebar user panel -->
 		<div class="user-panel">
 			<div class="pull-left image">
-				<img src="<?php echo base_url().'upload/images/'.$this->session->userdata('thumb');?>" class="img-circle" alt="User Image">
+				<img src="<?php echo base_url().'upload/images/'.$data->gambar;?>" class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-				<p><?php echo $this->session->userdata('nama');?></p>
+				<p><?php echo $data->nama_operator;?></p>
 				<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 			</div>
 		</div>
@@ -131,7 +134,7 @@
 				</a>
 			</li>
 			<!-- <li>
-            <a href="<?php //echo site_url('C_media/index') ?>">
+				<a href="<?php } //echo site_url('C_media/index') ?>">
                 <i class="fa fa-th"></i> <span>Widgets</span>
                 <span class="pull-right-container">
                     <small class="label pull-right bg-green">new</small>
@@ -142,3 +145,4 @@
 	</section>
 	<!-- /.sidebar -->
 </aside>
+

@@ -71,7 +71,7 @@
 
 	// Run summer note
 	$(document).ready(function () {
-		$('.harga').mask("#.##0.00", {reverse: true});
+		$('.harga').mask("#.##0", {reverse: true});
 		$('#descsingkat').summernote({
 			// disableResizeEditor: true
 			//   airMode:true,
@@ -128,7 +128,13 @@
 				var html = '';
 				var len = data.length;
 				for (var i = 0; i < len; i++) {
-					html += '<option value="' + data[i] + '">' + data[i] + '</option>';
+					if (data[i] == "<?php if(isset($jenis)) echo $jenis[0]->jenis_tour ?>"){
+						html += '<option selected value="' + data[i] + '">' + data[i] + '</option>';	
+					}
+					else {
+						html += '<option value="' + data[i] + '">' + data[i] + '</option>';
+					}
+					
 				}
 				$('select#jenis').append(html);
 			});
@@ -138,6 +144,7 @@
 			data: 'filefoto',
 			showUpload: false,
 			overwriteInitial: false,
+			maxFileSize: 2048,
 			initialPreviewAsData: true,
 			initialPreview: [
 				<?php 

@@ -50,13 +50,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<tbody>
 								<?php 
 					foreach ($product as $data){
+						$price = number_format($data->harga,0,',','.');
 						echo "<tr>
 					  	<td>".$data->id_produk."</td>
 					  	<td>".$data->nama_produk."</td>
 					  	<td>".$data->tanggal_mulai."</td>
 					  	<td>".$data->tanggal_akhir."</td>
 					  	<td>".$data->jml_anggota."</td>
-						<td>".$data->harga."</td>
+						<td>".$price."</td>
 						<td>
 						<div class='row'>";
 							echo anchor("C_product/getdatawhere/".$data->id_produk,"<div class='col-xs-6 col-md-6'><button class='btn btn-primary glyphicon glyphicon-pencil'></button></div>");

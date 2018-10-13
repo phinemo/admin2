@@ -11,8 +11,9 @@ class C_operator extends CI_Controller {
 		}
         // redirect(site_url("C_auth"));
         $this->load->helper('url');
-        $this->load->model('M_operator');
-		$this->load->library('upload');
+        $this->load->model(array('M_operator','M_login'));
+        $this->load->library('upload');
+        
     }
     // CRUD operation
 
@@ -44,8 +45,9 @@ class C_operator extends CI_Controller {
             // $data['default'] = null;
         }
         // var_dump($data['gambar']);
+		$result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
         $this->load->view('header');
-        $this->load->view('navbar');
+        $this->load->view('navbar',$result);
         $this->load->view('v_operator_edit',$data);
         $data['gambar'] = null;
         $this->load->view('bottombar');
@@ -86,18 +88,21 @@ class C_operator extends CI_Controller {
     // View
     public function toadd()
     {
+		$result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
+
         $data['gambar'] = [];
         $this->load->view('header');
-        $this->load->view('navbar');
+        $this->load->view('navbar',$result);
         $this->load->view('v_operator_tambah');
         $this->load->view('bottombar');
         $this->load->view('footer',$data);
     }
     public function index()
-    {
+    {   
+		$result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
         $data = $this->getdata();
         $this->load->view('header');
-        $this->load->view('navbar');
+        $this->load->view('navbar',$result);
         $this->load->view('v_operator',$data);
         $this->load->view('bottombar');
         $this->load->view('footer',$data);

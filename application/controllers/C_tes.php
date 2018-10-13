@@ -11,7 +11,15 @@ public function __construct()
     $this->load->model('M_tes');
 }
 public function index(){
-    var_dump($this->M_tes->getUser()->result());
+    $where = array(
+        'email'=>'roy@p.com',
+        'pass'=>'123',
+        'level'=>'free',
+        'id_operator'=>'131',
+        ''
+
+    );
+    var_dump($this->M_tes->getUser($where)->result());
 }
     
     

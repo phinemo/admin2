@@ -11,7 +11,7 @@ class C_product extends CI_Controller {
 		}
         // redirect(site_url("C_auth"));
         $this->load->helper('url');
-        $this->load->model('M_product');
+        $this->load->model(array('M_product','M_login'));
         $this->load->library('upload');
     }
 
@@ -22,9 +22,11 @@ class C_product extends CI_Controller {
     }
     public function toadd()
     {
+		$result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
+
         $data['gambar'] = array();
         $this->load->view('header');
-        $this->load->view('navbar');
+        $this->load->view('navbar',$result);
         $this->load->view('v_product_tambah');
         $this->load->view('bottombar');
         $this->load->view('footer');
@@ -59,7 +61,7 @@ class C_product extends CI_Controller {
             'tanggal_mulai'=>$start,
 			'tanggal_akhir'=>$end,
 			'jml_anggota'=>$jml_anggota,
-			'harga'=>$harga,
+			'harga'=>str_replace('.','',$harga),
 			'deskripsi' =>$deskripsi,
             'id_media'=>json_encode($id_media),
             'id_thumb'=>$id_thumb,
@@ -105,8 +107,10 @@ class C_product extends CI_Controller {
         //     // $data['gambar'] = $this->M_operator->getwehere('media',$where)->result();
         // }
         // var_dump($data);
+		$result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
+
         $this->load->view('header');
-        $this->load->view('navbar');
+        $this->load->view('navbar',$result);
         $this->load->view('v_product_edit',$data);
         $this->load->view('bottombar');
         // var_dump($data);
@@ -132,7 +136,7 @@ class C_product extends CI_Controller {
         $end = date("Y/m/d",strtotime($this->splitDate(1)));
         $id_med = $this->upload_image();
 		$jml_anggota = $this->input->post('jml_anggota');
-		$harga = $this->input->post('harga');
+        $harga = $this->input->post('harga');
         $deskripsi = $this->desc_encode();
         $id_thumb = $this->input->post('id_foto[0]');
         // $id_operator = $this->input->post('operator');
@@ -141,7 +145,7 @@ class C_product extends CI_Controller {
             'tanggal_mulai'=>$start,
 			'tanggal_akhir'=>$end,
 			'jml_anggota'=>$jml_anggota,
-			'harga'=>$harga,
+			'harga'=>str_replace('.','',$harga),
             'deskripsi' =>$deskripsi,
             'id_thumb'=>$id_thumb,
             'id_operator'=>$id_operator[0]->id_operator,
@@ -216,9 +220,11 @@ class C_product extends CI_Controller {
     //View
     public function index()
     {
+		$result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
+
         $data = $this->getdata();
         $this->load->view('header');
-        $this->load->view('navbar');
+        $this->load->view('navbar',$result);
         $this->load->view('v_product',$data);
         $this->load->view('bottombar');
         $this->load->view('footer',$data);
@@ -257,6 +263,7 @@ class C_product extends CI_Controller {
         $splitString = explode('-', $date);
         return $splitString[$i];
     }
+
     public function upload_image(){
 		$config['upload_path'] = 'upload/images/'; 
         $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp';
@@ -283,21 +290,41 @@ class C_product extends CI_Controller {
                     // End compress image
                     // var_dump($pic);
                     // Define name of file
-
-                    $conf['image_library']='gd2';
-                    $conf['source_image']='upload/images/'.$pic['file_name'];
-                    $conf['create_thumb']= TRUE;
-                    $conf['maintain_ratio']= TRUE;
-                    $conf['quality']= '80%';
-                    $conf['width']= 150;
-                    $conf['height']= 150;
-                    $conf['new_image']= 'upload/images/'.$pic['file_name'];
-                    $this->load->library('image_lib', $conf);
-                    $this->image_lib->initialize($conf);
-                    $this->image_lib->resize();
+                    $image_sizes = array(
+                        'thumb' => array(150, 100),
+                        'medium' => array(300, 300),
+                        'large' => array(1100, 618)
+                    );
+                
+                    $this->load->library('image_lib');
+                    foreach ($image_sizes as $resize) {
+                    
+                        $config = array(
+                            'source_image' => $pic['full_path'],
+                            'new_image' =>  $pic['raw_name']. '-' . $resize[0] . 'x' . $resize[1].$pic['file_ext'],
+                            'maintain_ration' => true,
+                            'width' => $resize[0],
+                            'height' => $resize[1]
+                        );
+                    
+                        $this->image_lib->initialize($config);
+                        $this->image_lib->resize();
+                        $this->image_lib->clear();
+                    }
+                    // $conf['image_library']='gd2';
+                    // $conf['source_image']='upload/images/'.$pic['file_name'];
+                    // $conf['create_thumb']= TRUE;
+                    // $conf['maintain_ratio']= TRUE;
+                    // $conf['quality']= '80%';
+                    // $conf['width']= 150;
+                    // $conf['height']= 150;
+                    // $conf['new_image']= 'upload/images/'.$pic['file_name'];
+                    // $this->load->library('image_lib', $conf);
+                    // $this->image_lib->initialize($conf);
+                    // $this->image_lib->resize();
                     $picture = $pic['file_name'];
                     $pic_name = $pic['raw_name'];
-                    $resized = $pic['raw_name'].'_thumb'.$pic['file_ext'];
+                    $resized = $pic['raw_name']. '-' . 150 . 'x' . 100 . $pic['file_ext'];
                     // upload to database
                     $this->M_product->upload_media($pic_name,$picture,$resized);
                     
