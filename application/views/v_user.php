@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="box-header">
 						<h3 class="box-title">Data Produk</h3>
 						<div align="right">
-						<?php echo anchor("C_product/toadd","<button class='btn btn-primary '>Tambah Product</button>"); ?>
+						<?php echo anchor("C_user/toadd","<div ><button class='btn btn-primary '>Tambah User</button></div>"); ?>
 							<!-- <button class="btn btn-warning sendata" data-toggle="modal" data-target="#ModalTambah">Tambah Data</button> -->
 						</div>
 					</div>
@@ -38,30 +38,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<table id="example1" class="table table-bordered table-striped">
 							<thead>
 								<tr>
-									<th style="width:5%;">ID</th>
-									<th style="width:40%;">Nama</th>
-									<th style="width:10%;">Mulai</th>
-									<th style="width:10%;">Selesai</th>
-									<th style="width:5%;">Maks Anggota</th>
-									<th stlye="width:20%">Harga</th>
+									<th style="width:30%;">Nama Lengkap</th>
+									<th style="width:30%;">E-mail</th>
+									<th style="width:20%;">Operator</th>
 									<th style="width:20%;">Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								<?php 
-					foreach ($product as $data){
-						$price = number_format($data->harga,0,',','.');
-						echo "<tr>
-					  	<td>".$data->id_produk."</td>
-					  	<td>".$data->nama_produk."</td>
-					  	<td>".$data->tanggal_mulai."</td>
-					  	<td>".$data->tanggal_akhir."</td>
-					  	<td>".$data->jml_anggota."</td>
-						<td>".$price."</td>
-						<td>
+					foreach ($users as $user){
+                        // var_dump($users);
+                        echo "<tr>
+					  	<td>".$user->full_name."</td>
+					  	<td>".$user->email."</td>
+                        <td>".$user->nama_operator."</td>
+                        <td>
 						<div class='row'>";
-							echo anchor("C_product/getdatawhere/".$data->id_produk,"<div class='col-xs-6 col-md-6'><button class='btn btn-primary glyphicon glyphicon-pencil'></button></div>");
-							echo anchor('C_product/delete/'.$data->id_produk,'<div class="col-xs-6 col-md-6"><button class="btn btn-primary glyphicon glyphicon-trash"></button></div>
+							echo anchor("C_user/getdatawhere/".$user->id_user,"<div class='col-xs-6 col-md-6'><button class='btn btn-primary glyphicon glyphicon-pencil'></button></div>");
+							echo anchor('C_user/delete/'.$user->id_user,'<div class="col-xs-6 col-md-6"><button class="btn btn-primary glyphicon glyphicon-trash"></button></div>
 						</div>
 						</td></tr>');}
 					?>
@@ -69,12 +63,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</tbody>
 							<tfoot>
 								<tr>
-								<th style="width:5%;">ID</th>
-									<th style="width:40%;">Nama</th>
-									<th style="width:10%;">Mulai</th>
-									<th style="width:10%;">Selesai</th>
-									<th style="width:5%;">Maks Anggota</th>
-									<th stlye="width:20%">Harga</th>
+								    <th style="width:30%;">Nama Lengkap</th>
+									<th style="width:30%;">E-mail</th>
+									<th style="width:20%;">Operator</th>
 									<th style="width:20%;">Action</th>
 								</tr>
 							</tfoot>

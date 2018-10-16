@@ -6,22 +6,21 @@ class C_auth extends CI_Controller{
 		if($this->session->userdata('status') != "login"){
 			redirect(site_url("C_login"));
 		}
-		if($this->session->userdata('level') == 'free'){
+		if($this->session->userdata('level') == 'superadmin'){
 			
 		}
-		elseif($this->session->userdata('level') == "PRO"){
+		elseif($this->session->userdata('level') == "admin"){
 			
+		}
+		elseif($this->session->userdata('level') == 'user'){
+
 		}
 	}
 
 	public function index(){
-		$result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
+		// $result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
 		// var_dump($result);
-		$this->load->view('header');
-		$this->load->view('navbar',$result);
-		$this->load->view('v_dashboard');
-		$this->load->view('bottombar');
-		$this->load->view('footer');
+		redirect(site_url('C_dashboard'));
 		
 		
 	}

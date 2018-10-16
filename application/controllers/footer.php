@@ -80,16 +80,13 @@
 				console.log(data);
 				$('[name="id"]').val(data.id_operator);
 				$('[name="id_layanan"]').val(data.id_layanan);
-				$('[name="jenis_layanan"]').val(data.jenis_layanan);
+				$('[name="package"]').val(data.jenis_layanan);
 				$('#modal_form').modal('show'); // show bootstrap modal when complete loaded
 				$('.modal-title').text('Jenis Paket'); // Set title to Bootstrap modal title
 
 			},
 			error: function (jqXHR, textStatus, errorThrown) {
-				console.log(jqXHR);
-				console.log(textStatus);
-				console.log(errorThrown);
-				// alert('Error get data from ajax');
+				alert('Error get data from ajax');
 			}
 		});
 	}

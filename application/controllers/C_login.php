@@ -28,13 +28,15 @@ class C_login extends CI_Controller{
 		if($cek > 0 && $cek == 1){
 			$data_session = array(
                 'id_user' => $data[0]->id_user,
-                'status' => 'login');
+				'status' => 'login',
+				'level' => $data[0]->level);
             $this->session->set_userdata($data_session);
             // var_dump($this->session);
 			redirect(site_url("C_auth"));
 
 		}else{
 			echo "<script> alert('Username dan password salah !')</script>";
+			$this->index();
 		}
 	}
 

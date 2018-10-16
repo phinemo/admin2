@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="box-header">
 						<h3 class="box-title">Data Operator</h3>
 						<div align="right">
-						<?php echo anchor("C_operator/toadd","<div ><button class='btn btn-primary '>Tambah Operator</button></div>"); ?>
+							<?php if(isset($operator) && count($operator) > 1) echo anchor("C_operator/toadd","<button class='btn btn-primary '>Tambah Operator</button>"); ?>
 							<!-- <button class="btn btn-warning sendata" data-toggle="modal" data-target="#ModalTambah">Tambah Data</button> -->
 						</div>
 					</div>
@@ -47,14 +47,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</thead>
 							<tbody>
 								<?php 
+					if(isset($operator))			
 					foreach ($operator as $data){
+						// var_dump($operator);
 						$medsos = json_decode($data->contact);
 						echo "<tr>
 					  <td>".$data->id_operator."</td>
 					  <td>".$data->nama_operator."</td>
 					  <td> 20 </td>
 					  <td> 60 </td>
-					  <td><div class='btn-group'><button class='btn btn-primary'>Setting Account</button>";
+					  <td><div class='btn-group'>";
+					  if(isset($operator) && count($operator) > 1){
+						echo "<button class='btn btn-primary' onclick=account(".$data->id_operator.")>Setting Account</button>";
+					  }
 					   echo anchor("C_operator/getdatawhere/".$data->id_operator,"<button class='btn btn-primary'>Edit</button>");
 					   echo anchor('C_operator/delete/'.$data->id_operator,'<button class="btn btn-danger">Delete</button></div>
 						</td>
@@ -64,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</tbody>
 							<tfoot>
 								<tr>
-								<th>ID</th>
+									<th>ID</th>
 									<th style="width:200px;">Nama</th>
 									<th style="width:400px;">Jumlah Tour Aktif</th>
 									<th style="width:200px">Jumlah Tour Total</th>
@@ -79,6 +84,43 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<!-- /.row -->
 	</section>
+	<!-- MODAL VIEW OPERATOR -->
+	<!-- Bootstrap modal -->
+	<div class="modal fade" id="modal_form" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h3 class="modal-title">Configure Operator Account</h3>
+				</div>
+				<div class="modal-body form">
+					<form action="#" id="account" class="form-horizontal" method="POST">
+						<input type="hidden" name="id" />
+						<input type="hidden" name="id_layanan" />
+						<div class="form-body">
+							<div class="form-group">
+								<label class="control-label col-md-3">Jenis Paket</label>
+								<div class="col-md-9">
+									<select name="jenis_layanan" class="form-control">
+										<option value="">--Pilih Paket--</option>
+										<option value="free">Free</option>
+										<option value="basic">Basic</option>
+										<option value="pro">Pro</option>
+									</select>
+									<span class="help-block"></span>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="btnSave" onclick="update()" class="btn btn-primary">Save</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 	<!-- /.content -->
+	
 </div>
 <!-- /.content-wrapper -->

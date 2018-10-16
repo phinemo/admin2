@@ -10,18 +10,55 @@ class C_operator extends CI_Controller {
 			redirect(site_url("C_login"));
 		}
         // redirect(site_url("C_auth"));
-        $this->load->helper('url');
+        $this->load->helper(array('url','form'));
         $this->load->model(array('M_operator','M_login'));
-        $this->load->library('upload');
-        
+        $this->load->library(array('form_validation','upload'));
     }
     // CRUD operation
 
-    public function getdata(){
-        $data['operator'] = $this->M_operator->read()->result();
+    public function getdata($id_operator = NULL){
+        if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'superadmin' ){
+            $data['operator'] = $this->M_operator->read()->result();
+        
+        }
+        elseif($this->session->userdata('level') == 'user' && $id_operator !=NULL){
+        // var_dump($id_operator);
+            $where = array('id_operator'=>$id_operator);
+            // var_dump($where);
+            $data['operator'] = $this->M_operator->getwhere('operator',$where)->result();
+            // var_dump($data);
+        }
+        else{
+            $data = NULL;
+        }
         return $data;
     }
-
+    public function addUser(){
+        // $this->validate();
+        $id = $this->input->post('id');
+        $emailphinemo = $this->input->post('emailphinemo');
+        $passphinemo = $this->input->post('passphinemo');
+        $package = $this->input->post('package');
+        $data_operator = array(
+            'id_user'=>$id,
+            'email'=>$emailphinemo,
+            'pass'=>$passphinemo,
+            'level'=>$package);
+        $this->M_operator->insert('user',$data_operator);
+    }
+    public function editUser(){
+        // $this-> validate();
+        $id = $this->input->post('id');
+        $package = $this->input->post('jenis_layanan');
+        $wherelayanan = array('jenis_layanan'=>$package);
+        $layanan = $this->M_operator->getwhere('layanan',$wherelayanan,'id_layanan')->result();
+        // var_dump($layanan);
+        $where = array('id_operator'=>$id);
+        // echo "<script>console.log('".$where."')</script>";
+        $data_layanan = array('id_layanan'=>$layanan[0]->id_layanan);
+        $res = $this->M_operator->update('operator',$data_layanan,$where);
+        echo json_encode(array("status" => TRUE));
+    }
     public function add(){
         $nama = $this->input->post('namaoperator');
         $biografi = $this->input->post('biografi');
@@ -52,6 +89,22 @@ class C_operator extends CI_Controller {
         $data['gambar'] = null;
         $this->load->view('bottombar');
         $this->load->view('footer',$data);
+    }
+    public function getuser($id){
+        $where = array('id_operator' => $id);
+        $getdata = $this->M_operator->getwhere('operator',$where,array('id_layanan','id_operator'))->result();
+        if($getdata[0]->id_layanan == NULL){
+            $getIdLayanan = array('id_layanan'=>0); //automatically set user have free package
+        }
+        else{
+            $getIdLayanan = array('id_layanan'=>$getdata[0]->id_layanan);
+        }
+        $result = $this->M_operator->getwhere('layanan',$getIdLayanan)->result();
+        // var_dump($result);
+        $result[0]->id_operator  = $getdata[0]->id_operator;
+        
+        echo json_encode($result[0]);
+        
     }
    public function update(){
         $id = $this->input->post('id');
@@ -99,14 +152,16 @@ class C_operator extends CI_Controller {
     }
     public function index()
     {   
-		$result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
-        $data = $this->getdata();
+        $result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
+        // var_dump($result);
+        $data = $this->getdata($result['profil'][0]->id_operator);
         $this->load->view('header');
         $this->load->view('navbar',$result);
         $this->load->view('v_operator',$data);
         $this->load->view('bottombar');
         $this->load->view('footer',$data);
     }
+    
     // another Function
     public function socialencode(){
         $data['facebook'] = $this->input->post('facebook');

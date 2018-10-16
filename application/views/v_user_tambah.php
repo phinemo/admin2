@@ -17,55 +17,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ol>
 	</section>
 	<section class="content">
-		<form role="form" enctype="multipart/form-data" class="form-validate" method="post" action="<?php echo base_url('index.php/C_operator/add'); ?>">
+		<form role="form" enctype="multipart/form-data" class="form-validate" method="post" action="<?php echo base_url('index.php/C_user/add'); ?>">
 			<div class="row">
 				<div class="col-md-6">
 					<!-- general form elements -->
 					<div class="box box-primary">
 						<div class="box-header with-border">
-							<h3 class="box-title">Operator Data</h3>
+							<h3 class="box-title">User Profile</h3>
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->
 						<!-- Form Media social -->
 						<div class="box-body">
 							<div class="form-group">
-								<label for="exampleInputEmail1">Nama Operator</label>
-								<input type="text" class="form-control rounded" name="namaoperator" id="namaOperator" placeholder="Enter your name">
+								<label for="exampleInputEmail1">Nama Lengkap</label>
+								<input type="text" class="form-control rounded" name="namauser" id="namaUser" require>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Phone</label>
+								<label for="exampleInputPassword1">E-mail</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="number" placeholder="Phone number">
+										<input type="text" class="form-control" id="" name="emailuser" require>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Twitter</label>
+								<label for="exampleInputPassword1">Password</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="twitter" placeholder="Twitter">
+										<input type="password" class="form-control" id="" name="passworduser" require>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Instagram</label>
+								<label for="exampleInputPassword1">Level</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="instagram" placeholder="Instagram">
+										<select class="form-control" name="leveluser">
+											<option value="user">User</option>
+											<option value="admin">Admin</option>										
+										</select>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Facebook</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="facebook" placeholder="Facebook">
+										<div class="form-group">
+											<label for="exampleInputEmail1">Operator</label>
+											<input type="text" class="form-control" name="operator" id="touroperator" placeholder="Enter your name">
+										</div>
 									</div>
 								</div>
 							</div>
-
 						</div>
 						<!-- End Form medsos -->
 						<!-- /.box-body -->
@@ -78,42 +82,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- Horizontal Form -->
 					<div class="box box-info">
 						<div class="box-header with-border">
-							<h3 class="box-title">Logo</h3>
+							<h3 class="box-title">Profil Foto</h3>
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->
 						<div class="box-body">
 							<h4>Upload your image</h4>
-								<!-- <div class="form-group">
+							<!-- <div class="form-group">
 								<input type="text" name="judul" class="form-control" placeholder="Judul">
 							</div> -->
-								<div class="form-group">
-									<input id="media" type="file" name="filefoto" class="dropify" data-height="300">
-									<input type="hidden" name="id_media" value="">
-								</div>
+							<div class="form-group">
+								<input id="media" type="file" name="filefoto" class="dropify" data-height="300">
+								<input type="hidden" name="id_media" value="">
+							</div>
+
 						</div>
 						<!-- /.box -->
 						<!-- /.box -->
 					</div>
 
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-12 col-xs-12 col-lg-12">
-					<div class="box">
-						<div class="box-header">
-							<h3 class="box-title">Biografi
-								<small>Simple and fast</small>
-							</h3>
-							<!-- tools box -->
-							<!-- /. tools -->
-						</div>
-						<!-- /.box-header -->
-						<div class="box-body pad">
-							<textarea name="biografi" id="biografi" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-						</div>
-					</div>
 				</div>
 			</div>
 			<div class="row">

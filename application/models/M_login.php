@@ -10,10 +10,9 @@ class M_login extends CI_Model {
         return $this->db->get();
     }
     public function getDataProfile($id_user){
-        $this->db->select(array('media.gambar','media.resized','operator.nama_operator','operator.contact'));
+        $this->db->select(array('media.gambar','media.resized','user.full_name','user.email','user.id_operator','user.pass'));
         $this->db->from('user');
-        $this->db->join('media', 'media.id_media = user.id_media', 'inner');
-        $this->db->join('operator', 'operator.id_operator = user.id_operator', 'inner');
+        $this->db->join('media', 'media.id_media = user.id_media', 'left outer');
         $this->db->where('id_user',$id_user);
         return $this->db->get()->result();
     }

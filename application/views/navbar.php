@@ -26,12 +26,16 @@
 
 				<!-- User Account: style can be found in dropdown.less -->
 				<?php
-				// var_dump($profil);
-				foreach ($profil as $data){?>
+				foreach ($profil as $data){
+					if($data->gambar == NULL || $data->resized == NULL){
+						$data->resized = 'default_profile_thumb.png';
+						$data->gambar = 'default_profile.png';
+					}
+				?>
 				<li class="dropdown user user-menu">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 						<img src="<?php echo base_url().'upload/images/'.$data->resized;?>" class="user-image" alt="User Image">
-						<span class="hidden-xs"><?php echo $data->nama_operator;?></span>
+						<span class="hidden-xs"><?php echo $data->full_name;?></span>
 					</a>
 					<ul class="dropdown-menu">
 						<!-- User image -->
@@ -39,7 +43,7 @@
 							<img src="<?php echo base_url().'upload/images/'.$data->gambar;?>" class="img-circle" alt="User Image">
 
 							<p>
-								<?php echo $data->nama_operator;?>
+								<?php echo $data->email;?>
 								<small>Member since Nov. 2012</small>
 							</p>
 						</li>
@@ -87,7 +91,7 @@
 				<img src="<?php echo base_url().'upload/images/'.$data->gambar;?>" class="img-circle" alt="User Image">
 			</div>
 			<div class="pull-left info">
-				<p><?php echo $data->nama_operator;?></p>
+				<p><?php echo $data->full_name;?></p>
 				<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 			</div>
 		</div>
@@ -119,7 +123,7 @@
 
 			<li>
 				<a href="<?php echo site_url('C_operator/index') ?>">
-					<i class="fa fa-th"></i> <span>Tour Operator</span>
+					<i class="fa fa-desktop"></i> <span>Tour Operator</span>
 					<span class="pull-right-container">
 						<!-- <small class="label pull-right bg-green">new</small> -->
 					</span>
@@ -127,21 +131,28 @@
 			</li>
 			<li>
 				<a href="<?php echo site_url('C_product/index') ?>">
-					<i class="fa fa-th"></i> <span>Produk</span>
+					<i class="fa fa-gift"></i> <span>Produk</span>
 					<span class="pull-right-container">
 						<!-- <small class="label pull-right bg-green">new</small> -->
 					</span>
 				</a>
 			</li>
-			<!-- <li>
-				<a href="<?php } //echo site_url('C_media/index') ?>">
-                <i class="fa fa-th"></i> <span>Widgets</span>
-                <span class="pull-right-container">
-                    <small class="label pull-right bg-green">new</small>
-                </span>
-            </a>
-        </li> -->
+			<li class="treeview">
+				<a href="#"><i class="fa fa-user"></i> <span>User</span>
+					<span class="pull-right-container">
+						<i class="fa fa-angle-left pull-right"></i>
+					</span></a>
+				<ul class="treeview-menu">
+					<li><a href="<?php echo site_url('C_user/password') ?>"><i class="fa fa-circle-o text-aqua"></i>Change Password</a></li>
+					<?php 
+					if ($this->session->userdata('level') == 'superadmin' || $this->session->userdata('level') == 'admin'){
+						echo '<li><a href="'.site_url("C_user/index").'"><i class="fa fa-circle-o text-aqua"></i>List User</a></li>';
+					}?>
+					
+				</ul>
+			</li>
 		</ul>
+		<?php }?>
 	</section>
 	<!-- /.sidebar -->
 </aside>
