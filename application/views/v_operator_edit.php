@@ -5,15 +5,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>Dashboard
-			<small>Version 2.0</small>
+		<h1>Data Operator
+			<small>Edit Operator</small>
 		</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="#">
+				<a href="<?php echo site_url('C_dashboard')?>">
 					<i class="fa fa-dashboard"></i> Home</a>
 			</li>
-			<li class="active">Dashboard</li>
+			<li>
+				<a href="<?php echo site_url('C_operator')?>">
+					<i class="fa fa-desktop"></i> Operator</a>
+			</li>
+			<li>
+				<a href="#">
+					</i>Edit Operator</a>
+			</li>
 		</ol>
 	</section>
 	<section class="content">
@@ -27,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- general form elements -->
 					<div class="box box-primary">
 						<div class="box-header with-border">
-							<h3 class="box-title">Operator Data</h3>
+							<h3 class="box-title">Data Operator</h3>
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->
@@ -129,8 +136,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<!-- /.box-header -->
 						<div class="box-body pad">
-						<!-- <textarea name="biografi" id="biografi" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea> -->
-							<textarea id="biografi" name="biografi" placeholder="Place some text here" ><?php echo $data->biografi ?></textarea>
+							<!-- <textarea name="biografi" id="biografi" class="textarea" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea> -->
+							<textarea id="biografi" name="biografi" placeholder="Place some text here"><?php echo $data->biografi ?></textarea>
 						</div>
 					</div>
 				</div>

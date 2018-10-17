@@ -5,16 +5,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>Dashboard
-			<small>Version 2.0</small>
+		<h1>Product
+			<small>Add Product</small>
 		</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="#">
+				<a href="<?php echo site_url('C_dashboard')?>">
 					<i class="fa fa-dashboard"></i> Home</a>
 			</li>
-			<li class="active">Dashboard</li>
-			
+			<li>
+				<a href="<?php echo site_url('C_product')?>">
+					<i class="fa fa-gift"></i> Product</a>
+			</li>
+			<li>
+				<a href="#">
+					</i>Add Product</a>
+			</li>
 		</ol>
 	</section>
 	<section class="content">
@@ -32,15 +38,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Operator</label>
-								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name" >
+								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
 								<!-- <input type="hidden" name="operator" value="<?php //echo $this->session->userdata('id_operator')?>"> -->
 								<input type="hidden" name="operator" value="<?php echo $this->session->userdata('id_operator')?>">
 								<input type="text" class="form-control" name="namaproduct" id="namaProduct" placeholder="Enter your name">
-						</div>
-						<div class=" form-group">
+							</div>
+							<div class=" form-group">
 								<label>Range trip period</label>
 								<div class="input-group">
 									<div class="input-group-addon">
@@ -72,7 +78,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="exampleInputEmail1">Harga</label>
 								<div class="input-group">
 									<span class="input-group-addon">IDR</span>
-									<input type="text" class="form-control harga" name="harga" id="namaProduct" placeholder="Masukkan harga" onkeyup="splitInDots(this)">
+									<input type="text" class="form-control harga" name="harga" id="namaProduct" placeholder="Masukkan harga"
+									 onkeyup="splitInDots(this)">
 								</div>
 							</div>
 						</div>
@@ -106,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<br> -->
 
 							</div>
-							
+
 							<!-- <div class="form-group">
 									<input type="file" name="filefoto" class="dropify" data-height="300">
 								</div> -->

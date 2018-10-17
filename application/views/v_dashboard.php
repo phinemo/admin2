@@ -6,14 +6,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
 		<h1>Dashboard
-			<small>Version 2.0</small>
+			<small>Statistic</small>
 		</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="#">
+				<a href="<?php echo site_url('C_dashboard')?>">
 					<i class="fa fa-dashboard"></i> Home</a>
 			</li>
-			<li class="active">Dashboard</li>
+			<li>
+				<a href="<?php echo site_url('C_user')?>">
+					<i class="fa fa-line-chart"></i> Statistic</a>
+			</li>
 		</ol>
 	</section>
 	<section class="content">

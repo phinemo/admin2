@@ -5,15 +5,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>Dashboard
-			<small>Version 2.0</small>
+		<h1>Product
+			<small>List Products</small>
 		</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="#">
+				<a href="<?php echo site_url('C_dashboard')?>">
 					<i class="fa fa-dashboard"></i> Home</a>
 			</li>
-			<li class="active">Dashboard</li>
+			<li>
+				<a href="<?php echo site_url('C_product')?>">
+					<i class="fa fa-gift"></i> Products</a>
+			</li>
 		</ol>
 	</section>
 
@@ -26,9 +29,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-xs-12">
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">Data Produk</h3>
+						<h3 class="box-title">Data Product</h3>
 						<div align="right">
-						<?php echo anchor("C_product/toadd","<button class='btn btn-primary '>Tambah Product</button>"); ?>
+							<?php if(isset($product) && count($product) > 1) echo anchor("C_product/toadd","<button class='btn btn-primary '>Tambah Product</button>"); ?>
 							<!-- <button class="btn btn-warning sendata" data-toggle="modal" data-target="#ModalTambah">Tambah Data</button> -->
 						</div>
 					</div>
@@ -49,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</thead>
 							<tbody>
 								<?php 
+					if(isset($product))					
 					foreach ($product as $data){
 						$price = number_format($data->harga,0,',','.');
 						echo "<tr>
@@ -69,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</tbody>
 							<tfoot>
 								<tr>
-								<th style="width:5%;">ID</th>
+									<th style="width:5%;">ID</th>
 									<th style="width:40%;">Nama</th>
 									<th style="width:10%;">Mulai</th>
 									<th style="width:10%;">Selesai</th>

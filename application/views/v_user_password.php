@@ -5,15 +5,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>Dashboard
-			<small>Version 2.0</small>
+		<h1>User
+			<small>Change Password</small>
 		</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="#">
+				<a href="<?php echo site_url('C_dashboard')?>">
 					<i class="fa fa-dashboard"></i> Home</a>
 			</li>
-			<li class="active">Dashboard</li>
+			<li>
+				<a href="<?php echo site_url('C_user')?>">
+					<i class="fa fa-user"></i> User</a>
+			</li>
+			<li>
+				<a href="<?php echo site_url('C_user/toadd')?>">
+					</i>Change Password</a>
+			</li>
 		</ol>
 	</section>
 	<section class="content">

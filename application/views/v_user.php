@@ -5,15 +5,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>Dashboard
-			<small>Version 2.0</small>
+		<h1>User
+			<small>List User</small>
 		</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="#">
+				<a href="<?php echo site_url('C_dashboard')?>">
 					<i class="fa fa-dashboard"></i> Home</a>
 			</li>
-			<li class="active">Dashboard</li>
+			<li>
+				<a href="<?php echo site_url('C_user')?>">
+					<i class="fa fa-user"></i> User</a>
+			</li>
 		</ol>
 	</section>
 
@@ -26,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="col-xs-12">
 				<div class="box">
 					<div class="box-header">
-						<h3 class="box-title">Data Produk</h3>
+						<h3 class="box-title">Data User</h3>
 						<div align="right">
 						<?php echo anchor("C_user/toadd","<div ><button class='btn btn-primary '>Tambah User</button></div>"); ?>
 							<!-- <button class="btn btn-warning sendata" data-toggle="modal" data-target="#ModalTambah">Tambah Data</button> -->

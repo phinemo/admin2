@@ -131,7 +131,7 @@
 			</li>
 			<li>
 				<a href="<?php echo site_url('C_product/index') ?>">
-					<i class="fa fa-gift"></i> <span>Produk</span>
+					<i class="fa fa-gift"></i> <span>Product</span>
 					<span class="pull-right-container">
 						<!-- <small class="label pull-right bg-green">new</small> -->
 					</span>

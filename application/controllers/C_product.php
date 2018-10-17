@@ -16,8 +16,20 @@ class C_product extends CI_Controller {
     }
 
     //CRUD function
-    public function getdata(){
-        $data['product'] = $this->M_product->read()->result();
+    public function getdata($id_operator = NULL){
+        if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'superadmin' ){
+            $data['product'] = $this->M_product->read()->result();
+        }
+        elseif($this->session->userdata('level') == 'user' && $id_operator !=NULL){
+        // var_dump($id_operator);
+            $where = array('id_operator'=>$id_operator);
+            // var_dump($where);
+            $data['product'] = $this->M_product->getwhere('produk',$where)->result();
+            // var_dump($data);
+        }
+        else{
+            $data = NULL;
+        }
         return $data;
     }
     public function toadd()
@@ -220,9 +232,10 @@ class C_product extends CI_Controller {
     //View
     public function index()
     {
-		$result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
-
-        $data = $this->getdata();
+        $result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
+        // var_dump($result);
+        $data = $this->getdata($result['profil'][0]->id_operator);
+        // var_dump($data);
         $this->load->view('header');
         $this->load->view('navbar',$result);
         $this->load->view('v_product',$data);

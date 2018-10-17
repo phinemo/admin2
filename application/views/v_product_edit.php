@@ -5,15 +5,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="content-wrapper">
 	<!-- Content Header (Page header) -->
 	<section class="content-header">
-		<h1>Dashboard
-			<small>Version 2.0</small>
+		<h1>Product
+			<small>Edit Product</small>
 		</h1>
 		<ol class="breadcrumb">
 			<li>
-				<a href="#">
+				<a href="<?php echo site_url('C_dashboard')?>">
 					<i class="fa fa-dashboard"></i> Home</a>
 			</li>
-			<li class="active">Dashboard</li>
+			<li>
+				<a href="<?php echo site_url('C_product')?>">
+					<i class="fa fa-gift"></i> Product</a>
+			</li>
+			<li>
+				<a href="#">
+					</i>Edit Product</a>
+			</li>
 		</ol>
 	</section>
 	<section class="content">
@@ -34,7 +41,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Operator</label>
-								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name" value="<?php 
+								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name"
+								 value="<?php 
 								 if (!empty($operator)) echo $operator[0]->nama_operator; else echo "";
 								 ?>">
 							</div>
@@ -70,11 +78,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Jumlah Anggota</label>
-								<input type="number" class="form-control" name="jml_anggota" id="namaProduct" placeholder="Enter your name" value=" <?php echo $data->jml_anggota?>">
+								<input type="number" class="form-control" name="jml_anggota" id="namaProduct" placeholder="Enter your name"
+								 value=" <?php echo $data->jml_anggota?>">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Harga</label>
-								<input type="text" class="form-control harga" name="harga" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->harga ?>" onkeyup="splitInDots(this)">
+								<input type="text" class="form-control harga" name="harga" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->harga ?>"
+								 onkeyup="splitInDots(this)">
 							</div>
 						</div>
 						<!-- /.box-body -->
@@ -94,15 +104,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<h4>Upload your image</h4>
 							<!-- <form class="form-horizontal" method="post"> -->
-								<!-- <div class="form-group">
+							<!-- <div class="form-group">
 								<input type="text" name="judul" class="form-control" placeholder="Judul">
 							</div> -->
-								<div class="form-group">
+							<div class="form-group">
 								<div class="file-loading">
-									
+
 									<input id="editfoto" name="filefoto[]" type="file" multiple>
 								</div>
-								</div>
+							</div>
 
 						</div>
 						<!-- /.box -->
