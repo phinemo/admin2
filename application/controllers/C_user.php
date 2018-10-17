@@ -43,7 +43,8 @@ class C_user extends CI_Controller {
             $where  = array('id_user' => $this->session->userdata('id_user'));
             $data = array('pass'=> $newpass);
             $this->M_user->update('user',$data,$where);
-            redirect(site_url('C_user/index'));
+            echo '<script>alert("Password Successfully Changed")</script>';
+            $this->password();
         }
         elseif($newpass != $newpass2 && $oldpass == $oldpass2[0]->pass){
             echo '<script>alert("New password and confirmation missmatch")</script>';

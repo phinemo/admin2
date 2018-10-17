@@ -15,7 +15,7 @@ class C_dashboard extends CI_Controller {
     public function getdata($id_operator = NULL){
         if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'superadmin' ){
             $data['product'] = $this->M_product->read()->result();
-        }
+        }   
         elseif($this->session->userdata('level') == 'user' && $id_operator !=NULL){
         // var_dump($id_operator);
             $where = array('id_operator'=>$id_operator);

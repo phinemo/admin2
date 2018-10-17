@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<div class="info-box-content">
 						<span class="info-box-text">Impression</span>
-						<span class="info-box-number">41,410</span>
+						<span class="info-box-number">80</span>
 
 						<div class="progress">
 							<div class="progress-bar" style="width: 70%"></div>
@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<div class="info-box-content">
 						<span class="info-box-text">Calls</span>
-						<span class="info-box-number">41,410</span>
+						<span class="info-box-number">41</span>
 
 						<div class="progress">
 							<div class="progress-bar" style="width: 70%"></div>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<div class="info-box-content">
 						<span class="info-box-text">Messages</span>
-						<span class="info-box-number">41,410</span>
+						<span class="info-box-number">30</span>
 
 						<div class="progress">
 							<div class="progress-bar" style="width: 70%"></div>
@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					<div class="info-box-content">
 						<span class="info-box-text">Websites</span>
-						<span class="info-box-number">41,410</span>
+						<span class="info-box-number">60</span>
 
 						<div class="progress">
 							<div class="progress-bar" style="width: 70%"></div>
@@ -178,7 +178,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								echo '<tr>
 										<td>'.$i++.'</td>
 										<td>'.$data->nama_produk.'</td> 
-										<td>45</td>
+										<td>80</td>
 										<td>60</td>
 										<td>40</td>
 										<td>20</td>									

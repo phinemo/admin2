@@ -35,11 +35,12 @@ class C_product extends CI_Controller {
     public function toadd()
     {
 		$result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
-
-        $data['gambar'] = array();
+        $where = array('id_operator'=>$result['profil'][0]->id_operator);
+        $result['operator'] = $this->M_product->getwhere('operator',$where,'nama_operator')->result();
+        // var_dump($data);
         $this->load->view('header');
         $this->load->view('navbar',$result);
-        $this->load->view('v_product_tambah');
+        $this->load->view('v_product_tambah',$result);
         $this->load->view('bottombar');
         $this->load->view('footer');
     }

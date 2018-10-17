@@ -38,12 +38,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Operator</label>
-								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name" required>
+								<?php 
+								if(isset($operator) && $this->session->userdata('level') == 'user'){
+									foreach($operator as $data){
+										echo '<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="" value="'.$data->nama_operator.'" disabled>';
+									}
+								}
+								elseif($this->session->userdata('level') == 'superadmin') {
+									echo '<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter operator tour">';
+								}
+								?>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
 								<!-- <input type="hidden" name="operator" value="<?php //echo $this->session->userdata('id_operator')?>"> -->
-								<input type="hidden" name="operator" value="<?php echo $this->session->userdata('id_operator')?>">
 								<input type="text" class="form-control" name="namaproduct" id="namaProduct" placeholder="Enter your name">
 							</div>
 							<div class=" form-group">
