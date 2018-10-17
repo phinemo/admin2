@@ -11,6 +11,7 @@
             //Do your magic here
         }
         
+        
         public function getProduct($table,$where=NULL,$column){
             if($where !=NULL){
             $this->db->where($where);
