@@ -24,7 +24,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ol>
 	</section>
 	<section class="content">
-		<?php foreach ($operator as $data){
+		<?php 
+		if(isset($operator))
+		foreach ($operator as $data){
 			// var_dump($operator);
 		$medsos = json_decode($data->contact);?>
 		<form role="form" class="form-validate" method="post" action="<?php echo base_url('index.php/C_operator/update'); ?>      "
@@ -40,44 +42,89 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<!-- form start -->
 						<!-- Form Media social -->
 						<div class="box-body">
+							
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Operator</label>
-								<input type="hidden" class="form-controll" name="id" id="idOperator" value="<?php echo $data->id_operator ?>">
+								<input type="hidden" class="form-controll" name="id" id="idOperator" value="<?php if(isset($data->id_operator)) echo $data->id_operator ?>">
 								<input type="text" class="form-control rounded" name="namaoperator" id="namaOperator" placeholder="Enter your name"
-								 value="<?php echo $data->nama_operator ?>">
+								 value="<?php echo $data->nama_operator ?>" required>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Phone</label>
 								<div class="row">
-									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="number" placeholder="Phone number" value="<?php echo $medsos->number ?>">
+									<div class="col-md-12 col-lg-12">
+										<label for="alamatoperator">Address</label>
+										<textarea rows="4" class="form-control" id="alamatoperator" name="alamatoperator"><?php if(isset($medsos->address)) echo $medsos->address ?></textarea>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Twitter</label>
 								<div class="row">
-									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="twitter" placeholder="Twitter" value="<?php echo $medsos->twitter ?>">
+									<div class="col-xs-6 col-md-6">
+										<label for="exampleInputPassword1">Phone</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-phone"></i>
+											</div>
+											<input type="text" class="form-control" id="" name="numberoperator" placeholder="+62" required value="<?php if(isset($medsos->number)) echo $medsos->number ?>">
+										</div>
+									</div>
+									<div class="col-xs-6 col-md-6">
+										<label for="exampleInputPassword1">E-mail</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<b>@</b>
+											</div>
+											<input type="text" class="form-control" id="" name="emailoperator" placeholder="Email" required value="<?php if(isset($medsos->email)) echo $medsos->email ?>">
+										</div>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Instagram</label>
 								<div class="row">
-									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="instagram" placeholder="Instagram" value="<?php echo $medsos->instagram ?>">
+									<div class="col-xs-6 col-md-6">
+										<label for="twitter">Twitter</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-twitter"></i>
+											</div>
+											<input type="text" class="form-control" id="twitter" name="twitter" placeholder="Twitter" value="<?php if(isset($medsos->twitter)) echo $medsos->twitter ?>">
+										</div>
+									</div>
+									<div class="col-xs-6 col-md-6">
+										<label for="facebook">Facebook</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-facebook"></i>
+											</div>
+											<input type="text" class="form-control" id="facebook" name="facebook" placeholder="Facebook" value="<?php if(isset($medsos->facebook)) echo $medsos->facebook ?>">
+										</div>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Facebook</label>
 								<div class="row">
-									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="facebook" placeholder="Facebook" value="<?php echo $medsos->facebook ?>">
+									<div class="col-xs-6 col-md-6">
+										<label for="instagram">Instagram</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-instagram"></i>
+											</div>
+											<input type="text" class="form-control" id="instagram" name="instagram" placeholder="Instagram" value="<?php if(isset($medsos->instagram)) echo $medsos->instagram ?>">
+										</div>
+									</div>
+									<div class="col-xs-6 col-md-6">
+										<label for="whatsapp">Whatsapp</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-whatsapp"></i>
+											</div>
+											<input type="text" class="form-control" id="whatsapp" name="whatsapp" required placeholder="Whatsapp" value="<?php if(isset($medsos->whatsapp)) echo $medsos->whatsapp ?>">
+										</div>
 									</div>
 								</div>
 							</div>
+							<!-- BOX Data Operator -->
+
 
 						</div>
 						<!-- End Form medsos -->

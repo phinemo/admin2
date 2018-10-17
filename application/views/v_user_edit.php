@@ -40,14 +40,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Lengkap</label>
-								<input type="hidden" class="form-control rounded" name="id" id="namaUser" value="<?php echo $data->id_user?>" require>
-								<input type="text" class="form-control rounded" name="namauser" id="namaUser" value="<?php echo $data->full_name?>" require>
+								<input type="hidden" class="form-control rounded" name="id" id="namaUser" value="<?php echo $data->id_user?>">
+								<input type="text" class="form-control rounded" name="namauser" id="namaUser" value="<?php echo $data->full_name?>" required>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">E-mail</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="emailuser" require value="<?php echo $data->email?>">
+										<input type="text" class="form-control" id="" name="emailuser" required value="<?php echo $data->email?>">
 									</div>
 								</div>
 							</div>
@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="exampleInputPassword1">Password</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="password" class="form-control" id="" name="passworduser" require value="<?php echo $data->pass?>">
+										<input type="password" class="form-control" id="" name="passworduser" required value="<?php echo $data->pass?>">
 									</div>
 								</div>
 							</div>
@@ -70,21 +70,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											}elseif($data->level == 'user'){
 												echo '<option selected value="user">User</option>
 											<option value="admin" >Admin</option>';
+											}elseif($data->level == 'superadmin'){
+												echo '<option selected value="superadmin">Super</option>';
 											} ?>
 										</select>
 									</div>
 								</div>
 							</div>
-							<div class="form-group">
-								<label for="exampleInputPassword1">Operator</label>
-								<div class="row">
-									<div class="col-xs-12 col-md-12">
-									<div class="form-group">
-											<input type="text" class="form-control" name="operator" id="touroperator">
+							<?php if($data->level != 'superadmin')
+							echo '<div class="form-group">
+									<label for="exampleInputPassword1">Operator</label>
+									<div class="row">
+										<div class="col-xs-12 col-md-12">
+											<div class="form-group">
+												<input type="text" class="form-control" name="operator" id="touroperator" required>
+											</div>
 										</div>
 									</div>
-								</div>
-							</div>
+								</div>'
+							?>
+							
 						</div>
 						<!-- End Form medsos -->
 						<!-- /.box-body -->

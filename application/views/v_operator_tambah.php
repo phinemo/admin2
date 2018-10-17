@@ -38,41 +38,82 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Operator</label>
-								<input type="text" class="form-control rounded" name="namaoperator" id="namaOperator" placeholder="Enter your name">
+								<input type="text" class="form-control rounded" required name="namaoperator" id="namaOperator" placeholder="Enter your name">
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Phone</label>
 								<div class="row">
-									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="number" placeholder="Phone number">
+									<div class="col-md-12 col-lg-12">
+										<label for="alamatoperator">Address</label>
+										<textarea rows="4" class="form-control" id="alamatoperator" name="alamatoperator"></textarea>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Twitter</label>
 								<div class="row">
-									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="twitter" placeholder="Twitter">
+									<div class="col-xs-6 col-md-6">
+										<label for="exampleInputPassword1">Phone</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-phone"></i>
+											</div>
+											<input type="text" class="form-control" id="" required name="numberoperator" placeholder="+62">
+										</div>
+									</div>
+									<div class="col-xs-6 col-md-6">
+										<label for="exampleInputPassword1">E-mail</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<b>@</b>
+											</div>
+											<input type="text" class="form-control" id="" required name="emailoperator" placeholder="Email">
+										</div>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Instagram</label>
 								<div class="row">
-									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="instagram" placeholder="Instagram">
+									<div class="col-xs-6 col-md-6">
+										<label for="twitter">Twitter</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-twitter"></i>
+											</div>
+											<input type="text" class="form-control" id="twitter" name="twitter" placeholder="Twitter">
+										</div>
+									</div>
+									<div class="col-xs-6 col-md-6">
+										<label for="facebook">Facebook</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-facebook"></i>
+											</div>
+											<input type="text" class="form-control" id="facebook" name="facebook" placeholder="Facebook">
+										</div>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="exampleInputPassword1">Facebook</label>
 								<div class="row">
-									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="facebook" placeholder="Facebook">
+									<div class="col-xs-6 col-md-6">
+										<label for="instagram">Instagram</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-instagram"></i>
+											</div>
+											<input type="text" class="form-control" id="instagram" name="instagram" placeholder="Instagram">
+										</div>
+									</div>
+									<div class="col-xs-6 col-md-6">
+										<label for="whatsapp">Whatsapp</label>
+										<div class="input-group">
+											<div class="input-group-addon">
+												<i class="fa fa-whatsapp"></i>
+											</div>
+											<input type="text" class="form-control" id="whatsapp" required name="whatsapp" placeholder="Instagram">
+										</div>
 									</div>
 								</div>
 							</div>
-
 						</div>
 						<!-- End Form medsos -->
 						<!-- /.box-body -->

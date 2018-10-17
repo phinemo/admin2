@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Operator</label>
-								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name">
+								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name" required>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
@@ -60,11 +60,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="row">
 									<div class="col-xs-6">
 										<label for="exampleInputEmail1">Kota</label>
-										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Pilih kota">
+										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Pilih kota" required>
 									</div>
 									<div class="col-xs-6">
 										<label>Jenis Tour</label>
-										<select class="form-control select2" style="width: 100%;" id="jenis" name="jenisproduct">
+										<select class="form-control select2" style="width: 100%;" id="jenis" name="jenisproduct" required>
 										</select>
 									</div>
 								</div>
@@ -79,7 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="input-group">
 									<span class="input-group-addon">IDR</span>
 									<input type="text" class="form-control harga" name="harga" id="namaProduct" placeholder="Masukkan harga"
-									 onkeyup="splitInDots(this)">
+									 onkeyup="splitInDots(this)" required>
 								</div>
 							</div>
 						</div>

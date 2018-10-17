@@ -25,7 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</section>
 	<section class="content">
 		<?php foreach ($product as $data){
-			// var_dump($gambar);
+			// var_dump($operator);
 			$deskripsi = json_decode($data->deskripsi);?>
 		<form role="form" class="form-validate" method="post" action="<?php echo base_url('index.php/C_product/update'); ?>      "
 		 enctype="multipart/form-data">
@@ -41,16 +41,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Operator</label>
-								<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name"
-								 value="<?php 
-								 if (!empty($operator)) echo $operator[0]->nama_operator; else echo "";
-								 ?>">
+								<?php if($this->session->userdata('level') == 'superadmin' || $this->session->userdata('level') == 'admin'){
+									echo '<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name"';
+									if (!empty($operator)) echo 'value="'.$operator[0]->nama_operator.'">';
+									else echo 'value="">';
+									}else{
+									echo '<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name"';
+									if (!empty($operator)) echo 'value="'.$operator[0]->nama_operator.'" disabled>';
+									else echo 'value="">';
+									}
+									?>
+								
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Product</label>
 								<input type="hidden" class="form-control" name="id_produk" value="<?php echo $data->id_produk?>">
 								<input type="hidden" class="form-control" name="id_operator" value="<?php echo $this->session->userdata('id_operator')?>">
-								<input type="text" class="form-control" name="namaproduct" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->nama_produk ?> ">
+								<input type="text" class="form-control" name="namaproduct" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->nama_produk ?> " required>
 							</div>
 							<div class="form-group">
 								<label>Range trip period</label>
@@ -66,11 +73,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="row">
 									<div class="col-xs-6">
 										<label for="exampleInputEmail1">Kota</label>
-										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Pilih kota" value="<?php if(!empty($kota))echo $kota[0]->nama_kota;else echo "";?>">
+										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Pilih kota" value="<?php if(!empty($kota))echo $kota[0]->nama_kota;else echo "";?>" required>
 									</div>
 									<div class="col-xs-6">
 										<label>Jenis Tour</label>
-										<select class="form-control select2" style="width: 100%;" id="jenis" name="jenisproduct">
+										<select class="form-control select2" style="width: 100%;" id="jenis" name="jenisproduct" required>
 										</select>
 									</div>
 								</div>

@@ -13,6 +13,19 @@ class M_operator extends CI_Model {
     }
     //============CRUD===========
     // read data
+    public function readData($select = NULL, $table, $join = NULL, $where = NULL){
+        if($select != NULL){
+            $this->db->select($select);
+        }
+        $this->db->from($table);
+        if($join !=NULL){
+            $this->db->join($join[0],$join[1],$join[2]);
+        }
+        if($where != NULL){
+            $this->db->where($where);
+        }
+        return $this->db->get()->result();
+    }
     public function read(){
         return $this->db->get('operator');
     }

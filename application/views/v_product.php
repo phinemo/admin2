@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="box-header">
 						<h3 class="box-title">Data Product</h3>
 						<div align="right">
-							<?php if(isset($product) && count($product) > 1) echo anchor("C_product/toadd","<button class='btn btn-primary '>Tambah Product</button>"); ?>
+							<?php if(isset($product)) echo anchor("C_product/toadd","<button class='btn btn-primary '>Tambah Product</button>"); ?>
 							<!-- <button class="btn btn-warning sendata" data-toggle="modal" data-target="#ModalTambah">Tambah Data</button> -->
 						</div>
 					</div>
@@ -65,10 +65,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td>
 						<div class='row'>";
 							echo anchor("C_product/getdatawhere/".$data->id_produk,"<div class='col-xs-6 col-md-6'><button class='btn btn-primary glyphicon glyphicon-pencil'></button></div>");
-							echo anchor('C_product/delete/'.$data->id_produk,'<div class="col-xs-6 col-md-6"><button class="btn btn-primary glyphicon glyphicon-trash"></button></div>
-						</div>
-						</td></tr>');}
-					?>
+							echo '<div class="col-xs-6 col-md-6"><button class="btn btn-primary glyphicon glyphicon-trash" onclick="deleteproduct('.$data->id_produk.')"></button></div>';
+							echo '</div></td></tr>';}
+						?>
 								<!-- <a class='glyphicon glyphicon-trash btn btn-primary' href ='/index.php/dashboard/delete/".$data->nis."'></a> -->
 							</tbody>
 							<tfoot>
@@ -90,6 +89,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<!-- /.row -->
 	</section>
+	<div class="modal fade" id="popup_product" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h3 class="modal-title"></h3>
+					<input id="ids" type="hidden">
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="btnSave" onclick="delproduct()" class="btn btn-primary">Delete</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 	<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->

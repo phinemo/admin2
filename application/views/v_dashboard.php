@@ -20,6 +20,90 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</ol>
 	</section>
 	<section class="content">
+		<!-- Count Box  -->
+		<div class="row">
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="info-box bg-aqua">
+					<span class="info-box-icon"><i class="fa fa-line-chart"></i></span>
+
+					<div class="info-box-content">
+						<span class="info-box-text">Impression</span>
+						<span class="info-box-number">41,410</span>
+
+						<div class="progress">
+							<div class="progress-bar" style="width: 70%"></div>
+						</div>
+						<span class="progress-description">
+							70% Increase in 30 Days
+						</span>
+					</div>
+					<!-- /.info-box-content -->
+				</div>
+				<!-- /.info-box -->
+			</div>
+			<!-- /.col -->
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="info-box bg-green">
+					<span class="info-box-icon"><i class="fa fa-mobile"></i></span>
+
+					<div class="info-box-content">
+						<span class="info-box-text">Calls</span>
+						<span class="info-box-number">41,410</span>
+
+						<div class="progress">
+							<div class="progress-bar" style="width: 70%"></div>
+						</div>
+						<span class="progress-description">
+							70% Increase in 30 Days
+						</span>
+					</div>
+					<!-- /.info-box-content -->
+				</div>
+				<!-- /.info-box -->
+			</div>
+			<!-- /.col -->
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="info-box bg-yellow">
+					<span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
+
+					<div class="info-box-content">
+						<span class="info-box-text">Messages</span>
+						<span class="info-box-number">41,410</span>
+
+						<div class="progress">
+							<div class="progress-bar" style="width: 70%"></div>
+						</div>
+						<span class="progress-description">
+							70% Increase in 30 Days
+						</span>
+					</div>
+					<!-- /.info-box-content -->
+				</div>
+				<!-- /.info-box -->
+			</div>
+			<!-- /.col -->
+			<div class="col-md-3 col-sm-6 col-xs-12">
+				<div class="info-box bg-red">
+					<span class="info-box-icon"><i class="fa fa-globe"></i></span>
+
+					<div class="info-box-content">
+						<span class="info-box-text">Websites</span>
+						<span class="info-box-number">41,410</span>
+
+						<div class="progress">
+							<div class="progress-bar" style="width: 70%"></div>
+						</div>
+						<span class="progress-description">
+							70% Increase in 30 Days
+						</span>
+					</div>
+					<!-- /.info-box-content -->
+				</div>
+				<!-- /.info-box -->
+			</div>
+			<!-- /.col -->
+		</div>
+		<!-- Chart -->
 		<div class="row">
 			<div class="col-md-12">
 				<div class="box">
@@ -85,46 +169,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<th style="width: 15%">Message</th>
 								<th style="width: 15%">Website</th>
 							</tr>
-							<tr>
-								<td>1.</td>
-								<td>Mt. Batur Sunrise Hike</td>
-								<td>45</td>
-								<td>60</td>
-								<td>40</td>
-								<td>20</td>
-							</tr>
-							<tr>
-								<td>2.</td>
-								<td>Ubud Cycling Tour</td>
-								<td>45</td>
-								<td>60</td>
-								<td>40</td>
-								<td>20</td>
-							</tr>
-							<tr>
-								<td>3.</td>
-								<td>Gili Meno Fun Dive Trip</td>
-								<td>45</td>
-								<td>60</td>
-								<td>40</td>
-								<td>20</td>
-							</tr>
-							<tr>
-								<td>4.</td>
-								<td>Dieng Plateau Golden Sunrise</td>
-								<td>45</td>
-								<td>60</td>
-								<td>40</td>
-								<td>20</td>
-							</tr>
-							<tr>
-								<td>5.</td>
-								<td>Lava Tour Yogyakarta</td>
-								<td>45</td>
-								<td>60</td>
-								<td>40</td>
-								<td>20</td>
-							</tr>
+							<?php 
+								if(isset($product)){
+									$i = 1;
+									foreach($product as $data){
+
+									
+								echo '<tr>
+										<td>'.$i++.'</td>
+										<td>'.$data->nama_produk.'</td> 
+										<td>45</td>
+										<td>60</td>
+										<td>40</td>
+										<td>20</td>									
+									  </tr>';
+								}
+							}
+							?>
 						</table>
 					</div>
 					<!-- /.box-body -->

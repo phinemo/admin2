@@ -33,17 +33,29 @@ class C_user extends CI_Controller {
     }
     public function passwordchange(){
         $oldpass = $this->input->post('passworduser');
+        $where = array('id_user'=>$this->session->userdata('id_user'));
+        $oldpass2 = $this->M_user->getUser($where,'pass','user');
         $newpass = $this->input->post('passwordusernew');
         $newpass2 = $this->input->post('passwordusernew2');
-        if($newpass == $newpass2){
+        
+        // var_dump($oldpass2);
+        if($newpass == $newpass2 && $oldpass == $oldpass2[0]->pass){
             $where  = array('id_user' => $this->session->userdata('id_user'));
             $data = array('pass'=> $newpass);
             $this->M_user->update('user',$data,$where);
             redirect(site_url('C_user/index'));
         }
+        elseif($newpass != $newpass2 && $oldpass == $oldpass2[0]->pass){
+            echo '<script>alert("New password and confirmation missmatch")</script>';
+            $this->password();
+        }
+        elseif($newpass == $newpass2 && $oldpass != $oldpass2[0]->pass){
+            echo '<script>alert("Old password false")</script>';
+            $this->password();
+        }
         else{
-            redirect(site_url('C_user/index'));
-
+            echo '<script>alert("Please insert your password correctly")</script>';
+            $this->password();
         }
     }
     public function toadd()

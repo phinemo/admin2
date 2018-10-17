@@ -77,7 +77,7 @@
 			type: "GET",
 			dataType: "JSON",
 			success: function (data) {
-				console.log(data);
+				// console.log(data);
 				$('[name="id"]').val(data.id_operator);
 				$('[name="id_layanan"]').val(data.id_layanan);
 				$('[name="jenis_layanan"]').val(data.jenis_layanan);
@@ -93,6 +93,56 @@
 			}
 		});
 	}
+	function deleteoperator(id){
+		$('#popup_operator').modal('show'); // show bootstrap modal when complete loaded
+		$('.modal-title').text('Are you sure to delete ?'); // Set title to Bootstrap modal title
+		$('#ids').val(id);
+	}
+	function deleteproduct(id){
+		$('#popup_product').modal('show'); // show bootstrap modal when complete loaded
+		$('.modal-title').text('Are you sure to delete ?'); // Set title to Bootstrap modal title
+		$('#ids').val(id);
+	}
+	function deloperator(){
+		var ids = $('#ids').val();
+		// console.log(parseInt(ids));
+		$('#btnSave').text('deleting');
+		$('#btnSave').attr('disabled', true); //set button disable 
+
+		$.ajax({
+			url: "<?php echo site_url('C_operator/delete/')?>"+ids,
+			type: "POST",
+			dataType:"JSON",
+			success: function(data){
+				if(data.status)
+				$('#popup_form').modal('hide');
+				location.reload(true);				
+			},
+			error:function(jqXHR, textStatus, errorThrown){
+				alert('Failed to delete')
+			}
+		})
+	}
+	function delproduct(){
+		var ids = $('#ids').val();
+		// console.log(parseInt(ids));
+		$('#btnSave').text('deleting');
+		$('#btnSave').attr('disabled', true); //set button disable 
+
+		$.ajax({
+			url: "<?php echo site_url('C_product/delete/')?>"+ids,
+			type: "POST",
+			dataType:"JSON",
+			success: function(data){
+				if(data.status)
+				$('#popup_form').modal('hide');
+				location.reload(true);				
+			},
+			error:function(jqXHR, textStatus, errorThrown){
+				alert('Failed to delete')
+			}
+		})
+	}
 	function update() {
 		$('#btnSave').text('saving...'); //change button text
 		$('#btnSave').attr('disabled', true); //set button disable 
@@ -104,10 +154,12 @@
 			data: $('#account').serialize(),
 			dataType: "JSON",
 			success: function (data) {
-				console.log(data);
+				// console.log(data);
 				if (data.status) //if success close modal and reload ajax table
 				{
 					$('#modal_form').modal('hide');
+					// $('#layanan').text(data.layanan.toUpperCase());
+					location.reload(true);
 					// reload_table();
 				} else {
 					for (var i = 0; i < data.inputerror.length; i++) {
@@ -308,7 +360,7 @@
 	$(document).ready(function () {
 		$('.dropify').dropify({
 			messages: {
-				default: 'Drag and Drop to upload your picture',
+				default: 'Drag and Drop to upload your logo',
 				replace: 'Replace',
 				remove: 'Delete',
 				error: 'error'

@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class="box-header">
 						<h3 class="box-title">Data User</h3>
 						<div align="right">
-						<?php echo anchor("C_user/toadd","<div ><button class='btn btn-primary '>Tambah User</button></div>"); ?>
+						<?php echo anchor("C_user/toadd","<button class='btn btn-primary '>Tambah User</button>"); ?>
 							<!-- <button class="btn btn-warning sendata" data-toggle="modal" data-target="#ModalTambah">Tambah Data</button> -->
 						</div>
 					</div>

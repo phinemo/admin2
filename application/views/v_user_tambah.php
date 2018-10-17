@@ -38,13 +38,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="box-body">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Nama Lengkap</label>
-								<input type="text" class="form-control rounded" name="namauser" id="namaUser" require>
+								<input type="text" class="form-control rounded" name="namauser" id="namaUser" required>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">E-mail</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="text" class="form-control" id="" name="emailuser" require>
+										<input type="text" class="form-control" id="" name="emailuser" required>
 									</div>
 								</div>
 							</div>
@@ -52,7 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="exampleInputPassword1">Password</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="password" class="form-control" id="" name="passworduser" require>
+										<input type="password" class="form-control" id="" name="passworduser" required>
 									</div>
 								</div>
 							</div>
@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="exampleInputPassword1">Level</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<select class="form-control" name="leveluser">
+										<select class="form-control" name="leveluser" required>
 											<option value="user">User</option>
 											<option value="admin">Admin</option>										
 										</select>
@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									<div class="col-xs-12 col-md-12">
 										<div class="form-group">
 											<label for="exampleInputEmail1">Operator</label>
-											<input type="text" class="form-control" name="operator" id="touroperator" placeholder="Enter your name">
+											<input type="text" class="form-control" name="operator" id="touroperator" placeholder="Enter your name" required>
 										</div>
 									</div>
 								</div>

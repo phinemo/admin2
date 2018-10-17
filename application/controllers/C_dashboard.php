@@ -17,10 +17,11 @@ class C_dashboard extends CI_Controller {
     public function index()
     {
         $result['profil'] = $this->M_login->getDataProfile($this->session->userdata('id_user'));
+        $result['product'] = $this->M_dashboard->getProduct('produk',NULL,'nama_produk')->result();
         // $this->M_dashboard->getProduct();
         $this->load->view('header');
         $this->load->view('navbar',$result);
-        $this->load->view('v_dashboard');
+        $this->load->view('v_dashboard',$result);
         $this->load->view('bottombar');
         $this->load->view('footer');
     }

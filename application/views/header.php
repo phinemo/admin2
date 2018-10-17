@@ -21,6 +21,8 @@
 	<!-- jvectormap -->
 	<link rel="stylesheet" href="<?php echo base_url('admintemplate/bower_components/jvectormap/jquery-jvectormap.css')?>">
 	<link rel="stylesheet" href="<?php echo base_url('admintemplate/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css')?>">
+	<!-- JGrow -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-jgrowl/1.4.6/jquery.jgrowl.css">
 	<!-- Theme style -->
 	<link rel="stylesheet" href="<?php echo base_url('admintemplate/dist/css/AdminLTE.min.css')?>">
 	<!-- iCheck -->

@@ -42,7 +42,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="exampleInputPassword1">E-mail</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-                                        
 										<input type="text" class="form-control" id="" name="emailuser" require value="<?php echo $data->email?>" disabled>
 									</div>
 								</div>
@@ -51,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="exampleInputPassword1">Password</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="password" class="form-control" id="" name="passworduser" require value="<?php echo $data->pass?>">
+										<input type="password" class="form-control" id="" name="passworduser" required>
 									</div>
 								</div>
                             </div>
@@ -59,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="exampleInputPassword1">New Password</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="password" class="form-control" id="" name="passwordusernew" require >
+										<input type="password" class="form-control" id="" name="passwordusernew" required>
 									</div>
 								</div>
                             </div>
@@ -67,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<label for="exampleInputPassword1">Retype New Password</label>
 								<div class="row">
 									<div class="col-xs-12 col-md-12">
-										<input type="password" class="form-control" id="" name="passwordusernew2" require>
+										<input type="password" class="form-control" id="" name="passwordusernew2" required>
 									</div>
 								</div>
 							</div>

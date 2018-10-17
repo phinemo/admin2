@@ -18,14 +18,18 @@ class C_operator extends CI_Controller {
 
     public function getdata($id_operator = NULL){
         if ($this->session->userdata('level') == 'admin' || $this->session->userdata('level') == 'superadmin' ){
-            $data['operator'] = $this->M_operator->read()->result();
+            $join = array('layanan','operator.id_layanan = layanan.id_layanan','left outer');
+            $data['operator'] = $this->M_operator->readData('*','operator',$join,NULL);
+            // $data['layanan'] = $this->M_operator->readData();
         
         }
         elseif($this->session->userdata('level') == 'user' && $id_operator !=NULL){
         // var_dump($id_operator);
             $where = array('id_operator'=>$id_operator);
             // var_dump($where);
-            $data['operator'] = $this->M_operator->getwhere('operator',$where)->result();
+            $join = array('layanan','operator.id_layanan = layanan.id_layanan','left outer');
+            $data['operator'] = $this->M_operator->readData('*','operator',$join,$where);
+            // $data['operator'] = $this->M_operator->getwhere('operator',$where)->result();
             // var_dump($data);
         }
         else{
@@ -57,7 +61,7 @@ class C_operator extends CI_Controller {
         // echo "<script>console.log('".$where."')</script>";
         $data_layanan = array('id_layanan'=>$layanan[0]->id_layanan);
         $res = $this->M_operator->update('operator',$data_layanan,$where);
-        echo json_encode(array("status" => TRUE));
+        echo json_encode(array("status" => TRUE,"layanan"=>$package));
     }
     public function add(){
         $nama = $this->input->post('namaoperator');
@@ -135,7 +139,9 @@ class C_operator extends CI_Controller {
     public function delete($id){
         $where = array('id_operator'=> $id);
         $this->M_operator->delete('operator',$where);
-        redirect('C_operator/index');
+        echo json_encode(array('status' => TRUE));
+        // redirect('C_operator/index');
+        
     }
 
     // View
@@ -164,9 +170,12 @@ class C_operator extends CI_Controller {
     
     // another Function
     public function socialencode(){
+        $data['whatsapp'] = $this->input->post('whatsapp');
+        $data['address'] = $this->input->post('alamatoperator');
+        $data['email']  = $this->input->post('emailoperator');
         $data['facebook'] = $this->input->post('facebook');
         $data['twitter'] = $this->input->post('twitter');
-        $data['number'] = $this->input->post('number');
+        $data['number'] = $this->input->post('numberoperator');
         $data['instagram'] = $this->input->post('instagram');
         $encoded = json_encode($data);
         return $encoded;

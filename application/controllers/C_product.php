@@ -99,7 +99,7 @@ class C_product extends CI_Controller {
         // $explode = explode(',',$data['media']);
         // var_dump(json_encode($data['media']));
         // $getid = json_decode($data['media']);
-        // var_dump($data['kota']);
+        // var_dump($data );
         $result = json_decode($data['product'][0]->id_media);
         // var_dump($result);
         foreach ($result as $row){//get json data and decode data to array (id_media)
@@ -137,7 +137,14 @@ class C_product extends CI_Controller {
         $kotaproduct = $this->input->post('kotaproduct');
         // var_dump($jenisproduct);
         // var_dump($kotaproduct);
-        $id_operator = $this->M_product->getwhere('operator',array('nama_operator'=>$namaoperator),'id_operator')->result();
+        if(!empty($namaoperator)){
+        $operator = $this->M_product->getwhere('operator',array('nama_operator'=>$namaoperator),'id_operator')->result();
+        $id_operator = $operator[0]->id_operator;
+        }
+        else{
+            $id_operator = NULL;
+        }
+
         $id_kota = $this->M_product->getwhere('kota',array('nama_kota'=>$kotaproduct),'id_kota')->result();
         $id_jenis = $this->M_product->getwhere('jenis',array('jenis_tour'=>$jenisproduct),'id_jenis')->result();
 	   	$id = $this->input->post('id_produk');
@@ -160,7 +167,7 @@ class C_product extends CI_Controller {
 			'harga'=>str_replace('.','',$harga),
             'deskripsi' =>$deskripsi,
             'id_thumb'=>$id_thumb,
-            'id_operator'=>$id_operator[0]->id_operator,
+            'id_operator'=>$id_operator,
             'id_kota'=>$id_kota[0]->id_kota,
             'id_jenis'=>$id_jenis[0]->id_jenis,
         );
@@ -188,7 +195,9 @@ class C_product extends CI_Controller {
     public function delete($id){
         $where = array('id_produk'=> $id);
         $this->M_product->delete('produk',$where);
-        redirect('C_product/index');
+        // redirect('C_product/index');
+        echo json_encode(array('status' => TRUE));
+
     }
     public function autokota(){
         
