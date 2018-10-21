@@ -109,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 											<div class="input-group-addon">
 												<i class="fa fa-whatsapp"></i>
 											</div>
-											<input type="text" class="form-control" id="whatsapp" required name="whatsapp" placeholder="Instagram">
+											<input type="text" class="form-control" id="whatsapp" required name="whatsapp" placeholder="Whatsapp">
 										</div>
 									</div>
 								</div>
