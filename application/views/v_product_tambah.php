@@ -41,7 +41,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<?php 
 								if(isset($operator) && $this->session->userdata('level') == 'user'){
 									foreach($operator as $data){
-										echo '<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="" value="'.$data->nama_operator.'" disabled>';
+										echo '<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="" value="'.$data->nama_operator.'" readonly="true">';
 									}
 								}
 								elseif($this->session->userdata('level') == 'superadmin') {
@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<!-- Horizontal Form -->
 					<div class="box box-info">
 						<div class="box-header with-border">
-							<h3 class="box-title">Logo</h3>
+							<h3 class="box-title">Pictures Product</h3>
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->
@@ -110,9 +110,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<!-- <div class="form-group">
 								<input type="text" name="judul" class="form-control" placeholder="Judul">
 							</div> -->
+							<input id="idmedia" type="hidden" name="idmedia">
 							<div class="form-group">
 								<div class="file-loading">
-									<input id="filefoto" name="filefoto[]" type="file" multiple>
+									<input id="addfoto" name="filefoto[]" type="file" multiple>
 								</div>
 								<br>
 								<!-- <div class="file-loading">

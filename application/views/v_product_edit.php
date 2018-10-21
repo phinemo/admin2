@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 									else echo 'value="">';
 									}else{
 									echo '<input type="text" class="form-control" name="touroperator" id="touroperator" placeholder="Enter your name"';
-									if (!empty($operator)) echo 'value="'.$operator[0]->nama_operator.'" disabled>';
+									if (!empty($operator)) echo 'value="'.$operator[0]->nama_operator.'" readonly="true">';
 									else echo 'value="">';
 									}
 									?>
@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<input type="text" class="form-control" name="namaproduct" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->nama_produk ?> " required>
 							</div>
 							<div class="form-group">
-								<label>Range trip period</label>
+								<label>Perjalanan</label>
 								<div class="input-group">
 									<div class="input-group-addon">
 										<i class="fa fa-calendar"></i>
@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<div class="row">
 									<div class="col-xs-6">
 										<label for="exampleInputEmail1">Kota</label>
-										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Pilih kota" value="<?php if(!empty($kota))echo $kota[0]->nama_kota;else echo "";?>" required>
+										<input type="text" class="form-control" name="kotaproduct" id="kota" placeholder="Choose City" value="<?php if(!empty($kota))echo $kota[0]->nama_kota;else echo "";?>" required>
 									</div>
 									<div class="col-xs-6">
 										<label>Jenis Tour</label>
@@ -85,12 +85,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Jumlah Anggota</label>
-								<input type="number" class="form-control" name="jml_anggota" id="namaProduct" placeholder="Enter your name"
-								 value=" <?php echo $data->jml_anggota?>">
+								<input type="number" class="form-control" name="jml_anggota" id="namaProduct" placeholder=""
+								 value="<?php echo $data->jml_anggota?>">
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Harga</label>
-								<input type="text" class="form-control harga" name="harga" id="namaProduct" placeholder="Enter your name" value="<?php echo $data->harga ?>"
+								<input type="text" class="form-control harga" name="harga" id="namaProduct" placeholder="Price" value="<?php echo $data->harga ?>"
 								 onkeyup="splitInDots(this)">
 							</div>
 						</div>
@@ -116,7 +116,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							</div> -->
 							<div class="form-group">
 								<div class="file-loading">
-
 									<input id="editfoto" name="filefoto[]" type="file" multiple>
 								</div>
 							</div>

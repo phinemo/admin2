@@ -64,8 +64,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<td>".$price."</td>
 						<td>
 						<div class='row'>";
-							echo anchor("C_product/getdatawhere/".$data->id_produk,"<div class='col-xs-6 col-md-6'><button class='btn btn-primary glyphicon glyphicon-pencil'></button></div>");
-							echo '<div class="col-xs-6 col-md-6"><button class="btn btn-primary glyphicon glyphicon-trash" onclick="deleteproduct('.$data->id_produk.')"></button></div>';
+							echo anchor("C_product/getdatawhere/".$data->id_produk,"<div class='col-xs-4 col-md-4'><button class='btn btn-primary glyphicon glyphicon-pencil'></button></div>");
+							echo anchor("C_showoffer/index/".$data->id_produk,"<div class='col-xs-4 col-md-4'><button class='btn btn-primary glyphicon glyphicon-eye-open'></button></div>");
+							echo '<div class="col-xs-4 col-md-4"><button class="btn btn-danger glyphicon glyphicon-trash" onclick="deleteproduct('.$data->id_produk.')"></button></div>';
 							echo '</div></td></tr>';}
 						?>
 								<!-- <a class='glyphicon glyphicon-trash btn btn-primary' href ='/index.php/dashboard/delete/".$data->nis."'></a> -->

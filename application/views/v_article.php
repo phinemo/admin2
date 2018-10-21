@@ -58,10 +58,10 @@
                         ref: '#'
                     }
                 ],
-                //mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
-                //baseUrl:'http://random.host:8888/magang/codeigniter/admin2/',
-                mainUrl:'http://localhost/admin2/index.php/',
-                baseUrl:'http://localhost/admin2/',
+                mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
+                baseUrl:'http://random.host:8888/magang/codeigniter/admin2/',
+                // mainUrl:'http://localhost/admin2/index.php/',
+                // baseUrl:'http://localhost/admin2/',
                 // mainUrl:'http://phinemo.com/admin2/index.php/',
                 // baseUrl:'http://phinemo.com/admin2/',
                 offs:[],

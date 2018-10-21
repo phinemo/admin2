@@ -43,11 +43,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<thead>
 								<tr>
 									<th>ID</th>
-									<th style="width:55%;">Nama</th>
+									<th style="width:50%;">Nama</th>
 									<th style="width:10%;">Jumlah Tour Aktif</th>
 									<th style="width:10%">Jumlah Tour Total</th>
 									<th style="width:10%">Layanan</th>
-									<th style="width:15%;">Action</th>
+									<th style="width:20%;">Action</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -67,21 +67,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						echo "<div class='col-xs-6'><button class='btn btn-primary pull-right' onclick=account(".$data->id_operator.")><i class='fa fa-pencil'></i></button></div>
 						</div></td>";
 					  } 
-					  echo "<td>";
-					  echo anchor("C_operator/getdatawhere/".$data->id_operator,"<button class='btn btn-primary'>Edit</button>");
+					  echo "<td><div class='row'>";
+					  echo anchor("C_bisnispage/index/".$data->id_operator,"<div class='col-xs-4 col-md-4'><button class='btn btn-primary glyphicon glyphicon-eye-open'></button></div>");
+					  echo anchor("C_operator/getdatawhere/".$data->id_operator,"<div class='col-xs-4 col-md-4'><button class='btn btn-primary glyphicon glyphicon-pencil'></button></div>");
 					  if($this->session->userdata('level') == 'superadmin')
-					  echo '<button class="btn btn-danger" onclick="deleteoperator('.$data->id_operator.')">Delete</button>';}
-					  echo "</td></tr>"
+					  echo '<div class="col-xs-4 col-md-4"><button class="btn btn-danger glyphicon glyphicon-trash" onclick="deleteoperator('.$data->id_operator.')"></button></div>';}
+					  echo "</div></td></tr>"
 					  ?>
 							</tbody>
 							<tfoot>
 								<tr>
 									<th>ID</th>
-									<th style="width:55%;">Nama</th>
+									<th style="width:50%;">Nama</th>
 									<th style="width:10%;">Jumlah Tour Aktif</th>
 									<th style="width:10%">Jumlah Tour Total</th>
 									<th style="width:10%">Layanan</th>
-									<th style="width:15%;">Action</th>
+									<th style="width:20%;">Action</th>
 								</tr>
 							</tfoot>
 						</table>

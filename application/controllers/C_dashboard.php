@@ -20,7 +20,7 @@ class C_dashboard extends CI_Controller {
         // var_dump($id_operator);
             $where = array('id_operator'=>$id_operator);
             // var_dump($where);
-            $data['product'] = $this->M_product->getwhere('produk',$where)->result();
+            $data['product'] = $this->M_product->getwhere('produk',$where);
             // var_dump($data);
         }
         else{

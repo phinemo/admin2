@@ -219,6 +219,18 @@
 	}
 	// Run summer note
 	$(document).ready(function () {
+		// BS File Input
+		var $el1 = $('#produkmedia');
+		$('#produkmedia').fileinput({
+			uploadUrl:'C_upload/upload_image',
+			showUpload: false,
+			showRemove: false,
+			overwriteInitial: false,
+			maxFileSize: 2048,
+			initialPreviewAsData: true,
+		}).on("filebatchselected", function(event, files) {
+    	$el1.fileinput("upload"); 
+		});
 		$('.harga').mask("#.##0", {
 			reverse: true
 		});
@@ -283,52 +295,45 @@
 					} else {
 						html += '<option value="' + data[i] + '">' + data[i] + '</option>';
 					}
-
 				}
 				$('select#jenis').append(html);
 			});
-		$("#filefoto").fileinput({
+		var dataid = new Array();
+		$("#addfoto").fileinput({
 			'theme': 'explorer-fa',
-			'uploadUrl': null,
-			data: 'filefoto',
+			uploadUrl: "<?php echo site_url('/C_upload/upload_image/insert')?>",
 			showUpload: false,
 			overwriteInitial: false,
 			maxFileSize: 2048,
 			initialPreviewAsData: true,
-			initialPreview: [
-				<?php 
-      			// var_dump($gambar);
-        	if (isset($gambar[0]) && count($gambar[0]) != 0){
-          		foreach ($gambar as $row){
-          		// var_dump($row->gambar);
-            		echo "'".base_url()."upload/images/".$row[0]->resized."',";
-						}
-					}
-				?>
-			],
-			initialPreviewConfig: []
+			maxFileCount: 5,
+        	showBrowse: true,
+			showRemove: false,
+       		browseOnZoneClick: true,
+			
+		}).on("filebatchselected", function(event, files) {
+    	$('#addfoto').fileinput("upload"); 
+		}).on('fileuploaded', function(event, data, previewId, index) {
+    	var response = data.response;
+		dataid.push(response.initialPreviewConfig[0].key);
+		console.log(dataid);
+		$('[name="idmedia"]').val(dataid);
 		});
-
-		$("#editfoto").fileinput({
+		$('#editfoto').fileinput({
 			'theme': 'explorer-fa',
-			'uploadUrl': null,
-			data: 'filefoto',
+			uploadUrl:"<?php echo site_url('/C_upload/upload_image/update')?>",
 			showUpload: false,
 			overwriteInitial: false,
-			deleteUrl: '<?php echo base_url()."upload/images/file-delete"; ?>',
+			maxFileSize: 2048,
 			initialPreviewAsData: true,
-			initialPreview: [
-				<?php 
-								// var_dump($gambar);
-							if (isset($gambar[0]) && count($gambar[0]) != 0){
-								foreach ($gambar as $row){
-								// var_dump($row->gambar);
-									echo "'".base_url()."upload/images/".$row[0]->resized."',";
-										}
-									}
-								?>
-			],
-			initialPreviewConfig: []
+			maxFileCount: 5,
+        	showBrowse: true,
+			showRemove: false,
+       		browseOnZoneClick: true,
+			initialPreview: <?php if(isset($med)) echo $med; else echo '[]'; ?>,
+			initialPreviewConfig: <?php if(isset($med)) echo $met; else echo '[],' ?>
+		}).on("filebatchselected", function(event, files) {
+    	$('#editfoto').fileinput("upload"); 
 		});
 
 	})
