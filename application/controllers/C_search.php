@@ -15,9 +15,9 @@ class C_search extends CI_Controller {
     {   
         $this->load->view('header');
         if($result != null)
-        $this->load->view('V_search',$result);
+        $this->load->view('v_search',$result);
         else
-        $this->load->view('V_search');
+        $this->load->view('v_search');
         $this->load->view('footer');
            
     }
