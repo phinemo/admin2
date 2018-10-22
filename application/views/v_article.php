@@ -1,7 +1,8 @@
 
     <div id="article" class="uk-container-expand">
         <!-- Navbar Start -->
-        <navbar></navbar>
+        <navbar>
+        </navbar>
         <!-- Navbar End -->
         <div class="uk-container uk-margin-auto-vertical">
                 <fillarticle></fillarticle>
@@ -22,7 +23,7 @@
     <!-- End Content Fill -->
     <!-- Addtional Content Recommendation and Popular -->
     
-    
+    <script src="<?php echo base_url('components/config.js');?>"></script>
     <script type="text/javascript">
     
         var v = new Vue({
@@ -58,12 +59,8 @@
                         ref: '#'
                     }
                 ],
-                mainUrl:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
-                baseUrl:'http://random.host:8888/magang/codeigniter/admin2/',
-                // mainUrl:'http://localhost/admin2/index.php/',
-                // baseUrl:'http://localhost/admin2/',
-                // mainUrl:'http://phinemo.com/admin2/index.php/',
-                // baseUrl:'http://phinemo.com/admin2/',
+                mainUrl:global_site_url,
+                baseUrl:global_base_url,
                 offs:[],
             },
             // props:['offers'],
@@ -72,9 +69,9 @@
                 'fillarticle': httpVueLoader('<?php echo base_url("components/article/fillarticle.vue") ?>'),
                 'paneloffer': httpVueLoader('<?php echo base_url("components/article/paneloffer.vue") ?>'),
                 'recommended':httpVueLoader('<?php echo base_url("components/article/recommended.vue") ?>'),
-                'popular':httpVueLoader('<?php echo base_url("components/article/popular.vue") ?>')
-            }
-            ,
+                'popular':httpVueLoader('<?php echo base_url("components/article/popular.vue") ?>'),
+                'cardlist': httpVueLoader('<?php echo base_url("components/listbycategory/cardlist.vue") ?>'),
+            },
             created(){
                 this.tampil();
             },

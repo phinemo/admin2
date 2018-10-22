@@ -1,6 +1,5 @@
 <template>
    <div class="uk-container">
-
        <div class="uk-grid-small uk-child-width-1-3@s uk-text-center" uk-grid>
             <div v-for="(card, index) in cards" :key="index">
                 <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-padding-remove-top uk-padding-remove-right uk-padding-remove-left">
@@ -42,6 +41,7 @@
 
 <script>
     module.exports = {
+        template:'#cardlist',
         data: function () {
             return {
                 cards: [{

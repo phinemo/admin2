@@ -1,6 +1,6 @@
 <body>
     <div id="app" class="uk-container-expand uk-width-1-1@m">
-        <navbar></navbar>
+        <navbar :sub_base_url="base_url"></navbar>
         <bannershowoffer :sub_titles="main_titles" :sub_base_url="base_url"></bannershowoffer>
         
         <div class="uk-width-1-1@s uk-width-1-1@m " >
@@ -33,15 +33,15 @@
         <div id="end" class="uk-margin-large-top"></div>
         <stickyshowoffer></stickyshowoffer> -->
     </div>
-
+    <script src="<?php echo base_url('components/config.js');?>"></script>
     <script type="text/javascript">
       var v = new Vue({
             el: '#app',
             data: {
                 show: false,
                 main_titles:[],
-                main_url:'http://random.host:8888/magang/codeigniter/admin2/index.php/',
-                base_url:'http://random.host:8888/magang/codeigniter/admin2/',
+                main_url: global_site_url,
+                base_url: global_base_url,
                 // main_url:'http://localhost/admin2/index.php/',
                 // base_url:'http://localhost/admin2/',
                 //main_url:'http://phinemo.com/admin2/index.php/',
